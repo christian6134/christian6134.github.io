@@ -1,127 +1,96 @@
 <section id="projects" class="portfolio">
-    <div class="sdn-card">
-      <div class="sdn-left">
-        <h3>SDN Router — POX/OpenFlow (Mininet)</h3>
-        <p class="sdn-sub">
-          Python SDN app on the POX controller. Implements routing & basic firewall over a campus‑style topology
-          (Core + Faculty + Student Housing + IT + Data Center + Internet stubs). Handles ARP, per‑subnet forwarding,
-          and policy enforcement.
-        </p>
-  
-        <div class="sdn-tags">
-          <span class="sdn-tag">POX</span>
-          <span class="sdn-tag">OpenFlow</span>
-          <span class="sdn-tag">Mininet</span>
-          <span class="sdn-tag">Python</span>
-          <span class="sdn-tag">Routing</span>
-          <span class="sdn-tag">Firewall (ACL)</span>
-        </div>
-  
-        <div class="sdn-kpis">
-          <div class="kpi">
-            <div class="kpi-num">~<span>[X]</span> ms</div>
-            <div class="kpi-label">avg. ICMP RTT (in‑lab)</div>
-          </div>
-          <div class="kpi">
-            <div class="kpi-num"><span>[Y]</span>/[Y] ✅</div>
-            <div class="kpi-label">functional tests passed</div>
-          </div>
-          <div class="kpi">
-            <div class="kpi-num">+<span>[Z]</span>%</div>
-            <div class="kpi-label">policy coverage (ACL rules)</div>
-          </div>
-        </div>
-  
-        <details class="sdn-block">
-          <summary>Objectives</summary>
-          <ul>
-            <li>Forward IPv4 traffic across distinct LAN subnets via OpenFlow rules.</li>
-            <li>Handle ARP separately (flood/learn) and avoid type errors on non‑IP frames.</li>
-            <li>Enforce basic firewall policies (deny guest→data‑center, allow trusted PCs, etc.).</li>
-          </ul>
-        </details>
-  
-        <details class="sdn-block">
-          <summary>Implementation</summary>
-          <ul>
-            <li>Topology: s1 core; s2 Faculty, s3 Student Housing, s4 IT, s5 Data Center; Internet stubs on s1:6–8.</li>
-            <li>Hard‑coded subnet → port map helper (no learning) for deterministic routing.</li>
-            <li>ARP: detected by ethertype; flooded; cached sender IP⇄MAC to short‑circuit future flows.</li>
-            <li>Routing: match <code>ip, dst</code> → output port; installs idle‑timeout flows to offload controller.</li>
-            <li>Firewall: priority matches on src/dst subnets; drop rules before general forwarding.</li>
-          </ul>
-        </details>
-  
-        <details class="sdn-block">
-          <summary>Challenges → Solutions</summary>
-          <ul>
-            <li><b>Non‑IP frames causing exceptions</b> → Guard & early‑return; ARP first, then extract IP.</li>
-            <li><b>Asymmetric paths</b> → Consistent subnet mapping + mirrored return rules.</li>
-            <li><b>Rule churn</b> → Use timeouts & coarse prefixes to minimize flow table pressure.</li>
-          </ul>
-        </details>
-  
-        <details class="sdn-block">
-          <summary>Results & Impact</summary>
-          <ul>
-            <li>End‑to‑end pings across all subnets; throughput stable under concurrent flows.</li>
-            <li>Blocked unauthorized guest→data‑center while preserving trusted access.</li>
-            <li>Clear separation of control vs. data plane with concise rule sets.</li>
-          </ul>
-        </details>
-  
-        <div class="sdn-links">
-          <a class="sdn-btn" href="[YOUR_GITHUB_LINK]" target="_blank" rel="noopener">GitHub Repo</a>
-          <a class="sdn-btn ghost" href="[OPTIONAL_REPORT_OR_SLIDES]" target="_blank" rel="noopener">Design Notes</a>
-        </div>
-      </div>
-  
-      <div class="sdn-right">
-        <figure class="shot">
-          <img src="[SCREENSHOT_URL_1]" alt="Mininet topology / POX logs">
-          <figcaption>Topology & POX events</figcaption>
-        </figure>
-        <figure class="shot">
-          <img src="[SCREENSHOT_URL_2]" alt="Flow table & pingall results">
-          <figcaption>Flow table & connectivity</figcaption>
-        </figure>
-      </div>
-    </div>
-  </section>
-  
   <style>
-    .portfolio {font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
-                color:#e5e7eb; background:#0b0f15; padding:2rem 1rem;}
-    .sdn-card {display:grid; grid-template-columns: 1.25fr 1fr; gap:1.25rem; align-items:start;
-               background:#0f1520; border:1px solid #1e293b; border-radius:18px; padding:20px;
-               box-shadow:0 6px 16px rgba(2,6,23,.35);}
+    .portfolio {font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; color:#e5e7eb; background:#0b0f15; padding:2rem 1rem;}
+    .sdn-card {display:grid; grid-template-columns: 1.25fr 1fr; gap:1.25rem; align-items:start; background:#0f1520; border:1px solid #1e293b; border-radius:18px; padding:20px; box-shadow:0 6px 16px rgba(2,6,23,.35);}
     .sdn-left h3 {margin:.25rem 0 .5rem; font-size:1.375rem}
     .sdn-sub {color:#9fb2c4; font-size:.98rem; line-height:1.5; margin-bottom:.85rem}
     .sdn-tags {display:flex; flex-wrap:wrap; gap:.5rem; margin:.25rem 0 1rem}
-    .sdn-tag {padding:.28rem .6rem; border:1px solid #1f2a3a; background:#0b1220; color:#b8c7d9;
-              border-radius:999px; font-size:.8rem}
-    .sdn-kpis {display:grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap:.75rem; margin:.5rem 0 1rem}
+    .sdn-tag {padding:.28rem .6rem; border:1px solid #1f2a3a; background:#0b1220; color:#b8c7d9; border-radius:999px; font-size:.8rem}
+    .sdn-kpis {display:grid; grid-template-columns: repeat(3,minmax(0,1fr)); gap:.75rem; margin:.6rem 0 1rem}
     .kpi {background:#0b1220; border:1px solid #1f2a3a; border-radius:14px; padding:.75rem .9rem}
-    .kpi-num {font-weight:700; font-size:1.15rem}
-    .kpi-label {color:#9fb2c4; font-size:.8rem}
-    .sdn-block {background:#0b1220; border:1px solid #1f2a3a; border-radius:14px; padding:.6rem .9rem; margin:.5rem 0}
-    .sdn-block > summary {cursor:pointer; font-weight:600; color:#dbe7f3; margin:.1rem 0 .3rem}
-    .sdn-block ul {margin:.5rem 0 0 1rem}
-    .sdn-block li {margin:.3rem 0}
+    .kpi strong {display:block; font-size:1.05rem}
+    .kpi span {color:#9fb2c4; font-size:.82rem}
+    .sdn-section {background:#0b1220; border:1px solid #1f2a3a; border-radius:14px; padding:.7rem .95rem; margin:.55rem 0}
+    .sdn-section h4 {margin:0 0 .45rem; font-weight:600; color:#dbe7f3}
+    .sdn-list {margin:.3rem 0 0 1rem}
+    .sdn-list li {margin:.3rem 0}
     .sdn-links {display:flex; gap:.6rem; margin-top:.8rem; flex-wrap:wrap}
-    .sdn-btn {display:inline-block; padding:.55rem .9rem; border-radius:12px; background:#1f6feb; color:white;
-              text-decoration:none; border:1px solid #2b70e3}
+    .sdn-btn {display:inline-block; padding:.55rem .9rem; border-radius:12px; background:#1f6feb; color:#fff; text-decoration:none; border:1px solid #2b70e3}
     .sdn-btn.ghost {background:transparent; color:#cde1ff; border-color:#29415f}
     .sdn-right {display:grid; gap:.8rem}
-    .shot {background:#0b1220; border:1px solid #1f2a3a; border-radius:14px; height:220px; display:flex;
-           align-items:center; justify-content:center; overflow:hidden; position:relative}
+    .shot {background:#0b1220; border:1px solid #1f2a3a; border-radius:14px; height:220px; display:flex; align-items:center; justify-content:center; overflow:hidden; position:relative; color:#9fb2c4}
     .shot img {width:100%; height:100%; object-fit:cover; display:block; opacity:.95}
-    .shot figcaption {position:absolute; bottom:.6rem; left:.75rem; font-size:.82rem; color:#cad9ea;
-                      background:rgba(9,13,20,.6); padding:.25rem .5rem; border-radius:8px}
-    @media (max-width: 900px) {
-      .sdn-card {grid-template-columns: 1fr}
-      .sdn-right {grid-template-columns: 1fr 1fr}
-      .shot {height:180px}
-    }
+    .shot figcaption {position:absolute; bottom:.6rem; left:.75rem; font-size:.82rem; color:#cad9ea; background:rgba(9,13,20,.6); padding:.25rem .5rem; border-radius:8px}
+    .back-btn {display:inline-block; margin-bottom:1rem; padding:.5rem 1rem; background:#1f2937; color:#f9fafb; text-decoration:none; border-radius:8px; font-size:.9rem}
+    .back-btn:hover {background:#374151}
+    @media (max-width: 900px) {.sdn-card{grid-template-columns:1fr} .shot{height:180px}}
   </style>
-  
+
+  <article class="sdn-card" aria-labelledby="sdn-title">
+    <div class="sdn-left">
+      <a href="index.html" class="back-btn">← Back to Projects</a>
+      <h3 id="sdn-title">SDN Router — POX/OpenFlow (Mininet)</h3>
+      <p class="sdn-sub">Python SDN app on the POX controller. Implements routing and basic firewall over a campus‑style topology (Core, Faculty, Student Housing, IT, Data Center, Internet stubs). Handles ARP, per‑subnet forwarding, and policy enforcement.</p>
+
+      <div class="sdn-tags" aria-label="Technologies">
+        <span class="sdn-tag">POX</span>
+        <span class="sdn-tag">OpenFlow</span>
+        <span class="sdn-tag">Mininet</span>
+        <span class="sdn-tag">Python</span>
+        <span class="sdn-tag">Routing</span>
+        <span class="sdn-tag">Firewall (ACL)</span>
+      </div>
+
+      <div class="sdn-kpis" aria-label="Project metrics">
+        <div class="kpi"><strong>~[X] ms</strong><span>avg ICMP RTT (lab)</span></div>
+        <div class="kpi"><strong>[Y]/[Y]</strong><span>tests passed</span></div>
+        <div class="kpi"><strong>+[Z]%</strong><span>policy coverage</span></div>
+      </div>
+
+      <div class="sdn-section">
+        <h4>Objectives</h4>
+        <ul class="sdn-list">
+          <li>Forward IPv4 traffic across distinct LAN subnets via OpenFlow rules.</li>
+          <li>Handle ARP separately (flood/learn) and avoid type errors on non‑IP frames.</li>
+          <li>Enforce firewall policies (e.g., block guest → data‑center, allow trusted PCs).</li>
+        </ul>
+      </div>
+
+      <div class="sdn-section">
+        <h4>Implementation</h4>
+        <ul class="sdn-list">
+          <li>Topology: s1 core; s2 Faculty; s3 Student Housing; s4 IT; s5 Data Center; Internet stubs on s1:6–8.</li>
+          <li>Hard‑coded subnet→port mapping helper for deterministic routing.</li>
+          <li>ARP handled first by ethertype; flood, learn, and cache sender IP↔MAC.</li>
+          <li>Routing via <code>ip</code> matches and output ports; idle‑timeout flows reduce controller load.</li>
+          <li>Firewall rules installed at higher priority before general forwarding.</li>
+        </ul>
+      </div>
+
+      <div class="sdn-section">
+        <h4>Results</h4>
+        <ul class="sdn-list">
+          <li>End‑to‑end connectivity across all subnets with stable throughput.</li>
+          <li>Unauthorized guest→data‑center traffic blocked while preserving trusted access.</li>
+          <li>Concise rule sets with clear control/data‑plane separation.</li>
+        </ul>
+      </div>
+
+      <div class="sdn-links">
+        <a class="sdn-btn" href="[YOUR_GITHUB_LINK]" target="_blank" rel="noopener">GitHub Repo</a>
+        <a class="sdn-btn ghost" href="[OPTIONAL_REPORT_OR_SLIDES]" target="_blank" rel="noopener">Design Notes</a>
+      </div>
+    </div>
+
+    <div class="sdn-right">
+      <figure class="shot">
+        <img src="[SCREENSHOT_URL_1]" alt="Mininet topology and POX logs">
+        <figcaption>Topology & POX events</figcaption>
+      </figure>
+      <figure class="shot">
+        <img src="[SCREENSHOT_URL_2]" alt="Flow table and connectivity checks">
+        <figcaption>Flow table & connectivity</figcaption>
+      </figure>
+    </div>
+  </article>
+</section>
