@@ -1,99 +1,102 @@
 <section id="projects" class="portfolio">
-    <style>
-      .portfolio {font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; color:#e0e0e0; background:#1e1e1e; padding:2rem 1rem;}
-      .bb-card {display:grid; grid-template-columns: 1.2fr 1fr; gap: 1.25rem; align-items:start; background:#2a2a2a; border:1px solid #333; border-radius:12px; padding:20px; box-shadow:0 4px 10px rgba(0,0,0,.6);}
-      .bb-left h3 {margin:.25rem 0 .5rem; font-size:1.375rem; color:#ffffff;}
-      .bb-sub {color:#ccc; font-size:.95rem; margin-bottom:.75rem}
-      .bb-tags {display:flex; flex-wrap:wrap; gap:.5rem; margin:.25rem 0 1rem}
-      .bb-tag {padding:.25rem .55rem; border:1px solid #444; border-radius:999px; font-size:.8rem; color:#e0e0e0; background:#333;}
-      .bb-metrics {display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:.75rem; margin: 1rem 0;}
-      .bb-metric {background:#333; border:1px dashed #555; border-radius:10px; padding:.75rem; text-align:center; color:#e0e0e0}
-      .bb-metric strong {display:block; font-size:1.1rem; color:#fff}
-      .bb-list {margin:.5rem 0; padding-left:1.1rem}
-      .bb-list li {margin:.35rem 0}
-      .bb-cta {display:flex; gap:.5rem; flex-wrap:wrap; margin-top:1rem}
-      .bb-btn {appearance:none; border:1px solid #0ea5e9; background:#0ea5e9; color:white; padding:.6rem .9rem; border-radius:8px; text-decoration:none; font-weight:600}
-      .bb-btn.alt {background:transparent; color:#0ea5e9; border-color:#0ea5e9}
-      .bb-right {display:grid; gap:.5rem}
-      .bb-shot {aspect-ratio: 16/10; background:#444; border-radius:10px; overflow:hidden; display:flex; align-items:center; justify-content:center; color:#aaa; font-size:.9rem}
-      .bb-right small {color:#999}
-      @media (max-width: 900px){.bb-card{grid-template-columns:1fr}}
-      details {border:1px solid #333; border-radius:8px; padding:.75rem 1rem; background:#2a2a2a; color:#ddd}
-      summary {cursor:pointer; font-weight:600; color:#fff}
-    </style>
-  
-    <h2>Projects</h2>
-  
-    <article class="bb-card" aria-labelledby="bb-title">
-      <div class="bb-left">
-        <h3 id="bb-title">Byte Buddy — iOS Nutrition & Meal Tracking</h3>
-        <p class="bb-sub">SwiftUI app with Firebase (Auth/Firestore) and Nutritionix API. Built in a Scrum team; ships reminders, food search, and real‑time logging.</p>
-  
-        <div class="bb-tags" aria-label="Technologies">
-          <span class="bb-tag">SwiftUI</span>
-          <span class="bb-tag">Firebase Auth</span>
-          <span class="bb-tag">Firestore</span>
-          <span class="bb-tag">Nutritionix API</span>
-          <span class="bb-tag">Xcode 15</span>
-          <span class="bb-tag">iOS 17</span>
-          <span class="bb-tag">Scrum</span>
-        </div>
-  
-        <p><strong>Overview.</strong> A clean, fast calorie tracker that lets users find foods, log meals, and see daily macros—without friction.</p>
-  
-        <div class="bb-metrics" aria-label="Project metrics">
-          <div class="bb-metric"><strong>10s</strong><span>avg. time to log a meal</span></div>
-          <div class="bb-metric"><strong>100%</strong><span>pass on functional tests</span></div>
-          <div class="bb-metric"><strong>+25%</strong><span>sprint velocity (S1→S4)</span></div>
-        </div>
-  
-        <details>
-          <summary>Objectives</summary>
-          <ul class="bb-list">
-            <li>Deliver a user‑friendly calorie tracker with goal support.</li>
-            <li>Enable real‑time sync and offline‑tolerant logging with Firestore.</li>
-            <li>Leverage Nutritionix Food Database for quick and accurate macro data.</li>
-          </ul>
-        </details>
-  
-        <details>
-          <summary>Implementation</summary>
-          <ul class="bb-list">
-            <li>Firebase setup for auth and per‑user data segregation (UID‑scoped).</li>
-            <li>Food search screen wired to Nutritionix; debounced queries & lightweight caching to stay under rate limits.</li>
-            <li>Atomic Firestore writes with snapshot listeners for instant UI updates.</li>
-            <li>Local notifications for meal/break reminders.</li>
-          </ul>
-        </details>
-  
-        <details>
-          <summary>Challenges → Solutions</summary>
-          <ul class="bb-list">
-            <li><em>Device constraints:</em> prioritized simulator testing + code reviews → kept velocity steady.</li>
-            <li><em>API rate limits:</em> introduced client‑side caching and request debouncing.</li>
-            <li><em>Security rules:</em> enforced <code>request.auth.uid</code> scoping for reads/writes.</li>
-          </ul>
-        </details>
-  
-        <details>
-          <summary>Results & Impact</summary>
-          <ul class="bb-list">
-            <li>Release 1.0 shipped on schedule with stable core flows (auth, search, log, notify).</li>
-            <li>UX tuned for sub‑10s meal adds; reduced drop‑off during onboarding.</li>
-            <li>Team improved Scrum practice; predictable delivery by Sprint 3.</li>
-          </ul>
-        </details>
-  
-        <div class="bb-cta">
-          <a class="bb-btn alt" href="https://github.com/christian6134/byte-buddy" target="_blank" rel="noreferrer" aria-label="Open GitHub repository for Byte Buddy">GitHub Repo</a>
-        </div>
+  <style>
+    .portfolio {font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial; color:#e0e0e0; background:#1e1e1e; padding:2rem 1rem;}
+    .bb-card {display:grid; grid-template-columns: 1.2fr 1fr; gap: 1.25rem; align-items:start; background:#2a2a2a; border:1px solid #333; border-radius:12px; padding:20px; box-shadow:0 4px 10px rgba(0,0,0,.6);}
+    .bb-left h3 {margin:.25rem 0 .5rem; font-size:1.375rem; color:#ffffff;}
+    .bb-sub {color:#ccc; font-size:.95rem; margin-bottom:.75rem}
+    .bb-tags {display:flex; flex-wrap:wrap; gap:.5rem; margin:.25rem 0 1rem}
+    .bb-tag {padding:.25rem .55rem; border:1px solid #444; border-radius:999px; font-size:.8rem; color:#e0e0e0; background:#333;}
+    .bb-metrics {display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:.75rem; margin: 1rem 0;}
+    .bb-metric {background:#333; border:1px dashed #555; border-radius:10px; padding:.75rem; text-align:center; color:#e0e0e0}
+    .bb-metric strong {display:block; font-size:1.1rem; color:#fff}
+    .bb-list {margin:.5rem 0; padding-left:1.1rem}
+    .bb-list li {margin:.35rem 0}
+    .bb-cta {display:flex; gap:.5rem; flex-wrap:wrap; margin-top:1rem}
+    .bb-btn {appearance:none; border:1px solid #0ea5e9; background:#0ea5e9; color:white; padding:.6rem .9rem; border-radius:8px; text-decoration:none; font-weight:600}
+    .bb-btn.alt {background:transparent; color:#0ea5e9; border-color:#0ea5e9}
+    .bb-right {display:grid; gap:.5rem}
+    .bb-shot {aspect-ratio: 16/10; background:#444; border-radius:10px; overflow:hidden; display:flex; align-items:center; justify-content:center; color:#aaa; font-size:.9rem}
+    .bb-right small {color:#999}
+    @media (max-width: 900px){.bb-card{grid-template-columns:1fr}}
+    .bb-section {border:1px solid #333; border-radius:8px; padding:.75rem 1rem; background:#2a2a2a; color:#ddd; margin:.5rem 0}
+    .bb-section h4 {margin:0 0 .5rem; font-weight:600; color:#fff}
+    .back-btn {display:inline-block; margin-bottom:1rem; padding:.5rem 1rem; background:#1f2937; color:#f9fafb; text-decoration:none; border-radius:8px; font-size:.9rem;}
+    .back-btn:hover {background:#374151;}
+  </style>
+
+  <h2>Projects</h2>
+
+  <article class="bb-card" aria-labelledby="bb-title">
+    <div class="bb-left">
+      <a href="index.html" class="back-btn">← Back to Projects</a>
+      <h3 id="bb-title">Byte Buddy — iOS Nutrition & Meal Tracking</h3>
+      <p class="bb-sub">SwiftUI app with Firebase (Auth/Firestore) and Nutritionix API. Built in a Scrum team; ships reminders, food search, and real-time logging.</p>
+
+      <div class="bb-tags" aria-label="Technologies">
+        <span class="bb-tag">SwiftUI</span>
+        <span class="bb-tag">Firebase Auth</span>
+        <span class="bb-tag">Firestore</span>
+        <span class="bb-tag">Nutritionix API</span>
+        <span class="bb-tag">Xcode 15</span>
+        <span class="bb-tag">iOS 17</span>
+        <span class="bb-tag">Scrum</span>
       </div>
-  
-      <div class="bb-right">
-        <figure class="bb-shot" aria-label="App login screenshot placeholder">Login Screen</figure>
-        <figure class="bb-shot" aria-label="Food search screenshot placeholder">Food Search</figure>
-        <figure class="bb-shot" aria-label="Daily summary screenshot placeholder">Daily Summary</figure>
-        <small>Replace gray boxes with your screenshots.</small>
+
+      <p><strong>Overview.</strong> A clean, fast calorie tracker that lets users find foods, log meals, and see daily macros—without friction.</p>
+
+      <div class="bb-metrics" aria-label="Project metrics">
+        <div class="bb-metric"><strong>10s</strong><span>avg. time to log a meal</span></div>
+        <div class="bb-metric"><strong>100%</strong><span>pass on functional tests</span></div>
+        <div class="bb-metric"><strong>+25%</strong><span>sprint velocity (S1→S4)</span></div>
       </div>
-    </article>
-  </section>
+
+      <div class="bb-section">
+        <h4>Objectives</h4>
+        <ul class="bb-list">
+          <li>Deliver a user-friendly calorie tracker with goal support.</li>
+          <li>Enable real-time sync and offline-tolerant logging with Firestore.</li>
+          <li>Leverage Nutritionix Food Database for quick and accurate macro data.</li>
+        </ul>
+      </div>
+
+      <div class="bb-section">
+        <h4>Implementation</h4>
+        <ul class="bb-list">
+          <li>Firebase setup for auth and per-user data segregation (UID-scoped).</li>
+          <li>Food search screen wired to Nutritionix; debounced queries & lightweight caching to stay under rate limits.</li>
+          <li>Atomic Firestore writes with snapshot listeners for instant UI updates.</li>
+          <li>Local notifications for meal/break reminders.</li>
+        </ul>
+      </div>
+
+      <div class="bb-section">
+        <h4>Challenges → Solutions</h4>
+        <ul class="bb-list">
+          <li><em>Device constraints:</em> prioritized simulator testing + code reviews → kept velocity steady.</li>
+          <li><em>API rate limits:</em> introduced client-side caching and request debouncing.</li>
+          <li><em>Security rules:</em> enforced <code>request.auth.uid</code> scoping for reads/writes.</li>
+        </ul>
+      </div>
+
+      <div class="bb-section">
+        <h4>Results & Impact</h4>
+        <ul class="bb-list">
+          <li>Release 1.0 shipped on schedule with stable core flows (auth, search, log, notify).</li>
+          <li>UX tuned for sub-10s meal adds; reduced drop-off during onboarding.</li>
+          <li>Team improved Scrum practice; predictable delivery by Sprint 3.</li>
+        </ul>
+      </div>
+
+      <div class="bb-cta">
+        <a class="bb-btn alt" href="https://github.com/christian6134/byte-buddy" target="_blank" rel="noreferrer" aria-label="Open GitHub repository for Byte Buddy">GitHub Repo</a>
+      </div>
+    </div>
+
+    <div class="bb-right">
+      <figure class="bb-shot" aria-label="App login screenshot placeholder">Login Screen</figure>
+      <figure class="bb-shot" aria-label="Food search screenshot placeholder">Food Search</figure>
+      <figure class="bb-shot" aria-label="Daily summary screenshot placeholder">Daily Summary</figure>
+      <small>Replace gray boxes with your screenshots.</small>
+    </div>
+  </article>
+</section>
