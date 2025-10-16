@@ -8,38 +8,76 @@
   body {
     font-family: Arial, sans-serif;
     margin: 0;
-    padding: 0 2rem;
+    padding: 0;
     background: #1e1e1e; 
     color: #e0e0e0;  
-    line-height: 2.0;
-    text-align: left;    
+    line-height: 1.6;
+    display: flex;
+    height: 100vh;
+    overflow: hidden;
   }
   
-  header {
-    background: #121212; 
-    color: #ffffff;      
-    text-align: center;
-    padding: 1rem 1rem;
+  .sidebar {
+    width: 300px;
+    background: #121212;
+    color: #ffffff;
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    position: fixed;
+    height: 100vh;
+    overflow-y: auto;
   }
   
-  header a {
+  .sidebar h1 {
+    font-size: 1.8rem;
+    margin: 0 0 1rem 0;
+    color: #007bff;
+  }
+  
+  .sidebar .profile-info {
+    flex-grow: 1;
+  }
+  
+  .sidebar a {
     display: inline-block;
-    margin-top: 0.5rem;
+    margin-top: 1rem;
     padding: 10px 20px;
     background: #333;
     color: #fff;
     text-decoration: none;
     border-radius: 6px;
+    text-align: center;
   }
   
-  header a:hover {
+  .sidebar a:hover {
     background: #555;
+  }
+  
+  .sidebar .footer {
+    font-size: 0.8rem;
+    color: #aaa;
+    margin-top: 2rem;
+  }
+  
+  .main-content {
+    flex: 1;
+    margin-left: 300px;
+    padding: 2rem;
+    overflow-y: auto;
+    height: 100vh;
   }
   
   h2 {
     color: #ffffff; 
     border-bottom: 2px solid #333;
     padding-bottom: 0.3rem;
+    margin-top: 2rem;
+  }
+  
+  h2:first-child {
+    margin-top: 0;
   }
   
   .project {
@@ -50,34 +88,37 @@
     box-shadow: 0 2px 5px rgba(0,0,0,0.4);
   }
   
-  footer {
-    text-align: center;
-    background: #121212;
-    color: #aaa;
-    padding: 1rem;
-    margin-top: 2rem;
+  @media (max-width: 768px) {
+    body {
+      flex-direction: column;
+    }
+    
+    .sidebar {
+      width: 100%;
+      height: auto;
+      position: relative;
+    }
+    
+    .main-content {
+      margin-left: 0;
+    }
   }
 </style>
 </head>
 <body>
-  <header>
-    <h1>Christian's Portfolio</h1>
-    <p>Welcome to my portfolio!</p>
-    <a href="https://github.com/christian6134" target="_blank">View My GitHub Profile</a>
-  </header>
+  <div class="sidebar">
+    <div class="profile-info">
+      <h1>Christian's Portfolio</h1>
+      <p>Cybersecurity Portfolio</p>
+      <a href="https://github.com/christian6134" target="_blank">View My GitHub Profile</a>
+    </div>
+    <div class="footer">
+      <p>© 2025 Christian Garces | Hosted on GitHub Pages</p>
+    </div>
+  </div>
 
-  <section id="education">
-    <h2>Education</h2>
-    <p>[2022-2026] • University of California Santa Cruz</p>
-    <ul>
-      <li>Bachelor of Science in <strong>Computer Engineering</strong> • Concentration: Networks</li>
-      <li><strong>Relevant Coursework:</strong> Data Structures & Algorithms, Computer Networking, Computer Security,
-      Computer Systems & Design, Cryptography, Software Engineering </li>
-    </ul>
-  </section>
-
-  <section id="description">
-    <h2>README</h2>
+  <div class="main-content">
+    <h2>About Me</h2>
     <p>My name is Christian, and I am a 4th year Computer Engineering Student with an emphasis on computer networking and security. 
       I am passionate about cybersecurity and am actively pursuing opportunities in this field. My interest in cybersecurity 
       is driven by curiosity about how systems work, how they can be protected, and how threats can be mitigated. I am constantly 
@@ -85,11 +126,16 @@
       skills, hands-on projects, and certifications, serving as a comprehensive digital portfolio that demonstrates my growth in the 
       field of cybersecurity.
     </p>
-  </section>
 
+    <h2>Education</h2>
+    <p>[2022-2026] • University of California Santa Cruz</p>
+    <ul>
+      <li>Bachelor of Science in <strong>Computer Engineering</strong> • Concentration: Networks</li>
+      <li><strong>Relevant Coursework:</strong> Data Structures & Algorithms, Computer Networking, Computer Security,
+      Computer Systems & Design, Cryptography, Software Engineering </li>
+    </ul>
 
-  <section id="skills">
-    <h2>Certifications & Technical Skills</h2>
+    <h2>Technical Skills</h2>
     <h3>Programming Languages</h3>
     <ul>
       <li>Python</li>
@@ -98,11 +144,8 @@
       <li>Bash</li>
       <li>MySQL</li>
       <li>Swift</li>
-    </ul>   
-  </section>
+    </ul>
 
-
-  <section id="Operating Systems & Tools">
     <h3>Operating Systems & Tools</h3>
     <ul>
       <li>Linux(Kali, Ubuntu), Windows</li>
@@ -110,9 +153,6 @@
       <li>PowerShell - automation of administrative tasks, log analysis, security baselining </li>
     </ul>
 
-  </section>
-
-  <section id="concepts">
     <h3>Concepts and Frameworks</h3>
     <ul>
       <li><strong>Zero Trust Architecture:</strong> Designing systems with the assumption that threats exist both inside and outside the network</li>
@@ -126,27 +166,18 @@
       <li><strong>Red Team / Blue Team Exercises:</strong> Offensive (Red) and defensive (Blue) security practices to simulate and defend against real-world attacks</li>
       <li><strong>Social Engineering:</strong> Manipulating people to gain unauthorized access to systems or data</li>
     </ul>
-  </section>
 
-  <section id="certifications">
     <h3>Certifications</h3>
     <ul>
       <li>[CompTIA Security+] <em>Expected Completion: September 2025</em></li>
       <li>[TryHackMe CyberSecurity 101] <em>Completed: August 2025</em> • <a href="tryhackme.html">See More</a></li>
     </ul>
-  </section>
 
-
-  <section id="contact">
     <h2>Contact Information</h2>
     <p>Email: <a href="mailto:cgartech@gmail.com">Email</a></p>
     <p>GitHub: <a href="https://github.com/christian6134" target="_blank">GitHub</a></p>
     <p>LinkedIn: <a href="https://linkedin.com/in/cpgarces1" target="_blank">LinkedIn</a></p>
-  </section>
-
-  <footer>
-    <p>© 2025 Christian Garces | Hosted on GitHub Pages</p>
-  </footer>
+  </div>
 </body>
 </html>
 
