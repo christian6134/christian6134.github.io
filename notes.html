@@ -18,10 +18,10 @@
   }
   
   .sidebar {
-    width: 300px;
+    width: 220px;
     background: #121212;
     color: #ffffff;
-    padding: 2rem;
+    padding: 1.25rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -63,8 +63,8 @@
   
   .main-content {
     flex: 1;
-    margin-left: 300px;
-    padding: 2rem;
+    margin-left: 220px;
+    padding: 2rem 2.5rem;
     overflow-y: auto;
     height: 100vh;
   }
@@ -424,6 +424,87 @@
                 <td><em>Sign: Authorized Personnel Only</em></td>
               </tr>
             </table>
+          </div>
+        </details>
+
+        <details>
+          <summary>1.2 Fundamental Security Concepts – CIA Triad</summary>
+          <div class="details-content">
+
+            <div class="learning-objectives">
+              <h3>Learning Objectives</h3>
+              <ul>
+                <li>Explain the CIA triad and how the principles work together.</li>
+                <li>Identify technologies and processes that implement each principle.</li>
+              </ul>
+            </div>
+
+            <div class="notes-section">
+              <h3>Overview</h3>
+              <p><strong>CIA Triad</strong>: A foundational combination of principles that underpin information security: <em>Confidentiality</em>, <em>Integrity</em>, and <em>Availability</em>.</p>
+              <p><em>Fundamentals of Security</em> – these principles are typically implemented together to protect data throughout its lifecycle.</p>
+            </div>
+
+            <div class="notes-section" style="text-align:center">
+              <img src="CIA-Triad.png" alt="CIA Triad" style="max-width: 420px; width: 100%; height: auto; border: 2px solid #333; border-radius: 8px;">
+            </div>
+
+            <details>
+              <summary>Confidentiality</summary>
+              <div class="details-content">
+                <ul>
+                  <li>Prevents disclosure of information to <strong>unauthorized individuals</strong> or systems.</li>
+                  <li>Only the right people or systems should access specific information.</li>
+                </ul>
+                <div class="example">
+                  <strong>Examples:</strong>
+                  <ul>
+                    <li>Encryption (data-at-rest, in-transit, in-use)</li>
+                    <li>Access controls and least privilege</li>
+                    <li>Multi-factor authentication (MFA/2FA)</li>
+                  </ul>
+                </div>
+              </div>
+            </details>
+
+            <details>
+              <summary>Integrity</summary>
+              <div class="details-content">
+                <ul>
+                  <li>Assures data is <strong>stored</strong> and <strong>transmitted</strong> exactly as intended.</li>
+                  <li>Unauthorized modification can be detected and proven.</li>
+                </ul>
+                <div class="example">
+                  <strong>Examples:</strong>
+                  <ul>
+                    <li>Cryptographic hashes (e.g., SHA-256) to verify content</li>
+                    <li>Digital signatures (asymmetric encryption over hashes)</li>
+                    <li>X.509 certificates and code signing</li>
+                    <li>Non-repudiation: proof that an action or origin is genuine</li>
+                  </ul>
+                </div>
+              </div>
+            </details>
+
+            <details>
+              <summary>Availability</summary>
+              <div class="details-content">
+                <ul>
+                  <li>Ensures systems and data are accessible to authorized users when needed.</li>
+                  <li>Designs emphasize resilience and minimal downtime.</li>
+                </ul>
+                <div class="example">
+                  <strong>Examples:</strong>
+                  <ul>
+                    <li>Redundancy and fault tolerance (clustering, failover)</li>
+                    <li>Patching for stability and to close security holes</li>
+                    <li>Backups and tested restore procedures</li>
+                    <li>DDoS protection and capacity planning</li>
+                  </ul>
+                </div>
+              </div>
+            </details>
+
           </div>
         </details>
       </div>
