@@ -211,7 +211,6 @@
   <div class="sidebar">
     <div class="profile-info">
       <h1>CompTIA Security+ notes</h1>
-      <p>Cybersecurity Knowledge Base</p>
       <a href="index.html">← Back to Portfolio</a>
     </div>
     <div class="footer">
@@ -220,7 +219,7 @@
   </div>
 
   <div class="main-content">
-    <h1>Cybersecurity Study Notes</h1>
+    <h1>CompTIA Security+ notes</h1>
     
     <details>
       <summary>1.0 General Security Concepts</summary>
@@ -746,12 +745,99 @@
                 <div class="learning-objectives">
                   <h3>Learning Objectives</h3>
                   <ul>
-                    <li>Understand the purpose and lifecycle of organizational change management.</li>
+                    <li>Understand the change management process and approval workflow.</li>
+                    <li>Identify stakeholders and impact analysis requirements.</li>
                   </ul>
                 </div>
                 <div class="notes-section">
                   <h3>Overview</h3>
-                  <p>Content coming soon.</p>
+                  <p>Change management ensures system updates are controlled, documented, and minimize risk to operations.</p>
+                </div>
+
+                <div class="notes-section">
+                  <h3>How to Make a Change</h3>
+                  <ul>
+                    <li>Upgrade software, patch applications, change firewall configuration, modify switch ports</li>
+                    <li>Important to keep systems updated for security</li>
+                    <li>Occur constantly - common risk for enterprises</li>
+                  </ul>
+                  <div class="example">
+                    <strong>Clear Policies:</strong> Frequency, duration, installation process, rollbacks
+                  </div>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Change Approval Process</h3>
+                  <p>Formal process for managing change to avoid downtime, confusion, and mistakes.</p>
+                  <ul>
+                    <li>Complete request forms with standard information</li>
+                    <li>Determine purpose and scope of change</li>
+                    <li>Schedule date/time and identify affected systems</li>
+                    <li>Analyze risk and get approval from change control board</li>
+                    <li>Get end-user acceptance after completion</li>
+                  </ul>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Ownership</h3>
+                  <ul>
+                    <li>Individual/entity owns the process but doesn't perform actual changes</li>
+                    <li>Manages process updates and ensures procedures are followed</li>
+                  </ul>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Stakeholders</h3>
+                  <ul>
+                    <li>Identify who is impacted by the change</li>
+                    <li>Research and identify all affected parties</li>
+                    <li>Example: Software upgrade affects shipping, accounting, delivery, revenue</li>
+                  </ul>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Impact Analysis</h3>
+                  <p>Determine risk value (high, medium, low) and potential consequences.</p>
+                  <ul>
+                    <li>Risks: Fix doesn't work, breaks something else, OS failures, data corruption</li>
+                    <li>Risks of not changing: Security vulnerabilities, application unavailability</li>
+                  </ul>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Test Results</h3>
+                  <ul>
+                    <li>Use sandbox testing environment (isolated from production)</li>
+                    <li>Test upgrades/patches before deployment</li>
+                    <li>Confirm backout plan works</li>
+                  </ul>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Backout Plan</h3>
+                  <ul>
+                    <li>Always have a way to revert changes</li>
+                    <li>Prepare for the worst, hope for the best</li>
+                    <li>Maintain good backups</li>
+                  </ul>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Maintenance Window</h3>
+                  <ul>
+                    <li>Schedule changes during non-production hours</li>
+                    <li>Consider overnight timing and seasonal factors</li>
+                    <li>Most challenging part of the process</li>
+                  </ul>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Standard Operating Procedure</h3>
+                  <ul>
+                    <li>Well-documented process available on intranet</li>
+                    <li>Living document updated with process changes</li>
+                    <li>Critical for organizational operations</li>
+                  </ul>
                 </div>
               </div>
             </details>
@@ -762,12 +848,93 @@
                 <div class="learning-objectives">
                   <h3>Learning Objectives</h3>
                   <ul>
-                    <li>Recognize controls and procedures used for technical changes.</li>
+                    <li>Execute technical change management processes and procedures.</li>
+                    <li>Manage dependencies, documentation, and version control.</li>
                   </ul>
                 </div>
                 <div class="notes-section">
                   <h3>Overview</h3>
-                  <p>Content coming soon.</p>
+                  <p>Technical change management focuses on the "how" of implementing approved changes safely and efficiently.</p>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Allow / Deny List</h3>
+                  <p>Security policies control application execution to prevent vulnerabilities and malware.</p>
+                  <ul>
+                    <li><strong>Allow List (Whitelist):</strong> Nothing runs unless approved - very restrictive</li>
+                    <li><strong>Deny List (Blacklist):</strong> Run any application except blocked ones</li>
+                  </ul>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Restricted Activities</h3>
+                  <ul>
+                    <li>Change approval is specific to defined scope</li>
+                    <li>Scope may need expansion during change window</li>
+                    <li>Change management process determines next steps</li>
+                    <li>Everyone understands the procedures</li>
+                  </ul>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Downtime</h3>
+                  <ul>
+                    <li>Services may become unavailable during changes</li>
+                    <li>Schedule during non-production hours when possible</li>
+                    <li>Use secondary systems to minimize downtime</li>
+                    <li>Automate processes and include in backout plan</li>
+                    <li>Send notifications and calendar updates</li>
+                  </ul>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Restarts</h3>
+                  <ul>
+                    <li>Common requirement for new configurations</li>
+                    <li>Services: Stop and restart daemon/service</li>
+                    <li>Applications: Close completely and launch new instance</li>
+                    <li>Consider system recovery from power outages</li>
+                  </ul>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Legacy Applications</h3>
+                  <ul>
+                    <li>Applications no longer supported by developer</li>
+                    <li>Document the system thoroughly</li>
+                    <li>Create specific processes and procedures</li>
+                    <li>Address quirks and unknown behaviors</li>
+                  </ul>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Dependencies</h3>
+                  <ul>
+                    <li>Complete A requires completing B first</li>
+                    <li>Services may not start without other active services</li>
+                    <li>Applications require specific library versions</li>
+                    <li>Modifying one component may require changing others</li>
+                  </ul>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Documentation</h3>
+                  <ul>
+                    <li>Keep documentation current with changes</li>
+                    <li>Update diagrams for network modifications</li>
+                    <li>Update policies/procedures for new systems</li>
+                    <li>Require updates as part of change management</li>
+                  </ul>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Version Control</h3>
+                  <ul>
+                    <li>Track changes to files/configurations over time</li>
+                    <li>Easily revert to previous settings</li>
+                    <li>Apply to router configs, OS patches, registry entries</li>
+                    <li>May require additional management software</li>
+                  </ul>
                 </div>
               </div>
             </details>
@@ -904,6 +1071,96 @@
                 </div>
               </div>
             </details>
+          </div>
+        </details>
+      </div>
+    </details>
+
+    <details>
+      <summary>2.0 Threats, Vulnerabilities, and Mitigations</summary>
+      <div class="details-content">
+        <details>
+          <summary>2.1-2.2 Common Threat Actors</summary>
+          <div class="details-content">
+            <div class="learning-objectives">
+              <h3>Learning Objectives</h3>
+              <ul>
+                <li>Identify different types of threat actors and their motivations.</li>
+                <li>Understand threat actor capabilities and resources.</li>
+              </ul>
+            </div>
+            <div class="notes-section">
+              <h3>Overview</h3>
+              <p>Content coming soon.</p>
+            </div>
+          </div>
+        </details>
+
+        <details>
+          <summary>2.2 Common Threat Vectors and Attack Surfaces</summary>
+          <div class="details-content">
+            <div class="learning-objectives">
+              <h3>Learning Objectives</h3>
+              <ul>
+                <li>Recognize common attack vectors and entry points.</li>
+                <li>Identify vulnerable attack surfaces in systems.</li>
+              </ul>
+            </div>
+            <div class="notes-section">
+              <h3>Overview</h3>
+              <p>Content coming soon.</p>
+            </div>
+          </div>
+        </details>
+
+        <details>
+          <summary>2.3 Explain Vulnerability Types</summary>
+          <div class="details-content">
+            <div class="learning-objectives">
+              <h3>Learning Objectives</h3>
+              <ul>
+                <li>Classify different types of system vulnerabilities.</li>
+                <li>Understand vulnerability assessment methodologies.</li>
+              </ul>
+            </div>
+            <div class="notes-section">
+              <h3>Overview</h3>
+              <p>Content coming soon.</p>
+            </div>
+          </div>
+        </details>
+
+        <details>
+          <summary>2.4 Analyze Indicators of Malicious Activity</summary>
+          <div class="details-content">
+            <div class="learning-objectives">
+              <h3>Learning Objectives</h3>
+              <ul>
+                <li>Identify signs of malicious activity in systems.</li>
+                <li>Analyze security logs and indicators.</li>
+              </ul>
+            </div>
+            <div class="notes-section">
+              <h3>Overview</h3>
+              <p>Content coming soon.</p>
+            </div>
+          </div>
+        </details>
+
+        <details>
+          <summary>2.5 Purpose of Mitigation Techniques</summary>
+          <div class="details-content">
+            <div class="learning-objectives">
+              <h3>Learning Objectives</h3>
+              <ul>
+                <li>Understand various mitigation techniques and their purposes.</li>
+                <li>Apply appropriate controls to reduce risk.</li>
+              </ul>
+            </div>
+            <div class="notes-section">
+              <h3>Overview</h3>
+              <p>Content coming soon.</p>
+            </div>
           </div>
         </details>
       </div>
