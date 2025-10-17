@@ -208,7 +208,7 @@
 <body>
   <div class="sidebar">
     <div class="profile-info">
-      <h1>Study Notes</h1>
+      <h1>COMPTIA Security+ notes</h1>
       <p>Cybersecurity Knowledge Base</p>
       <a href="index.html">← Back to Portfolio</a>
     </div>
@@ -431,73 +431,138 @@
         </details>
 
         <details>
-          <summary>1.2 Fundamental Security Concepts – CIA Triad</summary>
+          <summary>1.2 Fundamental Security Concepts</summary>
           <div class="details-content">
+            <details>
+              <summary>1.2.1 The CIA TRIAD</summary>
+              <div class="details-content">
+                <div class="learning-objectives">
+                  <h3>Learning Objectives</h3>
+                  <ul>
+                    <li>Explain the CIA triad and how the principles work together.</li>
+                    <li>Identify technologies and processes that implement each principle.</li>
+                  </ul>
+                </div>
 
-            <div class="learning-objectives">
-              <h3>Learning Objectives</h3>
-              <ul>
-                <li>Explain the CIA triad and how the principles work together.</li>
-                <li>Identify technologies and processes that implement each principle.</li>
-              </ul>
-            </div>
+                <div class="notes-section">
+                  <h3>Overview</h3>
+                  <p><strong>CIA Triad</strong>: A foundational combination of principles that underpin information security: <em>Confidentiality</em>, <em>Integrity</em>, and <em>Availability</em>.</p>
+                  <p><em>Fundamentals of Security</em> – these principles are typically implemented together to protect data throughout its lifecycle.</p>
+                </div>
 
-            <div class="notes-section">
-              <h3>Overview</h3>
-              <p><strong>CIA Triad</strong>: A foundational combination of principles that underpin information security: <em>Confidentiality</em>, <em>Integrity</em>, and <em>Availability</em>.</p>
-              <p><em>Fundamentals of Security</em> – these principles are typically implemented together to protect data throughout its lifecycle.</p>
-            </div>
+                <div class="notes-section" style="text-align:center">
+                  <img src="CIA-Triad.png" alt="CIA Triad" style="max-width: 420px; width: 100%; height: auto; border: 2px solid #333; border-radius: 8px;">
+                </div>
 
-            <div class="notes-section" style="text-align:center">
-              <img src="CIA-Triad.png" alt="CIA Triad" style="max-width: 420px; width: 100%; height: auto; border: 2px solid #333; border-radius: 8px;">
-            </div>
+                <div class="notes-section">
+                  <h3>CIA Triad Details</h3>
+                  <h4>Confidentiality</h4>
+                  <ul>
+                    <li>Prevents disclosure of information to <strong>unauthorized individuals</strong> or systems.</li>
+                    <li>Only the right people or systems should access specific information.</li>
+                  </ul>
+                  <div class="example">
+                    <strong>Examples:</strong>
+                    <ul>
+                      <li>Encryption (data-at-rest, in-transit, in-use)</li>
+                      <li>Access controls and least privilege</li>
+                      <li>Multi-factor authentication (MFA/2FA)</li>
+                    </ul>
+                  </div>
 
-            <div class="notes-section">
-              <h3>CIA Triad Details</h3>
-              <h4>Confidentiality</h4>
-              <ul>
-                <li>Prevents disclosure of information to <strong>unauthorized individuals</strong> or systems.</li>
-                <li>Only the right people or systems should access specific information.</li>
-              </ul>
-              <div class="example">
-                <strong>Examples:</strong>
-                <ul>
-                  <li>Encryption (data-at-rest, in-transit, in-use)</li>
-                  <li>Access controls and least privilege</li>
-                  <li>Multi-factor authentication (MFA/2FA)</li>
-                </ul>
+                  <h4>Integrity</h4>
+                  <ul>
+                    <li>Assures data is <strong>stored</strong> and <strong>transmitted</strong> exactly as intended.</li>
+                    <li>Unauthorized modification can be detected and proven.</li>
+                  </ul>
+                  <div class="example">
+                    <strong>Examples:</strong>
+                    <ul>
+                      <li>Cryptographic hashes (e.g., SHA-256) to verify content</li>
+                      <li>Digital signatures (asymmetric encryption over hashes)</li>
+                      <li>X.509 certificates and code signing</li>
+                      <li>Non-repudiation: proof that an action or origin is genuine</li>
+                    </ul>
+                  </div>
+
+                  <h4>Availability</h4>
+                  <ul>
+                    <li>Ensures systems and data are accessible to authorized users when needed.</li>
+                    <li>Designs emphasize resilience and minimal downtime.</li>
+                  </ul>
+                  <div class="example">
+                    <strong>Examples:</strong>
+                    <ul>
+                      <li>Redundancy and fault tolerance (clustering, failover)</li>
+                      <li>Patching for stability and to close security holes</li>
+                      <li>Backups and tested restore procedures</li>
+                      <li>DDoS protection and capacity planning</li>
+                    </ul>
+                  </div>
+                </div>
               </div>
+            </details>
 
-              <h4>Integrity</h4>
-              <ul>
-                <li>Assures data is <strong>stored</strong> and <strong>transmitted</strong> exactly as intended.</li>
-                <li>Unauthorized modification can be detected and proven.</li>
-              </ul>
-              <div class="example">
-                <strong>Examples:</strong>
-                <ul>
-                  <li>Cryptographic hashes (e.g., SHA-256) to verify content</li>
-                  <li>Digital signatures (asymmetric encryption over hashes)</li>
-                  <li>X.509 certificates and code signing</li>
-                  <li>Non-repudiation: proof that an action or origin is genuine</li>
-                </ul>
-              </div>
+            <details>
+              <summary>1.2.2 Non-Repudiation</summary>
+              <div class="details-content">
+                <div class="notes-section">
+                  <h3>"You can't deny what you've said"</h3>
+                  <ul>
+                    <li>There’s no taking it back.</li>
+                  </ul>
+                  <div class="example">
+                    <strong>Example:</strong>
+                    <ul>
+                      <li>Signing a contract – your signature adds non-repudiation.</li>
+                      <li>Proves you really signed the contract and others can verify it.</li>
+                    </ul>
+                  </div>
+                  <p><em>Perspective for cryptography:</em></p>
+                  <ul>
+                    <li>Proof of integrity</li>
+                    <li>Proof of origin, high assurance of authenticity</li>
+                  </ul>
+                </div>
 
-              <h4>Availability</h4>
-              <ul>
-                <li>Ensures systems and data are accessible to authorized users when needed.</li>
-                <li>Designs emphasize resilience and minimal downtime.</li>
-              </ul>
-              <div class="example">
-                <strong>Examples:</strong>
-                <ul>
-                  <li>Redundancy and fault tolerance (clustering, failover)</li>
-                  <li>Patching for stability and to close security holes</li>
-                  <li>Backups and tested restore procedures</li>
-                  <li>DDoS protection and capacity planning</li>
-                </ul>
+                <div class="notes-section">
+                  <h3>Proof of Integrity</h3>
+                  <ul>
+                    <li>Verify data does not change – remains accurate and consistent.</li>
+                  </ul>
+                  <p><strong>Cryptography:</strong> Use a <strong>hash</strong> to provide proof of integrity.</p>
+                  <ul>
+                    <li>Represents data as a short string of text.</li>
+                    <li>If the data changes, the hash changes.</li>
+                    <li><strong>Does not</strong> associate data with a particular individual.</li>
+                  </ul>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Proof of Origin (Authentication)</h3>
+                  <ul>
+                    <li>Prove the message did not change (integrity) and came from the claimed source (authentication).</li>
+                  </ul>
+                  <p><strong>Cryptography:</strong> <em>Digital Signatures</em></p>
+                  <ul>
+                    <li>Private key is used to sign.</li>
+                    <li>Message doesn’t need to be encrypted.</li>
+                    <li>Only the owner has the private key; verification done with the public key.</li>
+                    <li>Any change to the message invalidates the signature.</li>
+                  </ul>
+                </div>
+
+                <div class="notes-section" style="text-align:center">
+                  <h4>Creating a Digital Signature</h4>
+                  <img src="Digital-Signature.png" alt="Creating a Digital Signature" style="max-width: 620px; width: 100%; height: auto; border: 2px solid #333; border-radius: 8px;">
+                </div>
+
+                <div class="notes-section" style="text-align:center">
+                  <h4>Verifying a Digital Signature</h4>
+                  <img src="Digital-Signature(2).png" alt="Verifying a Digital Signature" style="max-width: 620px; width: 100%; height: auto; border: 2px solid #333; border-radius: 8px;">
+                </div>
               </div>
-            </div>
+            </details>
 
           </div>
         </details>
