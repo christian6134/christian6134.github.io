@@ -18,20 +18,23 @@
   }
   
   .sidebar {
-    width: 220px;
+    width: 200px;
     background: #121212;
     color: #ffffff;
-    padding: 1.25rem;
+    padding: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     position: fixed;
     height: 100vh;
     overflow-y: auto;
+    border-right: 1px solid #2a2a2a;
+    box-shadow: 2px 0 8px rgba(0,0,0,0.25);
+    font-size: 0.95rem;
   }
   
   .sidebar h1 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     margin: 0 0 1rem 0;
     color: #007bff;
   }
@@ -63,7 +66,7 @@
   
   .main-content {
     flex: 1;
-    margin-left: 220px;
+    margin-left: 224px; /* 200px sidebar + 24px gap */
     padding: 2rem 2.5rem;
     overflow-y: auto;
     height: 100vh;
@@ -449,61 +452,52 @@
               <img src="CIA-Triad.png" alt="CIA Triad" style="max-width: 420px; width: 100%; height: auto; border: 2px solid #333; border-radius: 8px;">
             </div>
 
-            <details>
-              <summary>Confidentiality</summary>
-              <div class="details-content">
+            <div class="notes-section">
+              <h3>CIA Triad Details</h3>
+              <h4>Confidentiality</h4>
+              <ul>
+                <li>Prevents disclosure of information to <strong>unauthorized individuals</strong> or systems.</li>
+                <li>Only the right people or systems should access specific information.</li>
+              </ul>
+              <div class="example">
+                <strong>Examples:</strong>
                 <ul>
-                  <li>Prevents disclosure of information to <strong>unauthorized individuals</strong> or systems.</li>
-                  <li>Only the right people or systems should access specific information.</li>
+                  <li>Encryption (data-at-rest, in-transit, in-use)</li>
+                  <li>Access controls and least privilege</li>
+                  <li>Multi-factor authentication (MFA/2FA)</li>
                 </ul>
-                <div class="example">
-                  <strong>Examples:</strong>
-                  <ul>
-                    <li>Encryption (data-at-rest, in-transit, in-use)</li>
-                    <li>Access controls and least privilege</li>
-                    <li>Multi-factor authentication (MFA/2FA)</li>
-                  </ul>
-                </div>
               </div>
-            </details>
 
-            <details>
-              <summary>Integrity</summary>
-              <div class="details-content">
+              <h4>Integrity</h4>
+              <ul>
+                <li>Assures data is <strong>stored</strong> and <strong>transmitted</strong> exactly as intended.</li>
+                <li>Unauthorized modification can be detected and proven.</li>
+              </ul>
+              <div class="example">
+                <strong>Examples:</strong>
                 <ul>
-                  <li>Assures data is <strong>stored</strong> and <strong>transmitted</strong> exactly as intended.</li>
-                  <li>Unauthorized modification can be detected and proven.</li>
+                  <li>Cryptographic hashes (e.g., SHA-256) to verify content</li>
+                  <li>Digital signatures (asymmetric encryption over hashes)</li>
+                  <li>X.509 certificates and code signing</li>
+                  <li>Non-repudiation: proof that an action or origin is genuine</li>
                 </ul>
-                <div class="example">
-                  <strong>Examples:</strong>
-                  <ul>
-                    <li>Cryptographic hashes (e.g., SHA-256) to verify content</li>
-                    <li>Digital signatures (asymmetric encryption over hashes)</li>
-                    <li>X.509 certificates and code signing</li>
-                    <li>Non-repudiation: proof that an action or origin is genuine</li>
-                  </ul>
-                </div>
               </div>
-            </details>
 
-            <details>
-              <summary>Availability</summary>
-              <div class="details-content">
+              <h4>Availability</h4>
+              <ul>
+                <li>Ensures systems and data are accessible to authorized users when needed.</li>
+                <li>Designs emphasize resilience and minimal downtime.</li>
+              </ul>
+              <div class="example">
+                <strong>Examples:</strong>
                 <ul>
-                  <li>Ensures systems and data are accessible to authorized users when needed.</li>
-                  <li>Designs emphasize resilience and minimal downtime.</li>
+                  <li>Redundancy and fault tolerance (clustering, failover)</li>
+                  <li>Patching for stability and to close security holes</li>
+                  <li>Backups and tested restore procedures</li>
+                  <li>DDoS protection and capacity planning</li>
                 </ul>
-                <div class="example">
-                  <strong>Examples:</strong>
-                  <ul>
-                    <li>Redundancy and fault tolerance (clustering, failover)</li>
-                    <li>Patching for stability and to close security holes</li>
-                    <li>Backups and tested restore procedures</li>
-                    <li>DDoS protection and capacity planning</li>
-                  </ul>
-                </div>
               </div>
-            </details>
+            </div>
 
           </div>
         </details>
