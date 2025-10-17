@@ -566,6 +566,174 @@
               </div>
             </details>
 
+            <details>
+              <summary>1.2.5 Zero Trust</summary>
+              <div class="details-content">
+                <div class="notes-section">
+                  <h3>Zero Trust</h3>
+                  <p>Many networks are <em>relatively open</em> internally. Once past the perimeter, few controls may exist. Zero Trust assumes nothing is trusted by default.</p>
+                  <ul>
+                    <li>Covers every device, process, and person.</li>
+                    <li>Everything is subject to verification: MFA, encryption, permissions, firewalls, monitoring and analysis.</li>
+                  </ul>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Planes of Operation</h3>
+                  <p>Split a network into functional planes. These may be physical, virtual, or cloud components.</p>
+                  <ul>
+                    <li><strong>Data Plane</strong>: Processes frames/packets; forwarding, trunking, encrypting, NAT; firewalls.</li>
+                    <li><strong>Control Plane</strong>: Manages the data plane; defines policies and rules; routing/session/NAT tables; firewall rules.</li>
+                  </ul>
+                </div>
+
+                <div class="notes-section" style="text-align:center">
+                  <h4>Physical/SDN Architecture</h4>
+                  <img src="SDN.png" alt="SDN / Physical Architecture" style="max-width: 820px; width: 100%; height: auto; border: 2px solid #333; border-radius: 8px;">
+                  <p>Separate into functional tasks across planes.</p>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Controlling Trust (Control Plane)</h3>
+                  <h4>Adaptive Identity</h4>
+                  <ul>
+                    <li>Examine user identity and context; apply controls based on risk indicators.</li>
+                    <li>Consider relationship to org, location, connection type, IP, requested resources; strengthen authentication.</li>
+                  </ul>
+                  <h4>Threat Scope Reduction</h4>
+                  <ul>
+                    <li>Limit access points and entry paths.</li>
+                  </ul>
+                  <h4>Policy-Driven Access Control</h4>
+                  <ul>
+                    <li>Combine adaptive identity with predefined policy rules.</li>
+                  </ul>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Security Zones (Data Plane)</h3>
+                  <p>Where is someone connecting from and to? Security is more than a one-to-one relationship.</p>
+                  <ul>
+                    <li>Trusted vs Untrusted; Internal vs External; various VPNs; departmental zones (Marketing, IT, HR).</li>
+                    <li>Use zones to deny access based on rules (e.g., Untrusted → Trusted).</li>
+                    <li>Some paths may be <em>implicitly trusted</em> (e.g., Trusted → Internal).</li>
+                  </ul>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Policy Enforcement Point (PEP)</h3>
+                  <ul>
+                    <li>Subjects and systems: end users, apps, and non-human entities.</li>
+                    <li><strong>Gatekeeper</strong>: makes allow/deny decisions (abstracted set of devices).</li>
+                  </ul>
+                  <h4>Decision Flow</h4>
+                  <ul>
+                    <li><strong>Policy Decision Point</strong>: overall process to make an authZ decision.</li>
+                    <li><strong>Policy Engine</strong>: evaluates requests against policy; returns Grant/Deny/Revoke.</li>
+                    <li><strong>Policy Administrator</strong>: communicates with PEP; issues tokens/credentials; instructs allow/deny.</li>
+                  </ul>
+                  <div style="text-align:center">
+                    <img src="Zero Trust Overview.png" alt="Zero Trust Overview" style="max-width: 820px; width: 100%; height: auto; border: 2px solid #333; border-radius: 8px;">
+                  </div>
+                </div>
+              </div>
+            </details>
+
+            <details>
+              <summary>1.2.6 Physical Security</summary>
+              <div class="details-content">
+                <div class="notes-section">
+                  <h4>Bollards</h4>
+                  <ul>
+                    <li>Prevent vehicle access; channel people through entry points.</li>
+                    <li>Use in high-security areas; includes moats and concrete barriers.</li>
+                  </ul>
+                </div>
+
+                <div class="notes-section">
+                  <h4>Access Control Vestibule (Mantrap)</h4>
+                  <ul>
+                    <li>All doors normally unlocked: opening one locks the other.</li>
+                    <li>All doors normally locked: unlocking one prevents the other from unlocking.</li>
+                    <li>One-at-a-time or controlled groups to manage access through an area.</li>
+                  </ul>
+                </div>
+
+                <div class="notes-section">
+                  <h4>Fencing</h4>
+                  <ul>
+                    <li>Build a perimeter; robust and difficult to climb.</li>
+                    <li>Increase height; use barbed wire to deter climbing.</li>
+                  </ul>
+                </div>
+
+                <div class="notes-section">
+                  <h4>Video Surveillance</h4>
+                  <ul>
+                    <li>CCTV reduces the need for physical guards; requires monitoring.</li>
+                    <li>Motion recognition and object detection (e.g., license plates, faces).</li>
+                  </ul>
+                </div>
+
+                <div class="notes-section">
+                  <h4>Security Guards / Access Badges</h4>
+                  <ul>
+                    <li>Reception protection; validate employee identity.</li>
+                    <li>Two-person control to minimize attack exposure.</li>
+                    <li>Badges with photo/name; worn at all times; electronically logged.</li>
+                  </ul>
+                </div>
+
+                <div class="notes-section">
+                  <h4>Lighting / Sensors</h4>
+                  <ul>
+                    <li>More light → more security; improves visibility and facial recognition.</li>
+                    <li>Infrared for low-light visibility and motion detection.</li>
+                    <li>Pressure sensors for floors/windows; microwave and ultrasonic motion detection.</li>
+                  </ul>
+                </div>
+              </div>
+            </details>
+
+            <details>
+              <summary>1.2.7 Detection and Disruption</summary>
+              <div class="details-content">
+                <div class="notes-section">
+                  <h3>Honeypots</h3>
+                  <ul>
+                    <li>Create a mock environment to attract and analyze attackers.</li>
+                    <li>Often catches automated reconnaissance; observe attack methods.</li>
+                  </ul>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Honeynets</h3>
+                  <ul>
+                    <li>Simulate real networks with multiple systems: servers, workstations, routers, firewalls.</li>
+                    <li>Combine multiple honeypots for a believable infrastructure.</li>
+                  </ul>
+                  <p>More info: <a href="https://projecthoneypot.org" target="_blank" rel="noopener">projecthoneypot.org</a></p>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Honeyfiles</h3>
+                  <ul>
+                    <li>Fake files/information (e.g., passwords.txt) placed to attract attackers.</li>
+                    <li>Alerts trigger when accessed; acts as a trap.</li>
+                  </ul>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Honeytokens</h3>
+                  <ul>
+                    <li>Track malicious actors with traceable data (API keys, fake emails).</li>
+                    <li>Doesn’t provide real access; alerts when used or seen online.</li>
+                    <li>Can include database records, cookies, tracking pixels, etc.</li>
+                  </ul>
+                </div>
+              </div>
+            </details>
+
           </div>
         </details>
       </div>
