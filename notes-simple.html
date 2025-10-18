@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CompTIA Security+ Notes</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #1e1e1e;
+            color: #e0e0e0;
+            line-height: 1.6;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .sidebar {
+            width: 200px;
+            background: #121212;
+            color: #ffffff;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            border-right: 1px solid #2a2a2a;
+            box-shadow: 2px 0 8px rgba(0,0,0,0.25);
+            font-size: 0.95rem;
+        }
+
+        .main-content {
+            flex: 1;
+            margin-left: 224px;
+            padding: 2rem 2.5rem;
+            overflow-y: auto;
+            height: 100vh;
+        }
+
+        .profile-info h1 {
+            color: #4a9eff;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+        }
+
+        .profile-info a {
+            color: #4a9eff;
+            text-decoration: none;
+            display: block;
+            margin: 0.5rem 0;
+        }
+
+        .profile-info a:hover {
+            text-decoration: underline;
+        }
+
+        .footer {
+            margin-top: auto;
+            font-size: 0.8rem;
+            color: #888;
+        }
+
+        h1, h2, h3 {
+            color: #4a9eff;
+        }
+
+        details {
+            margin: 1rem 0;
+            border: 1px solid #333;
+            border-radius: 8px;
+            background: #2a2a2a;
+        }
+
+        summary {
+            padding: 1rem;
+            cursor: pointer;
+            font-weight: bold;
+            background: #333;
+            border-radius: 8px 8px 0 0;
+        }
+
+        summary:hover {
+            background: #444;
+        }
+
+        .details-content {
+            padding: 1rem;
+        }
+
+        .learning-objectives {
+            background: #2d4a5a;
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+            border-radius: 6px;
+            border-left: 4px solid #4a9eff;
+            max-width: 840px;
+        }
+
+        .notes-section {
+            background: #2a2a2a;
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+            border-radius: 6px;
+            max-width: 840px;
+        }
+
+        .example {
+            background: #3a2a2a;
+            padding: 0.75rem;
+            margin: 0.5rem 0;
+            border-radius: 6px;
+            border-left: 4px solid #ff6b6b;
+            max-width: 840px;
+        }
+
+        ul, ol {
+            margin: 0.5rem 0;
+            padding-left: 1.5rem;
+        }
+
+        li {
+            margin: 0.25rem 0;
+        }
+
+        img {
+            max-width: 100%;
+            height: auto;
+            border: 2px solid #333;
+            border-radius: 8px;
+        }
+
+        .note-selector {
+            margin-bottom: 1rem;
+        }
+
+        .note-selector select {
+            background: #333;
+            color: #fff;
+            border: 1px solid #555;
+            padding: 0.5rem;
+            border-radius: 4px;
+            width: 100%;
+        }
+
+        @media (max-width: 768px) {
+            .sidebar {
+                width: 100%;
+                position: relative;
+                height: auto;
+            }
+            
+            .main-content {
+                margin-left: 0;
+                padding: 1rem;
+            }
+            
+            body {
+                flex-direction: column;
+                height: auto;
+                overflow: visible;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="profile-info">
+            <h1>CompTIA Security+ Notes</h1>
+            <a href="index.html">← Back to Portfolio</a>
+            <div class="note-selector">
+                <select id="noteSelector" onchange="loadNote()">
+                    <option value="">Select a Note...</option>
+                    <option value="security-controls">1.1 Security Controls</option>
+                    <option value="threat-actors">2.1 Threat Actors</option>
+                    <option value="threat-vectors">2.2 Threat Vectors</option>
+                    <option value="vulnerability-types">2.3 Vulnerability Types</option>
+                    <option value="malicious-indicators">2.4 Malicious Indicators</option>
+                    <option value="mitigation-techniques">2.5 Mitigation Techniques</option>
+                </select>
+            </div>
+        </div>
+        <div class="footer">
+            <p>© 2025 Christian Garces | Hosted on GitHub Pages</p>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <div id="content">
+            <h1>CompTIA Security+ Notes</h1>
+            <p>Select a note from the dropdown to view its content.</p>
+        </div>
+    </div>
+
+    <script>
+        async function loadNote() {
+            const selector = document.getElementById('noteSelector');
+            const noteFile = selector.value;
+            
+            if (!noteFile) {
+                document.getElementById('content').innerHTML = '<h1>CompTIA Security+ Notes</h1><p>Select a note from the dropdown to view its content.</p>';
+                return;
+            }
+            
+            try {
+                const response = await fetch(`notes/${noteFile}.md`);
+                if (!response.ok) {
+                    throw new Error('Note not found');
+                }
+                
+                const markdown = await response.text();
+                const html = marked.parse(markdown);
+                document.getElementById('content').innerHTML = html;
+            } catch (error) {
+                document.getElementById('content').innerHTML = '<h1>Error</h1><p>Could not load the selected note. Make sure the markdown file exists.</p>';
+            }
+        }
+    </script>
+</body>
+</html>
