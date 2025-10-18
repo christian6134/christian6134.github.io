@@ -330,8 +330,15 @@
                 document.getElementById('note-content').style.display = 'block';
                 
                 // Set the title and content
-                document.getElementById('note-title').textContent = html.match(/<h1[^>]*>(.*?)<\/h1>/)?.[1] || 'Note';
-                document.getElementById('note-body').innerHTML = html;
+                const titleMatch = html.match(/<h1[^>]*>(.*?)<\/h1>/i);
+                if (titleMatch) {
+                    document.getElementById('note-title').textContent = titleMatch[1].trim();
+                    // Remove the h1 from the content to avoid duplication
+                    document.getElementById('note-body').innerHTML = html.replace(/<h1[^>]*>.*?<\/h1>\s*/i, '');
+                } else {
+                    document.getElementById('note-title').textContent = 'Note';
+                    document.getElementById('note-body').innerHTML = html;
+                }
                 
                 // Add back button (only if it doesn't exist)
                 if (!document.getElementById('back-button')) {
