@@ -278,6 +278,27 @@
                         </details>
                     </div>
                 </details>
+                
+                <details>
+                    <summary>3.0 Security Architecture</summary>
+                    <div class="details-content">
+                        <p><em>Coming soon...</em></p>
+                    </div>
+                </details>
+                
+                <details>
+                    <summary>4.0 Security Operations</summary>
+                    <div class="details-content">
+                        <p><em>Coming soon...</em></p>
+                    </div>
+                </details>
+                
+                <details>
+                    <summary>5.0 Security Program Management and Oversight</summary>
+                    <div class="details-content">
+                        <p><em>Coming soon...</em></p>
+                    </div>
+                </details>
             </div>
             
             <div id="note-content" style="display: none;">
@@ -306,15 +327,18 @@
                 document.getElementById('note-title').textContent = html.match(/<h1[^>]*>(.*?)<\/h1>/)?.[1] || 'Note';
                 document.getElementById('note-body').innerHTML = html;
                 
-                // Add back button
-                const backButton = document.createElement('button');
-                backButton.textContent = '← Back to Table of Contents';
-                backButton.onclick = () => {
-                    document.querySelector('.table-of-contents').style.display = 'block';
-                    document.getElementById('note-content').style.display = 'none';
-                };
-                backButton.style.cssText = 'background: #4a9eff; color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; margin-bottom: 1rem;';
-                document.getElementById('note-content').insertBefore(backButton, document.getElementById('note-content').firstChild);
+                // Add back button (only if it doesn't exist)
+                if (!document.getElementById('back-button')) {
+                    const backButton = document.createElement('button');
+                    backButton.id = 'back-button';
+                    backButton.textContent = '← Back to Table of Contents';
+                    backButton.onclick = () => {
+                        document.querySelector('.table-of-contents').style.display = 'block';
+                        document.getElementById('note-content').style.display = 'none';
+                    };
+                    backButton.style.cssText = 'background: #4a9eff; color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; margin-bottom: 1rem;';
+                    document.getElementById('note-content').insertBefore(backButton, document.getElementById('note-content').firstChild);
+                }
                 
             } catch (error) {
                 document.getElementById('note-body').innerHTML = '<h1>Error</h1><p>Could not load the selected note. Make sure the markdown file exists.</p>';
