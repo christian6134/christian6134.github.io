@@ -1,65 +1,90 @@
+# 3.1.2 Network Infrastructure Concepts
 
-### Physical Isolation
------
-`Devices are physically separate`
-- Air gap between Switch A and Switch B
-- No way to gain access Switch B from Switch A
+## Learning Objectives
+- Understand physical isolation and network segmentation
+- Explain network security controls and monitoring
+- Describe network architecture security principles
 
-Must be connected to provide communication.
-- Direct connect, or another switch / router
+## Overview
+Network infrastructure security involves implementing physical isolation, logical segmentation, and comprehensive monitoring to protect network resources and data flows.
 
-Web servers in one rack
-- Database servers on another
+## Physical Isolation
+![Physical Isolation](Photos/Physical-Isolation.png)
 
-Customer A on one switch, Customer B on another
-- No opportunity for mixing data
+### Network Segmentation
+**Purpose:** Divide network into smaller, controlled segments
 
+**Benefits:**
+- Limit attack scope
+- Improve performance
+- Simplify management
+- Enhance security
 
+**Implementation Methods:**
+- VLANs (Virtual Local Area Networks)
+- Subnets
+- Firewall rules
+- Access control lists
 
-#### Physical Segmentation
----
-- Separate Devices
-	- Multiple Devices (units), separate infrastructure
-- No connectivity between customer A and customer B
+### Physical Security Controls
+- **Data Centers** - Secure facilities with controlled access
+- **Network Equipment** - Locked cabinets and rooms
+- **Cable Management** - Protected and organized cabling
+- **Environmental Controls** - Temperature, humidity, power
 
+## Network Security Architecture
 
+### Perimeter Security
+- **Firewalls** - Control traffic flow
+- **Intrusion Detection Systems (IDS)** - Monitor for threats
+- **Intrusion Prevention Systems (IPS)** - Block threats
+- **Demilitarized Zones (DMZ)** - Buffer between networks
 
-#### Logical Segmentation with VLANs
-----
-- `Virtual Local Area Networks (VLAN)`
-	- Separate logically instead of physically.
-	- Cannot communicate between VLANs without a Layer 3 device / router.
+### Internal Security
+- **Network Access Control (NAC)** - Device authentication
+- **Endpoint Security** - Host-based protection
+- **Network Monitoring** - Traffic analysis
+- **Segmentation** - Isolate critical systems
 
+### Wireless Security
+- **WPA3 Encryption** - Latest wireless security standard
+- **Network Authentication** - 802.1X
+- **Guest Networks** - Isolated access
+- **Rogue AP Detection** - Identify unauthorized access points
 
+## Network Monitoring and Management
 
-#### Software Defined Networking
-----
-- Networking devices have different `functional planes of operation`
-	- `Data, control, management planes.`
+### Traffic Analysis
+- **Flow Analysis** - Monitor data flows
+- **Packet Inspection** - Deep packet analysis
+- **Anomaly Detection** - Identify unusual patterns
+- **Performance Monitoring** - Track network health
 
-*WHY?*
-- Separate the functions into separate logical units
-	- Extend the functionality and management of a single device
-	- Can be easily reproduced
+### Security Monitoring
+- **SIEM Integration** - Centralized logging
+- **Threat Intelligence** - External threat feeds
+- **Incident Response** - Automated responses
+- **Forensic Analysis** - Post-incident investigation
 
+## Network Protocols and Security
 
-**Infrastructure Layer / Data Plane**
-- `Process the network frames and packets
-- Forwarding, trunking, encrypting, NAT
-- What sends information!
+### Secure Protocols
+- **HTTPS** - Encrypted web traffic
+- **SSH** - Secure shell access
+- **SFTP** - Secure file transfer
+- **VPN** - Virtual private networks
 
+### Protocol Security
+- **DNS Security** - DNSSEC implementation
+- **Email Security** - SPF, DKIM, DMARC
+- **Network Time Protocol** - NTP security
+- **Routing Security** - BGP security
 
-**Control Layer / Control Plane**
-- `Manage the actions of the data plane
-- Routing tables, session tables, NAT tables
-- Dynamic routing protocol updates
-
-
-**Application Layer / Management Plane**
-- Configure and manage the device
-- SSH, browser, API
-
-
-#### SDN Data Flows
------
-![[SDN Flow.png]]
+## Best Practices
+- Implement defense in depth
+- Regular security assessments
+- Continuous monitoring
+- Patch management
+- Access control
+- Incident response planning
+- Staff training

@@ -1,109 +1,146 @@
+# 3.1.1 Cloud Infrastructures
 
-#### Cloud Responsibility Matrix
----
-- IaaS, PaaS, SaaS, etc
-	- Infrastructure, Software, Platform ... as a Service 
-	- On Premises
-- `Who is responsible for security?
+## Learning Objectives
+- Understand cloud service models and shared responsibility
+- Explain cloud deployment models and their security implications
+- Describe cloud security controls and best practices
 
-![[responsibility-matrix.png]]
+## Overview
+Cloud infrastructures provide scalable computing resources with different service models and deployment options, each requiring specific security considerations and shared responsibility between cloud providers and customers.
 
-`Security should be well documented
-- Most cloud providers provide a matrix of responsibilities
-- Every knows up front
-- Contractual Agreement
+## Cloud Responsibility Matrix
+![Cloud Responsibility Matrix](Photos/Cloud-Responsibility-Matrix.png)
 
+### Service Models
 
-`HYBRID CONSIDERATIONS
-- Hybrid cloud
-- More than 1 public or private cloud
-- Adds additional complexity
+#### Infrastructure as a Service (IaaS)
+**Provider Responsibilities:**
+- Physical infrastructure
+- Virtualization layer
+- Network infrastructure
+- Physical security
 
-`Network Protection Mismatches`
-- Authentication across platforms
-- Firewall configurations
-- Server Settings
+**Customer Responsibilities:**
+- Operating system security
+- Application security
+- Data security
+- Access management
+- Network security configuration
 
-`Different security monitoring`
-- Logs are diverse and cloud-specific
+#### Platform as a Service (PaaS)
+**Provider Responsibilities:**
+- Physical infrastructure
+- Virtualization layer
+- Operating system
+- Runtime environment
+- Middleware
 
-`Data Leakage`
-- Data is shared across the public internet
+**Customer Responsibilities:**
+- Application security
+- Data security
+- Access management
+- Application configuration
 
+#### Software as a Service (SaaS)
+**Provider Responsibilities:**
+- Physical infrastructure
+- Virtualization layer
+- Operating system
+- Runtime environment
+- Middleware
+- Application
+- Data security
 
-#### Third-Party Vendors in the Cloud
-----
-- You, cloud provider, third parties
-	- Infrastructure technologies
-	- Cloud-based appliances
+**Customer Responsibilities:**
+- Access management
+- User training
+- Data classification
+- Compliance requirements
 
-- Ongoing vendor `risk assessment`
-	- Part of `risk management policy`
+## Cloud Deployment Models
 
-- Include third-party impact for incident response
-	- Everyone is part of the process
+### Public Cloud
+**Characteristics:**
+- Shared infrastructure
+- Multi-tenant environment
+- Pay-per-use model
+- Scalable resources
 
-- Constant Monitoring
-	- Watch for changes / unusual activity
+**Security Considerations:**
+- Data isolation
+- Network segmentation
+- Access controls
+- Compliance requirements
 
+### Private Cloud
+**Characteristics:**
+- Dedicated infrastructure
+- Single-tenant environment
+- On-premises or hosted
+- Full control
 
+**Security Considerations:**
+- Physical security
+- Network security
+- Access management
+- Compliance control
 
-#### Infrastructure as Code
----
-- Describe an infrastructure
-	- Define servers, network, and applications `as code`, not hardware
-	- Modify the infrastructure and create versions
+### Hybrid Cloud
+**Characteristics:**
+- Combination of public and private
+- Data and application portability
+- Flexible deployment
+- Risk management
 
-- Use the description (code) to build other application instances
-	- Build the same instance every time
-	- `Significant Benefit` : you can create an infrastructure based on 1 single infrastructure (code)
+**Security Considerations:**
+- Data flow security
+- Network connectivity
+- Identity management
+- Compliance across environments
 
+### Community Cloud
+**Characteristics:**
+- Shared by specific organizations
+- Common compliance requirements
+- Cost sharing
+- Collaborative security
 
+**Security Considerations:**
+- Shared responsibility
+- Data segregation
+- Access controls
+- Compliance alignment
 
-#### Serverless Architecture
-----
-Function as a Service (FaaS)
-- Applications are separated into individual, autonomous functions
-- Remove the Operating System from the equation
+## Cloud Security Controls
 
-Developer still creates server-side logic
-- Runs in a stateless compute container
-- May be event triggered or ephemeral
+### Identity and Access Management
+- Multi-factor authentication
+- Single sign-on (SSO)
+- Role-based access control (RBAC)
+- Privileged access management
 
-Managed by a third-party
-- All OS security concerns are at the third party
+### Data Protection
+- Encryption at rest and in transit
+- Data loss prevention (DLP)
+- Backup and recovery
+- Data classification
 
+### Network Security
+- Virtual private networks (VPN)
+- Firewall rules
+- Network segmentation
+- DDoS protection
 
+### Monitoring and Logging
+- Security information and event management (SIEM)
+- Cloud access security broker (CASB)
+- Audit logging
+- Threat detection
 
-#### Microservices and APIs
----
-- `Monolithic applications
-	- One big application that does everything
-	- Handles all functions you need
-
-- Application contains all decision making process
-	- User interface
-	- Business logic
-	- Data input and Output
-
-- Code challenges
-	- Large codebase
-	- Large change control challenges
-
-
-#### APIs
-----
-![[microservice-architecture.png]]
-
-API is the glue for the microservices
-- Work together to act as the application
-- Scalable
-- Scale just the micro-services you need
-
-Resilient
-- Outages are contained
-- Division of labor
-
-Security and Compliance
-- Containment is built-in
-
+## Best Practices
+- Implement defense in depth
+- Regular security assessments
+- Continuous monitoring
+- Incident response planning
+- Compliance management
+- Staff training and awareness

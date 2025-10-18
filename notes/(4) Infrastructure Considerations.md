@@ -1,177 +1,130 @@
+# 3.1.4 Infrastructure Considerations
 
-### `Considerations
-----
+## Learning Objectives
+- Understand key infrastructure security considerations
+- Explain scalability and performance security implications
+- Describe disaster recovery and business continuity planning
 
-#### `Availability
----
-- System uptime
-- Access data, complete transactions
+## Overview
+Infrastructure security requires careful consideration of scalability, performance, availability, and disaster recovery to ensure robust and resilient systems.
 
-- A balancing act, it needs to be available to the `right people`
-- A lot of money is spent on availability
-	- Redundant systems
-- An important Metric
+## Scalability Considerations
 
+### Horizontal Scaling
+**Benefits:**
+- Increased capacity
+- Fault tolerance
+- Load distribution
+- Cost efficiency
 
-#### `Resilience
----
-Eventually, something will not be `available`
-- "Can you maintain availability?"
-- "Can you recover? How quickly"
+**Security Implications:**
+- **Attack Surface Expansion** - More systems to protect
+- **Data Distribution** - Data across multiple systems
+- **Access Management** - Scaling authentication systems
+- **Monitoring** - Distributed security monitoring
 
-Based on many different variables
-- The root cause
-- Replacement hardware installation
-- Software patch availability
-- Redundant Systems
+### Vertical Scaling
+**Benefits:**
+- Simplified management
+- Reduced complexity
+- Single point of control
+- Easier security implementation
 
-`MTTR`
-- Mean time to Repair
+**Security Implications:**
+- **Single Point of Failure** - System vulnerability
+- **Resource Constraints** - Limited scalability
+- **Performance Impact** - Security overhead
+- **Cost** - Expensive hardware requirements
 
+## Performance Security
 
+### Security vs Performance Trade-offs
+- **Encryption Overhead** - CPU and network impact
+- **Authentication Latency** - User experience impact
+- **Monitoring Overhead** - System resource usage
+- **Compliance Requirements** - Performance constraints
 
-#### `Cost
----
-How much money is required?
-- Initial installation
-	- Very different across various platforms
-- Ongoing maintenance costs
-	- Replacement or repair costs
-	- Tax implications
+### Optimization Strategies
+- **Hardware Acceleration** - Dedicated security processors
+- **Caching** - Reduce authentication overhead
+- **Load Balancing** - Distribute security processing
+- **Asynchronous Processing** - Non-blocking security operations
 
+## Availability and Reliability
 
-#### `Responsiveness
----
-`Request information`
-- Get a response
-- How quickly did that Happen?
+### High Availability (HA)
+**Components:**
+- **Redundancy** - Multiple systems
+- **Failover** - Automatic switching
+- **Load Balancing** - Traffic distribution
+- **Monitoring** - Health checks
 
-Especially important for interactive applications
-- Humans are sensitive to delays
+**Security Considerations:**
+- **Synchronization** - Security state consistency
+- **Failover Security** - Secure failover processes
+- **Data Integrity** - Consistent data across systems
+- **Access Control** - Unified access management
 
-Speed is another metric
-- All parts of the application contribute
-- There's always a `weakest link`
+### Disaster Recovery (DR)
+**Planning Elements:**
+- **Recovery Time Objective (RTO)** - Time to restore service
+- **Recovery Point Objective (RPO)** - Acceptable data loss
+- **Backup Strategies** - Data protection methods
+- **Testing** - Regular DR testing
 
+**Security Requirements:**
+- **Secure Backups** - Encrypted backup data
+- **Access Control** - DR site security
+- **Data Integrity** - Backup verification
+- **Compliance** - DR compliance requirements
 
-#### `Scalability
-----
-`How quickly and easily can we increase or decrease capacity?`
-- This might happen many times a day
-- Elasticity
+## Business Continuity Planning
 
-Always a resource challenge
-- Whats preventing scalability?
-- Money...
+### Continuity Strategies
+- **Hot Sites** - Fully operational backup facilities
+- **Warm Sites** - Partially configured backup facilities
+- **Cold Sites** - Basic infrastructure only
+- **Cloud DR** - Cloud-based disaster recovery
 
-Needs to include security monitoring
-- Increases and decreases as the system scales
+### Security Integration
+- **Identity Management** - Unified access across sites
+- **Data Protection** - Consistent encryption
+- **Monitoring** - Centralized security monitoring
+- **Incident Response** - Coordinated response procedures
 
+## Compliance and Governance
 
-#### `Ease of deployment
-----
-`Many moving parts of an application`
-- Web server, database, caching server, firewall, etc...
+### Regulatory Requirements
+- **Data Protection** - GDPR, CCPA compliance
+- **Industry Standards** - PCI DSS, HIPAA
+- **Security Frameworks** - NIST, ISO 27001
+- **Audit Requirements** - Regular security audits
 
-A very involved process
-- Hardware resources, cloud budgets, change control
+### Governance Framework
+- **Policy Management** - Security policy enforcement
+- **Risk Management** - Ongoing risk assessment
+- **Change Management** - Controlled infrastructure changes
+- **Vendor Management** - Third-party security requirements
 
-Could be very simple
-- Orchestration / automation
+## Cost Considerations
 
-Important to consider during the product engineering phase
-- One missed detail can cause deployment issues
+### Security Investment
+- **Initial Costs** - Security tool implementation
+- **Operational Costs** - Ongoing security operations
+- **Training Costs** - Staff security education
+- **Compliance Costs** - Regulatory compliance
 
+### Cost Optimization
+- **Automation** - Reduce manual security tasks
+- **Consolidation** - Unified security platforms
+- **Cloud Services** - Managed security services
+- **ROI Measurement** - Security investment returns
 
-#### `RISK TRANSFERENCE`
-----
-`Many methods to minimize risk`
-- Transfer the risk to a third-part
-
-Cybersecurity Insurance
-- Attacks and downtime can be covered
-- Popular with the rise in ransomware.
-
-`Recover Internal Losses`
-- Outages and business (platform) downtime
-
-`Protect against legal issues from customers`.
-- Limit the costs associated with legal proceedings.
-
-
-#### `Ease of recovery
-----
-`Something will eventually go wrong.`
-- Time is money
-- How easily can you recover?
-
-*Example:*
-- Malware infection
-- Reload operating system from original media ~ 1 hour
-- Reload from corporate `image` ~ 10 minutes
-
-`Ease of recovery` is another important design criteria.
-- This may be critical to the final product 
-
-
-
-#### `Patch availability
-----
-`Software isn't usually static`
-- Bug fixes, security updates, etc.
-
-Patches are usually the first task after installation
-- `Are you running the latest version?`
-
-Most companies have regular updates.
-- Microsoft monthly patch schedule
-
-Some companies rarely patch
-- This could be a significant concern.
-
-
-
-#### `Inability to patch
-----
-`What if patching is not an option?`
-- Systems not designed for end-user updates
-- Additional security controls
-
-*Examples:*
-- Embedded Systems
-- HVAC Controls
-- Time clocks
-- (purpose built systems) no connectivity or internet access
-	- Hard to patch
-
-
-
-
-#### `Power
----
-`Foundational Element`
-- Require extensive engineering.
-
-Various requirements.
-- Data center vs. Office Building
-
-`What if power goes down?`
-Backup services
-- Uninterruptible Power Supply (UPS)
-  Power Generators
-
-
-
-#### `Compute
----
-`An application's heavy lifting`
-- More than just a CPU
-
-`The Compute Engine`
-- More options available in the cloud
-- Could be limited to a single processor
-- Easier to develop
-
-`Use multiple CPUS across multiple clouds.`
-- Additional complexity
-- Enhanced Scalability
+## Best Practices
+- **Risk Assessment** - Regular security risk evaluation
+- **Defense in Depth** - Multiple security layers
+- **Continuous Monitoring** - Ongoing security assessment
+- **Incident Response** - Prepared response procedures
+- **Staff Training** - Regular security education
+- **Vendor Management** - Third-party security oversight
+- **Compliance Management** - Ongoing regulatory compliance

@@ -1,172 +1,125 @@
+# 3.1.3 Other Infrastructures
 
-- Two categories for IT security
-	- `On-Premises`
-	- `Cloud-based`
+## Learning Objectives
+- Understand on-premises vs cloud infrastructure security
+- Explain container and microservices security
+- Describe IoT and edge computing security considerations
 
-- `Cloud Based Security`
-	- Centralized and costs less
-	- No dedicated hardware, no data center to secure
-	- A third-party handles everything
+## Overview
+Modern IT infrastructures include various deployment models and technologies beyond traditional on-premises and cloud environments, each requiring specific security approaches.
 
-- `On-Premises`
-	- Puts the burden on the client
-	- Data center security and infrastructure costs
+## Infrastructure Categories
 
-- Attackers want your data, they don't care where it is.
+### On-Premises Infrastructure
+**Characteristics:**
+- Physical hardware ownership
+- Complete control over environment
+- Direct security management
+- Capital expenditure model
 
+**Security Considerations:**
+- Physical security controls
+- Network segmentation
+- Access management
+- Patch management
+- Environmental controls
 
-### `ON-PREMISES SECURITY`
-----
-Customize your security posture!
-- Control when everything is in-house
+### Cloud Infrastructure
+**Characteristics:**
+- Shared responsibility model
+- Scalable resources
+- Managed services
+- Operational expenditure model
 
-- On site IT team can manage security better
-	- Local team can ensure everything is seccure
-	- Local team can be expensive and difficult to staff
+**Security Considerations:**
+- Shared responsibility matrix
+- Identity and access management
+- Data encryption
+- Compliance requirements
+- Service level agreements
 
-- Local team maintains uptime and availability
-	- System checks can occur at any time
-	- No phone call for support
+## Container Security
 
-- Security changes take time...
+### Container Technologies
+- **Docker** - Containerization platform
+- **Kubernetes** - Container orchestration
+- **Podman** - Alternative container runtime
+- **Containerd** - Container runtime
 
+### Security Controls
+- **Image Security** - Vulnerability scanning
+- **Runtime Security** - Process monitoring
+- **Network Security** - Container networking
+- **Access Control** - RBAC implementation
 
-#### `CENTRALIZED v DECENTRALIZED`
-------
-- Most organizations are `physically decentralized
-	- Many locations, cloud providers, operating systems
-- Difficult to manage and protect so many diverse systems
-	- Centralize the security management
-- A `centralized approach
-	- Correlated alerts 
-	- Consolidated log file analysis
-	- Comprehensive system status and maintenance/patching
+### Best Practices
+- Use minimal base images
+- Regular vulnerability scanning
+- Implement network policies
+- Monitor container behavior
+- Secure container registries
 
-A centralized approach is not perfect ... it has a `single point of failure` and potential performance issues. 
+## Microservices Architecture
 
+### Security Challenges
+- **Distributed Attack Surface** - Multiple entry points
+- **Service Communication** - Inter-service security
+- **Data Flow** - Cross-service data protection
+- **Authentication** - Service-to-service auth
 
+### Security Solutions
+- **API Gateway** - Centralized security
+- **Service Mesh** - Traffic management
+- **Zero Trust** - Never trust, always verify
+- **Circuit Breakers** - Fault tolerance
 
-#### `VIRTUALIZATION`
------
-- `Virtualization
-	- Run many different operating systems on the same hardware.
+## Internet of Things (IoT) Security
 
-*CHALLENGES:*
-- each application instance has its own operating system
-- adds overhead and complexity
-- virtualization is relatively expensive
+### IoT Challenges
+- **Device Diversity** - Various manufacturers
+- **Limited Resources** - Constrained devices
+- **Update Management** - Patch deployment
+- **Network Exposure** - Internet connectivity
 
-*The HyperVisor*:
-- Manage all resources between the separate virtual machines
+### Security Controls
+- **Device Authentication** - Unique credentials
+- **Network Segmentation** - Isolated networks
+- **Encryption** - Data protection
+- **Monitoring** - Device behavior analysis
 
+## Edge Computing Security
 
+### Edge Characteristics
+- **Distributed Processing** - Local data processing
+- **Reduced Latency** - Faster response times
+- **Bandwidth Optimization** - Local data handling
+- **Offline Capability** - Independent operation
 
-#### `APPLICATION CONTAINERIZATION`
-----
-`Container`
-- Contains everything you need to run an application
-- Code and dependencies
-- A standardized unit of software
+### Security Considerations
+- **Physical Security** - Edge device protection
+- **Data Protection** - Local data encryption
+- **Network Security** - Edge-to-cloud communication
+- **Access Control** - Edge device management
 
-`Has everything you need` except the Operating System.
+## Infrastructure as Code (IaC)
 
-Containers are isolated processes within a sandbox.
-- Self-contained
-- Apps can't interact with each other
+### Security Benefits
+- **Consistent Deployments** - Standardized configurations
+- **Version Control** - Change tracking
+- **Automated Testing** - Security validation
+- **Compliance** - Policy enforcement
 
-Container Image
-- A standard for portability
-- lightweight, uses the host kernel
-- Secure separation between applications 
+### Security Practices
+- **Code Review** - Security validation
+- **Secret Management** - Secure credential handling
+- **Policy as Code** - Automated compliance
+- **Continuous Monitoring** - Ongoing security assessment
 
-
-#### `VIRTUALIZATION v CONTAINERIZATION`
------
-![[virtual-container.png]]
-
-
-
-#### `IoT (internet of things)`
------
-`Devices that are designed to be integrated in a network and support features and services.`
-
-*Example:*
-- Temperature Sensors
-- Automatic lighting system
-- Smart devices
-	- Home automation, garage door openers
-	- Ring doorbells
-- Smart watches, health monitors
-- Very convenient, but `Weak Defaults`
-	- IOT manufacturers are `not security professionals.`
-
-
-
-#### `SCADA / ICS
------
-- `Supervisory Control and Data Acquisition System`
-	- Large scale, multi-site Industrial Control Systems (ICS)
-- PC manages equipment
-	- Power generation, refining, manufacturing
-- Distributed control systems
-	- real-time information
-	- system control
-- Requires `extensive segmentation`
-	- No access from the outside
-
-
-
-
-#### `RTOS (Real-Time Operating System`)
----
-*What is a RTOS?*
-- An operating system with a `deterministic processing schedule`
-	- No time to wait for other processes
-	- Industrial equipment, automobiles
-	- Military Environments
-- *Example:*
-	- Driving a car, pressing the brakes requires full attention
-
-- `Non-Deterministic Processing (Operating System)`
-	- No process can take all the resources at a given time 
-	- No priority
-	- *Examples:*
-		- Windows, Linux, IOS, Android
-
-*Drawbacks?*
-- Extremely sensitive to security issues
-	- Non-trivial systems
-	- Need to be available
-	- Difficult to know security implementations in place
-
-
-
-
-#### `Embedded Systems`
----
-`Hardware and software are built and designed for a specific function.`
-- Or to operate as a large system
-
-Is built with only this task in mind
-- Can be optimized for size and or cost
-
-*Examples:*
-- Traffic Light Controllers
-- Digital watches
-- Medical Imaging Systems
-
-
-
-### `High Availability`
----
-- Redundancy doesn't mean its always available
-	- May need to be powered on manually
-
-- HA (High Availability)
-	- `Always on, always available`
-- May include many different components working together
-- Active / Active can provide scalability advantages
-
-- Higher availability almost always means `higher costs`
-	- *Example*
-		- 2 separate firewalls to ensure availability
+## Best Practices
+- Implement defense in depth
+- Regular security assessments
+- Continuous monitoring
+- Patch management
+- Access control
+- Incident response planning
+- Staff training and awareness
