@@ -158,6 +158,16 @@
             padding: 0.5rem 0 0.5rem 1rem;
         }
 
+        .table-of-contents details details {
+            margin-left: 1rem;
+            margin-top: 0.5rem;
+        }
+
+        .table-of-contents details details summary {
+            background: #2a2a2a;
+            font-size: 0.9rem;
+        }
+
         .table-of-contents a {
             color: #4a9eff;
             text-decoration: none;
@@ -325,10 +335,36 @@
                 <details>
                     <summary>3.0 Security Architecture</summary>
                     <div class="details-content">
-                        <p><a href="#" onclick="loadNote('(3.1) Security of Different Architecture Models')">View 3.1 Security of Different Architecture Models</a></p>
-                        <p><a href="#" onclick="loadNote('(3.2) Apply Security Principles for Enterprises')">View 3.2 Apply Security Principles for Enterprises</a></p>
-                        <p><a href="#" onclick="loadNote('(3.3) C&C Methods to Protect Data')">View 3.3 C&C Methods to Protect Data</a></p>
-                        <p><a href="#" onclick="loadNote('(3.4) Importance of Resilience and Recovery')">View 3.4 Importance of Resilience and Recovery</a></p>
+                        <details>
+                            <summary>3.1 Security of Different Architecture Models</summary>
+                            <div class="details-content">
+                                <p><a href="#" onclick="loadNote('(1) Cloud Infrastructures')">View 3.1.1 Cloud Infrastructures</a></p>
+                                <p><a href="#" onclick="loadNote('(2) Network Infrastructure Concepts')">View 3.1.2 Network Infrastructure Concepts</a></p>
+                                <p><a href="#" onclick="loadNote('(3) Other Infrastructures')">View 3.1.3 Other Infrastructures</a></p>
+                                <p><a href="#" onclick="loadNote('(4) Infrastructure Considerations')">View 3.1.4 Infrastructure Considerations</a></p>
+                            </div>
+                        </details>
+                        
+                        <details>
+                            <summary>3.2 Apply Security Principles for Enterprises</summary>
+                            <div class="details-content">
+                                <p><em>Coming soon...</em></p>
+                            </div>
+                        </details>
+                        
+                        <details>
+                            <summary>3.3 C&C Methods to Protect Data</summary>
+                            <div class="details-content">
+                                <p><em>Coming soon...</em></p>
+                            </div>
+                        </details>
+                        
+                        <details>
+                            <summary>3.4 Importance of Resilience and Recovery</summary>
+                            <div class="details-content">
+                                <p><em>Coming soon...</em></p>
+                            </div>
+                        </details>
                     </div>
                 </details>
                 
