@@ -1,44 +1,83 @@
+# 2.4.6 Denial of Service
 
-*What is DoS?*
-- Occurs when a attacker forces a `service to fail.`
-- Advantage of design failure or vulnerability
-- Causes a system to be `unavailable`
-- Could be a distraction / smoke screen
+## Learning Objectives
+- Understand DoS and DDoS attack mechanisms
+- Explain botnets and their role in attacks
+- Describe amplification and reflection attacks
 
-**Keep your systems up to date!**
+## Overview
+Denial of Service (DoS) attacks prevent legitimate users from accessing services by overwhelming systems with malicious traffic or exploiting vulnerabilities.
 
+## Denial of Service (DoS)
+**Definition:** Attack that forces a service to fail, making it unavailable to legitimate users
 
+**Attack Methods:**
+- Exploit design failures or vulnerabilities
+- Overwhelm system resources
+- Cause system crashes or slowdowns
+- Serve as distraction for other attacks
 
-*A Friendly DoS*
-- Unintentional DoSing
-- Example: Layer 2 loop without Spanning Tree
-- Downloading multi-gigabyte distributions over a DSL line causes a `bandwidth DoS`
+**Protection:**
+- Keep systems updated with patches
+- Implement rate limiting and traffic filtering
+- Use load balancing and redundancy
+- Monitor for unusual traffic patterns
 
+## Distributed Denial of Service (DDoS)
+**Definition:** Coordinated attack using multiple devices worldwide to overwhelm a target
 
+**Characteristics:**
+- Uses multiple compromised devices
+- Generates massive traffic spikes
+- Consumes all available bandwidth
+- Difficult to mitigate due to scale
 
-*DISTRIBUTED Denial of Service*
-- Launch an army of computers to bring down a service
-- `Multiple devices over the entire world`
-- Uses all the `bandwidth` causing a traffic spike
+### Botnets
+**Definition:** Networks of compromised devices (robots) under attacker control
 
-**Botnets** (HIVE)
-- Malware (robot networks) under the control of the attacker
-- Can attack a particular web server 
-- Coordinated Attack
+**Botnet Capabilities:**
+- Coordinated attacks on specific targets
+- Distributed processing power
+- Geographic distribution
+- Difficult to trace and shut down
 
+**Common Botnet Types:**
+- **HIVE** - Coordinated attack networks
+- **Mirai** - IoT device botnets
+- **Zeus** - Banking trojan botnets
 
+## Amplification and Reflection Attacks
+**Principle:** Turn small attacks into large attacks using legitimate services
 
+### DNS Amplification
+**Process:**
+1. Attacker sends small DNS queries with spoofed victim IP
+2. DNS servers respond with large responses to victim
+3. Small attack becomes massive traffic flood
 
-*DDoS Reflection and Amplification*
-- Turn a small attack into a big attack
-- Reflect of another device or service
-- Turn internet services against the victim
+**Why Effective:**
+- DNS responses are much larger than queries
+- DNS servers don't verify request authenticity
+- Amplification ratios can be 50:1 or higher
 
-Use protocol with little authentication or checks that send lots of information.
-- Example: DNS Amplification
-	- Little information out, a lot of information returned. (Amplified)
+![DDoS Amplification](Photos/DDoS-Amplification.png)
 
+### Other Amplification Vectors
+- **NTP Amplification** - Network Time Protocol
+- **SSDP Amplification** - Simple Service Discovery Protocol
+- **Memcached Amplification** - Database caching protocol
 
-![[DDoS-Amplification.png]]
+## Friendly DoS
+**Definition:** Unintentional DoS caused by misconfigurations or legitimate activities
 
+**Examples:**
+- Layer 2 loops without Spanning Tree Protocol
+- Large downloads over limited bandwidth connections
+- Misconfigured network equipment
+- Resource-intensive legitimate applications
 
+**Prevention:**
+- Proper network configuration
+- Bandwidth management
+- Resource monitoring
+- Capacity planning

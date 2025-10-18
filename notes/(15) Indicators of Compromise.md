@@ -1,99 +1,104 @@
-
 # 2.4.15 Indicators of Compromise
 
-#### Indicators of Compromise (IOC)
----
-`Any evidence that someone has breached or gained access to your systems.`
-- An event that indicates an intrusion
+## Learning Objectives
+- Identify common indicators of system compromise
+- Understand behavioral analysis techniques
+- Explain log analysis for threat detection
 
-**Indicators**
-- Unusual amount of network activity
-- Change to file hash values
+## Overview
+Indicators of Compromise (IOC) are evidence that suggests unauthorized access or malicious activity has occurred on a system or network.
+
+## Definition
+**Indicators of Compromise:** Any evidence that someone has breached or gained access to your systems
+
+## Common Indicators
+- Unusual network activity patterns
+- Changes to file hash values
 - Irregular international traffic
-- Changes to DNS data
+- DNS data modifications
 - Uncommon login patterns
-- Spikes of read requests to certain files
+- Spikes in read requests to specific files
 
+## Specific Attack Indicators
 
-**(i) Account Lockout**
-- Credentials are not working
-- Exceeded login attempts
-	- Account is automatically locked
-- Could have been `administratively disabled.`
-- Could be apart of a larger plan.
+### Account Lockout
+**Indicators:**
+- Credentials not working despite being correct
+- Exceeded login attempt limits
+- Accounts administratively disabled
+- Part of larger attack campaign
 
+**Analysis:** Determine if lockouts are legitimate or attack-related
 
-**(ii) Concurrent Session Usage**
-- It's challenging to be in two places at one time - Physics
-- Can be applied to logins and session usage
-- Multiple account logins from `multiple locations`
+### Concurrent Session Usage
+**Principle:** Users cannot be in multiple locations simultaneously
 
+**Indicators:**
+- Multiple account logins from different geographic locations
+- Simultaneous sessions from different IP addresses
+- Impossible travel patterns in authentication logs
 
-**(iii) Blocked Content**
-- An attacker wants to stay as long as possible
-	- Your system has been unlocked
-	- Keep the doors and windows open
-- Blocked content
-	- Auto-update connections
-	- Links to security patches
-	- Third party anti-malware sites
-	- Removal tools
+### Blocked Content
+**Attacker Behavior:** Keep compromised systems accessible
 
+**Blocked Resources:**
+- Auto-update connections
+- Security patch downloads
+- Third-party anti-malware sites
+- Malware removal tools
 
-**(iv) Impossible Travel**
-- Authentication logs can be telling
-	- Logon and Logoff
-- *Example:* 
-	- `Login from omaha, nebraska`
-	- `2nd login from victoria, australia`
-	- This should signal an alert
+### Impossible Travel
+**Analysis:** Authentication logs reveal impossible geographic patterns
 
+**Example:**
+- Login from Omaha, Nebraska
+- Second login from Victoria, Australia (minutes later)
+- Physically impossible travel time
 
-**(v) Resource Consumption**
-- Every attacker's action has an equal and opposite reaction
-- *Example:* File transfers `use bandwidth`
-	- An unusual spike at 3AM
-- Firewall logs show the outgoing transfer
-	- IP addresses, timeframes
-- Often the first real notification of an issue
+### Resource Consumption
+**Principle:** Every attacker action consumes system resources
 
+**Indicators:**
+- Unusual bandwidth spikes (especially during off-hours)
+- File transfer activity at unusual times
+- Firewall logs showing outgoing data transfers
+- CPU/memory usage anomalies
 
-**(vi) Resource Inaccessibility**
-- The server is down (not responding).
-- Network Disruption (Could be a cover for the actual exploit)
-- Server Outages
-	- Result of an `exploit gone wrong`
-- Encrypted Data
-	- Ransomware
-- Brute Force Attack
-	- Locks account access
+### Resource Inaccessibility
+**Types:**
+- **Server Outages** - Systems not responding
+- **Network Disruption** - May be cover for actual exploit
+- **Encrypted Data** - Ransomware indicators
+- **Account Lockouts** - Brute force attack results
 
+### Out of Cycle Logging
+**Definition:** Logging activity occurring at unexpected times
 
-**(vii) Out of Cycle Logging**
-- Occurs at an unexpected time.
-- Log or information contained is something that should not be there at that particular time.
-- *Example:* Security patches occurring outside of the expected patch day.
-- Firewall log activity
-	- Keep timestamps of traffic flow
+**Examples:**
+- Security patches applied outside scheduled maintenance
+- Firewall activity during off-hours
+- Unusual timestamp patterns in logs
 
+### Missing Logs
+**Significance:** Logs provide evidence of system activity
 
-**(viii) Missing Logs**
-- Log information is evidence.
-- Information is everywhere
-	- Authentication Logs
-	- File access logs
-	- Firewall logs
-	- Proxy logs
-	- Server logs
-- The logs may be incriminating
-	- Missing logs are suspicious
-	- Logs should be secured and monitored
+**Types of Logs:**
+- Authentication logs
+- File access logs
+- Firewall logs
+- Proxy logs
+- Server logs
 
+**Red Flags:**
+- Missing log entries
+- Logs deleted or modified
+- Unsecured log storage
 
-**(viiii) Published/Documented**
-- Entire attack and data exfiltration may go unnoticed.
-- Company data may be published online
-	- Attacks post a portion or all data
-	- Used in conjunction with Ransomware
-- Raw data may be released without context
-	- Find the source!
+### Published/Documented Attacks
+**Indicators:**
+- Company data published online
+- Data posted on dark web forums
+- Ransomware groups publishing victim data
+- Raw data released without context
+
+**Response:** Investigate source and scope of published data

@@ -1,36 +1,78 @@
+# 2.4.5 Physical Attacks
 
-Interests like within Old-School Security.
-- No keyboard, no mouse, no command line.
-- Many various ways to circumvent physical security
-- If you have physical access to a server, you have full control
+## Learning Objectives
+- Understand physical security vulnerabilities
+- Identify methods of physical attack
+- Explain environmental attack vectors
 
-#### Brute Force
-------
-Push through the obstruction
-- Brawn beats brain
-- Check physical security (windows, doors)
+## Overview
+Physical attacks target hardware and infrastructure directly, bypassing network security controls. Physical access often provides complete system control.
 
+## Physical Attack Methods
 
-#### RFID Cloning
-----
-RFID is everywhere
-- Access badges
-- Key fobs
-- Duplicators are on Amazon
-- Read one card, copy to another
+### Brute Force Attacks
+**Definition:** Using physical force to overcome security barriers
 
-This is why we have MFA 
-- Use another factor along with the card
+**Examples:**
+- Breaking through doors or windows
+- Cutting through fences or barriers
+- Using tools to bypass locks
+- Forcing entry through weak points
 
+**Protection:**
+- Reinforced physical barriers
+- Multiple layers of security
+- Intrusion detection systems
+- Security cameras and monitoring
 
-#### Environmental Attacks
-------
-- Attack everything supporting the technology
-- Operating environment
-- Power monitoring
+### RFID Cloning
+**Target:** Radio Frequency Identification (RFID) systems
 
-HVAC (heating, ventilation and air conditioning)
-- Large data centers must be properly cooled
+**Common Targets:**
+- Access badges and cards
+- Key fobs and proximity cards
+- Payment cards and transit passes
 
-Fire suppression system
-- Watch for fire or smoke.
+**Attack Process:**
+- Read RFID card data using cloning devices
+- Copy data to blank cards
+- Use cloned cards for unauthorized access
+
+**Protection:**
+- Multi-factor authentication (MFA)
+- Encryption on RFID cards
+- Regular card rotation
+- Physical security monitoring
+
+## Environmental Attacks
+**Target:** Infrastructure supporting technology systems
+
+### Power System Attacks
+- **Power Monitoring** - Disrupt electrical supply
+- **Power Surge Attacks** - Damage equipment with electrical spikes
+- **Power Outage Attacks** - Cause system failures
+
+### HVAC System Attacks
+**Target:** Heating, Ventilation, and Air Conditioning systems
+
+**Impact:**
+- Overheating equipment causing failures
+- Humidity damage to sensitive electronics
+- Disruption of data center operations
+
+### Fire Suppression System Attacks
+**Methods:**
+- Trigger false fire alarms
+- Disable fire suppression systems
+- Cause actual fires to damage equipment
+
+**Protection:**
+- Environmental monitoring systems
+- Redundant HVAC systems
+- Fire detection and suppression systems
+- Regular environmental testing
+
+## Key Principle
+**"If you have physical access to a server, you have full control"**
+
+Physical security is fundamental to overall security posture and cannot be compensated for by network security alone.

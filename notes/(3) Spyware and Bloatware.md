@@ -1,30 +1,55 @@
+# 2.4.3 Spyware and Bloatware
 
-*What is Spyware?*
-- Malware that spies on you
-- Advertising, identify theft, affiliate fraud
-- Requires installation
-- Browser monitoring
-- Keyloggers
+## Learning Objectives
+- Understand spyware functionality and threats
+- Identify bloatware and its security implications
+- Learn protection and removal strategies
 
-*Protecting against Spyware*
-- Maintain your anti-virus / anti-malware
-- Always have the latest signatures
-- Always know what you're installing
-- Where's your backup?
-- Running 3rd party scans (*Malware Bytes*)
+## Overview
+Spyware and bloatware represent different types of unwanted software that can compromise system security and performance.
 
----------
+## Spyware
+**Definition:** Malware designed to spy on user activities and steal information
 
-*What is Bloatware?*
-- A new computer or phone includes the operating system and important apps
-- Includes `other applications you didn't expect`
-- These utilities are installed by the manufacturer of the hardware (you don't get a choice)
+**Common Activities:**
+- Monitor browsing habits and online behavior
+- Capture keystrokes (keylogging)
+- Steal personal information and credentials
+- Display unwanted advertising
+- Enable identity theft and affiliate fraud
 
-Uses valuable storage space
-- Adds to overall efficiency and resource usage
-- Could open your system to exploits
+**Protection Strategies:**
+- Maintain updated anti-virus/anti-malware software
+- Keep signature databases current
+- Verify software sources before installation
+- Run regular third-party scans (Malwarebytes)
+- Maintain system backups
+- Use browser security settings and ad blockers
 
-*Removing Bloatware*
-- Identify and remove it from your system
-- Use the built-in uninstaller (works for most applications)
-- Some apps have their own uninstaller
+## Bloatware
+**Definition:** Unwanted software pre-installed by hardware manufacturers
+
+**Characteristics:**
+- Installed without user consent
+- Consumes valuable storage space
+- Increases system resource usage
+- May introduce security vulnerabilities
+- Often includes trial software and utilities
+
+**Security Risks:**
+- Additional attack surface
+- Potential vulnerabilities in unused software
+- Resource consumption affecting security tools
+- Unnecessary network connections
+
+**Removal Strategies:**
+- Use built-in Windows uninstaller
+- Utilize manufacturer-specific removal tools
+- Third-party uninstaller software
+- System restore to clean state
+- Fresh OS installation (if necessary)
+
+**Prevention:**
+- Purchase devices from manufacturers with minimal bloatware
+- Research devices before purchase
+- Consider enterprise/business versions with cleaner installations

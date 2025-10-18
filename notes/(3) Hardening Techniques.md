@@ -1,119 +1,136 @@
-
 # 2.5.3 Hardening Techniques
 
-#### System Hardening
-------
-- Varied Operating Systems (Windows, Linux, iOS, Android)
-- Updates (Operating System updates/service packs, security patches)
+## Learning Objectives
+- Understand system hardening principles and methods
+- Explain endpoint detection and response capabilities
+- Describe host-based security controls
 
- `USER ACCOUNTS
-	- Minimum password length and complexity
-	- Account limitations
-	
-`Network Access and Security
-	- Limit Network Access
+## Overview
+System hardening involves configuring systems securely by removing unnecessary components, applying security patches, and implementing protective controls.
 
-`Monitor and Secure`
-- Anti-virus, Anti-malware
+## System Hardening
+**Purpose:** Secure systems by reducing attack surface and implementing security controls
 
+### Operating System Hardening
+- **Multi-Platform Support** - Windows, Linux, iOS, Android
+- **Regular Updates** - OS updates, service packs, security patches
+- **Security Baselines** - Industry-standard configurations
 
-#### `ENCRYPTION
------
-`Prevent Access to Application Data Files
-- file level
-- windows encrypting file system (EFS)
-`Full disk encryption (FDE)
-- BitLocker, FileVault
-`Encrypt all network communication
-- VPN
-- Application Encryption
+### User Account Security
+- **Password Policies** - Minimum length and complexity requirements
+- **Account Limitations** - Restricted privileges and access
+- **Account Monitoring** - Regular review and cleanup
 
+### Network Security
+- **Limited Network Access** - Restrict unnecessary network connections
+- **Firewall Configuration** - Block unnecessary ports and services
+- **Network Monitoring** - Monitor for unusual activity
 
-#### `EDR` (Endpoint Detection and Response)
-----
-`A different method of threat protection`
-- Scale to meet the increasing number of threats
+## Encryption Implementation
+**Purpose:** Prevent unauthorized access to data
 
-Detect a threat
-- Signatures aren't the only detection tool
-- Behavioral analysis, Machine Learning, Process monitoring
-- Lightweight agent on the endpoint
+### Encryption Types
+- **File Level Encryption** - Windows EFS (Encrypting File System)
+- **Full Disk Encryption (FDE)** - BitLocker, FileVault
+- **Network Communication Encryption** - VPN, application-level encryption
 
-Investigate the Threat
-- `Root cause analysis`
+### Benefits
+- Data protection at rest and in transit
+- Compliance with data protection requirements
+- Defense against data theft
+- Always-on protection
 
-Respond to the threat
-- Isolate the system, quarantine threat, rollback to a previous config
-- API driven, no user intervention required
+## Endpoint Detection and Response (EDR)
+**Purpose:** Advanced threat protection using behavioral analysis
 
+### EDR Capabilities
+**Detection:**
+- Behavioral analysis and machine learning
+- Process monitoring and anomaly detection
+- Lightweight agent deployment
+- Real-time threat identification
 
+**Investigation:**
+- Root cause analysis
+- Threat intelligence correlation
+- Forensic data collection
+- Attack timeline reconstruction
 
-#### `HOST-BASED FIREWALL`
-------
-- Software based firewall
-	- Personal, runs on every endpoint
+**Response:**
+- System isolation and quarantine
+- Threat rollback capabilities
+- API-driven automation
+- Minimal user intervention required
 
-- Allow or disallow incoming or outgoing traffic
-	- Control by application process
-	- View all Data
+### Benefits
+- Scalable threat protection
+- Advanced detection beyond signatures
+- Automated response capabilities
+- Comprehensive threat visibility
 
-- Identify and block unknown processes
-	- Stop malware before it can start
+## Host-Based Firewall
+**Purpose:** Software-based firewall on every endpoint
 
+### Capabilities
+- **Traffic Control** - Allow or disallow incoming/outgoing traffic
+- **Application Control** - Control by application process
+- **Process Monitoring** - View all data and processes
+- **Malware Prevention** - Block unknown processes
 
+### Benefits
+- Personal firewall protection
+- Application-level control
+- Malware prevention
+- Network traffic visibility
 
-#### Finding Intrusions
------
-- Host Based Intrusion Prevention Systems
-	- Recognize and block known attacks
-	- Secure OS and configs
-	- Validate incoming service requests
-	- Often built into `endpoint protection software`
+## Host-Based Intrusion Prevention Systems (HIPS)
+**Purpose:** Recognize and block known attacks at the host level
 
-- HIPS Identification
-	- Signatures, behavioral changes
-	- Access to non-encrypted data
+### HIPS Functions
+- **Attack Recognition** - Known attack pattern detection
+- **OS Security** - Secure operating system configurations
+- **Service Validation** - Validate incoming service requests
+- **Endpoint Integration** - Built into endpoint protection software
 
+### Detection Methods
+- **Signature-Based** - Known attack patterns
+- **Behavioral Analysis** - Unusual system behavior
+- **Data Access Monitoring** - Non-encrypted data access
 
+## Port and Service Management
+**Principle:** Every open port is a potential entry point
 
-#### `PORTS AND SERVICES`
------------------
-Every open port is a possible entry point
-- Close everything except required ports
+### Best Practices
+- **Close Unnecessary Ports** - Only required ports open
+- **Firewall Control** - Next-generation firewall implementation
+- **Service Removal** - Remove unused services
+- **Regular Scanning** - Nmap or similar port scanners
+- **Ongoing Monitoring** - Continuous port monitoring
 
-Control access with a firewall
-- Next Generation Firewall would be ideal
+## Default Password Management
+**Target:** Network devices and application management interfaces
 
-Unused or unknown services
-- Installed with the OS or from other applications
+### Critical Systems
+- **Network Devices** - Routers, switches, firewalls
+- **Management Interfaces** - Device administration portals
+- **Application Interfaces** - Software management consoles
 
-`Nmap` or similar port scanner to verify
-- Ongoing monitoring
+### Implementation
+- **Change Default Passwords** - Strong, unique passwords
+- **Regular Updates** - Password rotation policies
+- **Access Control** - Limit management interface access
+- **Monitoring** - Log all management access
 
+## Software Removal
+**Principle:** All software contains bugs and potential security risks
 
+### Challenges
+- **Patching Complexity** - Different update processes
+- **Security Risks** - Unpatched vulnerabilities
+- **Resource Consumption** - Unnecessary system overhead
 
-#### Default Password Changes
-----
-Every network device has a management interface
-- Critical Systems, other devices
-
-Many applications also have management or maintenance interfaces
-- These can contain sensitive data
-
-Change default settings
-- Passwords
-
-
-
-#### `REMOVAL OF UNNECESSARY SOFTWARE`
------
-All software contains bugs!
-- Some are security risks
-
-Every application seems to have a different patching process
-- Can be challenging to manage ongoing updates
-
-
-Instead,
-- Remove all unused software
-- Get rid of the security concern 
+### Solution
+- **Remove Unused Software** - Eliminate security concerns
+- **Regular Audits** - Identify unnecessary applications
+- **Minimal Installation** - Install only required software
+- **Ongoing Management** - Regular software inventory

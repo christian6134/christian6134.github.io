@@ -1,77 +1,114 @@
-
 # 2.5.2 Mitigation Techniques
 
-`Process of reducing the impact of a security or potential security event.`
+## Learning Objectives
+- Understand key mitigation strategies for security incidents
+- Explain patch management and encryption controls
+- Describe monitoring and least privilege principles
 
-**`PATCHING`**
-- System stability, security fixes.
-- Monthly updates.
-- Third-party updates
-	- Application developers, device drivers
-	- Auto-update
-- Emergency out-of-band updates
+## Overview
+Mitigation techniques reduce the impact of security incidents through proactive measures including patching, encryption, monitoring, and access controls.
 
+## Patching
+**Purpose:** System stability and security fixes
 
+### Patch Management
+- **Monthly Updates** - Regular security patches
+- **Third-Party Updates** - Application and driver updates
+- **Auto-Update** - Automated patch deployment
+- **Emergency Updates** - Out-of-band critical patches
 
-****`ENCRYPTION`
-- Prevent access to application data files
-	- File system encryption
-- **File level encryption**
-	- Windows EFS
-- **Full Disk Encryption (FDE)**
-	- Encrypt everything on the drive
-	- BitLocker, FileVault
-- **Application Data Encryption**
-	- Managed by Application
-	- Always protected
+### Implementation
+- Centralized patch management systems
+- Testing patches before deployment
+- Rollback procedures for problematic patches
+- Regular vulnerability scanning
 
+## Encryption
+**Purpose:** Prevent unauthorized access to data
 
+### Encryption Types
+- **File System Encryption** - Protect application data files
+- **File Level Encryption** - Windows EFS (Encrypting File System)
+- **Full Disk Encryption (FDE)** - Encrypt entire drive (BitLocker, FileVault)
+- **Application Data Encryption** - Managed by applications
 
-****`MONITORING`
-- Aggregate information from devices
-	- Built-in sensors, separate devices
-	- Integrated into servers, switches, routers, firewalls
-- **Sensors**
-	- Intrusion prevention systems, firewall logs, authentication logs, web server access logs, database transaction logs, email logs
-- **Collectors**
-	- SIEM console
-	- Correlation engine to compare diverse sensor data
+### Benefits
+- Data protection at rest
+- Compliance with data protection regulations
+- Defense against data theft
+- Always-on protection
 
+## Monitoring
+**Purpose:** Aggregate information from security devices and sensors
 
+### Monitoring Components
+**Sensors:**
+- Intrusion prevention systems
+- Firewall logs
+- Authentication logs
+- Web server access logs
+- Database transaction logs
+- Email logs
 
-****`LEAST PRIVILEGE`
-- Rights and permissions should be set to the bare minimum
-- You only get exactly what is needed to complete your objective
+**Collectors:**
+- SIEM (Security Information and Event Management) console
+- Correlation engines
+- Real-time analysis tools
 
-- All users account must be limited
-- Don't allow users to run with administrative privileges
-	- Limits the scope of malicious behavior
+### Benefits
+- Centralized security visibility
+- Correlation of diverse data sources
+- Rapid incident detection
+- Compliance reporting
 
+## Least Privilege
+**Principle:** Rights and permissions set to bare minimum required
 
+### Implementation
+- Limit user account permissions
+- Avoid administrative privileges for regular users
+- Limit scope of malicious behavior
+- Regular access reviews
 
-****`CONFIGURATION ENFORCEMENT`
-- Perform a `posture assessment`
-	- Each time a device connects
-- **Extensive Check**
-	- OS PATCH
-	- EDR Version
-	- Status of Firewall and EDR
-	- Certificate Status
-- **Systems out of Compliance**
-	- Private VLAN with limited access
-	- Quarantined, recheck after making corrections.
+### Benefits
+- Reduced attack surface
+- Limited damage from compromised accounts
+- Easier access management
+- Compliance with security frameworks
 
+## Configuration Enforcement
+**Purpose:** Ensure systems meet security standards
 
+### Posture Assessment
+**Checks Performed:**
+- Operating system patches
+- EDR (Endpoint Detection and Response) version
+- Firewall and EDR status
+- Certificate validity
+- Security policy compliance
 
-****`DECOMMISSIONING`
-- Should be a formal policy
-	- Don't throw your data into the trash
-	- Someone will find it later
-- Most associated with `storage devices
-	- HDD
-	- SDD
-	- USB
-- Many options for physical devices
-	- Recycle device for use in another system
-	- Destroy the device
+### Non-Compliant Systems
+- Private VLAN with limited access
+- Quarantine until corrections made
+- Automatic remediation where possible
+- Regular compliance reporting
 
+## Decommissioning
+**Purpose:** Secure disposal of systems and data
+
+### Policy Requirements
+- Formal decommissioning procedures
+- Secure data destruction
+- Physical device disposal
+- Documentation of disposal process
+
+### Device Types
+- Hard disk drives (HDD)
+- Solid state drives (SSD)
+- USB storage devices
+- Mobile devices
+
+### Options
+- **Recycling** - Secure reuse in other systems
+- **Destruction** - Physical destruction of devices
+- **Certified Disposal** - Third-party secure disposal services
