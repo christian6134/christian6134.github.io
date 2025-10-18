@@ -1584,34 +1584,393 @@
           <div class="details-content">
             <details>
               <summary>(2.1) Threat Actors</summary>
+          <div class="details-content">
+            <div class="learning-objectives">
+              <h3>Learning Objectives</h3>
+              <ul>
+                <li>Identify different types of threat actors and their characteristics.</li>
+                <li>Understand threat actor motivations and capabilities.</li>
+              </ul>
+            </div>
+            <div class="notes-section">
+              <h3>Overview</h3>
+              <p>Threat actors are entities responsible for events that impact the safety of other entities. Understanding their attributes, motivations, and capabilities is crucial for cybersecurity defense.</p>
+            </div>
+
+            <div style="text-align:center">
+              <img src="Photos/2.1-Learning-Obj.png" alt="2.1 Learning Objectives" style="max-width: 720px; width: 100%; height: auto; border: 2px solid #333; border-radius: 8px;">
+            </div>
+
+            <div style="text-align:center">
+              <img src="Photos/Threat Actors.png" alt="Threat Actors Overview" style="max-width: 720px; width: 100%; height: auto; border: 2px solid #333; border-radius: 8px;">
+            </div>
+
+            <div class="notes-section">
+              <h3>Threat Actor Definition</h3>
+              <ul>
+                <li>Entity responsible for events that impact safety of another entity</li>
+                <li>Malicious actors with various motivations and capabilities</li>
+              </ul>
+            </div>
+
+            <div class="notes-section">
+              <h3>Threat Actor Attributes</h3>
+              <ul>
+                <li><strong>Internal/External:</strong> Location relative to target organization</li>
+                <li><strong>Resources/Funding:</strong> From no money/resources to extensive funding</li>
+                <li><strong>Level of Sophistication:</strong> Do they know what they're doing?</li>
+              </ul>
+            </div>
+
+            <div class="notes-section">
+              <h3>Motivations of Threat Actors</h3>
+              <ul>
+                <li>Data exfiltration</li>
+                <li>Espionage</li>
+                <li>Service disruption</li>
+                <li>Blackmail</li>
+                <li>Ethical reasons</li>
+                <li>Revenge</li>
+              </ul>
+            </div>
+
+            <div class="notes-section">
+              <h3>Nation State</h3>
+              <ul>
+                <li><strong>Type:</strong> External entity (Government and national security)</li>
+                <li><strong>Motivations:</strong> Data exfiltration, war, various government objectives</li>
+                <li><strong>Characteristics:</strong> Constant attacks, massive resources</li>
+                <li><strong>Advanced Persistent Threat (APT):</strong> Long-term, sophisticated campaigns</li>
+                <li><strong>Highest Sophistication:</strong> Resources of entire government, military control, utilities, finances</li>
+              </ul>
+            </div>
+
+            <div class="notes-section">
+              <h3>Unskilled Attackers</h3>
+              <ul>
+                <li><strong>Behavior:</strong> Run pre-made scripts without knowledge</li>
+                <li><strong>Type:</strong> Usually external</li>
+                <li><strong>Characteristics:</strong> Unsophisticated, not many resources</li>
+                <li><strong>Accessibility:</strong> Anyone can do this</li>
+              </ul>
+            </div>
+
+            <div class="notes-section">
+              <h3>Hacktivist</h3>
+              <ul>
+                <li><strong>Definition:</strong> Hacker with purpose (philosophy, revenge, disruption)</li>
+                <li><strong>Type:</strong> Often external entity (could infiltrate and become insider)</li>
+                <li><strong>Sophistication:</strong> Very sophisticated with specific hacks</li>
+                <li><strong>Methods:</strong> DoS, defacing, private document release</li>
+                <li><strong>Resources:</strong> Limited funding</li>
+              </ul>
+            </div>
+
+            <div class="notes-section">
+              <h3>Insider Threat</h3>
+              <ul>
+                <li><strong>Definition:</strong> More than passwords on sticky notes</li>
+                <li><strong>Motivations:</strong> Revenge, financial gain</li>
+                <li><strong>Resources:</strong> Extensive (exist within organization)</li>
+                <li><strong>Advantages:</strong> Taking advantage of existing resources, hiring process</li>
+                <li><strong>Type:</strong> Internal entity</li>
+              </ul>
+            </div>
+
+            <div class="notes-section">
+              <h3>Organized Crime</h3>
+              <ul>
+                <li><strong>Definition:</strong> Professional criminals motivated by money</li>
+                <li><strong>Type:</strong> Almost always external</li>
+                <li><strong>Purpose:</strong> Everything is for profit</li>
+                <li><strong>Sophistication:</strong> Very sophisticated (best hacking money can buy)</li>
+                <li><strong>Structure:</strong> Crime that's organized with division of labor</li>
+              </ul>
+            </div>
+
+            <div class="notes-section">
+              <h3>Shadow IT</h3>
+              <ul>
+                <li><strong>Definition:</strong> Going rogue, working around internal IT organization</li>
+                <li><strong>Behavior:</strong> Builds own infrastructure, uses cloud</li>
+                <li><strong>Characteristics:</strong> Unencumbered, limited resources</li>
+                <li><strong>Funding:</strong> Company budget</li>
+              </ul>
+            </div>
+          </div>
+        </details>
+
+        <details>
+          <summary>(2.2) Common Threat Vectors and Attack Surfaces</summary>
+          <div class="details-content">
+            <div class="learning-objectives">
+              <h3>Learning Objectives</h3>
+              <ul>
+                <li>Identify common attack vectors and methods used by threat actors.</li>
+                <li>Understand various delivery mechanisms for malicious activities.</li>
+              </ul>
+            </div>
+            <div class="notes-section">
+              <h3>Overview</h3>
+              <p>Attack vectors are methods used by attackers to gain access or infect targets. Understanding these vectors helps in developing appropriate defenses.</p>
+            </div>
+
+            <div class="notes-section">
+              <h3>Message-Based Vectors</h3>
+              <ul>
+                <li>Most people use messaging systems - very successful vector</li>
+                <li><strong>Examples:</strong> Malicious links in email, SMS attacks</li>
+                <li><strong>Phishing Attacks:</strong> People want to click links</li>
+                <li>Deliver malware to users through social engineering</li>
+              </ul>
+            </div>
+
+            <div class="notes-section">
+              <h3>Image-Based Vectors</h3>
+              <ul>
+                <li>Images more difficult to identify than text-based threats</li>
+                <li><strong>SVG Format:</strong> Scalable Vector Graphics (XML file with embedded information)</li>
+                <li><strong>Security Concerns:</strong> HTML injection, JavaScript attack code, XSS</li>
+                <li>Browsers must provide input validation to avoid running malicious code</li>
+              </ul>
+            </div>
+
+            <div class="notes-section">
+              <h3>File-Based Vectors</h3>
+              <ul>
+                <li>More than just executables - malicious code can be anywhere</li>
+                <li><strong>Examples:</strong> Adobe PDF, ZIP/RAR files, Microsoft Office</li>
+                <li>File formats containing other objects</li>
+              </ul>
+            </div>
+
+            <div class="notes-section">
+              <h3>Voice-Call Vectors</h3>
+              <ul>
+                <li><strong>Vishing:</strong> Voice phishing</li>
+                <li><strong>Spam over IP:</strong> VoIP-based spam</li>
+                <li><strong>War Dialing:</strong> Unpublished phone numbers with system access</li>
+                <li><strong>Call Tampering:</strong> Denial of Service attacks</li>
+              </ul>
+            </div>
+
+            <div class="notes-section">
+              <h3>Removable Device Vectors</h3>
+              <ul>
+                <li>Gets around firewall through USB interface</li>
+                <li>Malicious software on USB flash drives</li>
+                <li>Can infect air-gapped networks</li>
+                <li>Industrial systems, high-security services</li>
+                <li>USB devices can act as keyboards (hacker on a chip)</li>
+                <li>Data exfiltration - terabyte of data, zero bandwidth used</li>
+              </ul>
+            </div>
+
+            <div class="notes-section">
+              <h3>Vulnerable Software Vectors</h3>
+              <ul>
+                <li><strong>Client-based:</strong> Infected executables, known/unknown vulnerabilities</li>
+                <li>May require constant patching (updates)</li>
+                <li><strong>Agentless Systems:</strong> No installed executable</li>
+                <li>Compromised software on server affects users</li>
+                <li>Client runs new instance each time</li>
+              </ul>
+            </div>
+
+            <div class="notes-section">
+              <h3>Unsupported System Vectors</h3>
+              <ul>
+                <li>Patching is important security tool with ongoing fixes</li>
+                <li>Unsupported systems aren't patched</li>
+                <li>Outdated operating systems</li>
+                <li>Single system could be entry point</li>
+              </ul>
+            </div>
+
+            <div class="notes-section">
+              <h3>Unsecure Network Vectors</h3>
+              <ul>
+                <li>Networks connect everything - ease of access for attackers</li>
+                <li>View all non-encrypted data</li>
+                <li><strong>Wireless:</strong> Outdated protocols (WEP, WPA, WPA2), rogue networks</li>
+                <li><strong>Wired:</strong> Unsecure interfaces, Bluetooth</li>
+              </ul>
+            </div>
+
+            <div class="notes-section">
+              <h3>Open Service Ports</h3>
+              <ul>
+                <li>Most network services connect over TCP or UDP ports</li>
+                <li>Every open port is opportunity for attacker</li>
+                <li>Every application has own port number</li>
+                <li>More services = More open ports = Less secure system</li>
+                <li>Port-based firewall rules allow traffic to open ports</li>
+              </ul>
+            </div>
+
+            <div class="notes-section">
+              <h3>Default Credentials</h3>
+              <ul>
+                <li>Many devices still have default usernames and passwords</li>
+                <li>Change them!</li>
+                <li>Many devices require password change on first login</li>
+                <li>Administrator access taken away</li>
+                <li>Very easy to find default credentials</li>
+              </ul>
+            </div>
+
+            <div class="notes-section">
+              <h3>Supply Chain Vectors</h3>
+              <ul>
+                <li>Tamper with underlying infrastructure</li>
+                <li>Added during or after manufacturing process (3rd party)</li>
+                <li><strong>Managed Service Providers (MSP):</strong> Access many customer networks from one location</li>
+                <li>Great place to start (centralized)</li>
+                <li><strong>Suppliers:</strong> Counterfeit networking equipment</li>
+                <li><strong>Example:</strong> 2020 Fake Cisco Catalyst switches</li>
+              </ul>
+            </div>
+
+            <details>
+              <summary>(2.2.1) Phishing</summary>
               <div class="details-content">
                 <div class="learning-objectives">
                   <h3>Learning Objectives</h3>
                   <ul>
-                    <li>Identify different types of threat actors and their characteristics.</li>
-                    <li>Understand threat actor motivations and capabilities.</li>
+                    <li>Understand phishing techniques and prevention methods.</li>
+                    <li>Identify various types of phishing attacks.</li>
                   </ul>
                 </div>
                 <div class="notes-section">
                   <h3>Overview</h3>
-                  <p>Threat actors are entities responsible for events that impact the safety of other entities. Understanding their attributes, motivations, and capabilities is crucial for cybersecurity defense.</p>
+                  <p>Phishing combines social engineering with spoofing, delivered through email or text to trick users into clicking malicious links.</p>
+                </div>
+
+                <div class="notes-section">
+                  <h3>What is Phishing?</h3>
+                  <ul>
+                    <li>Social engineering combined with spoofing</li>
+                    <li>Delivered by email, text</li>
+                    <li>Try to get users to click on resources (links) with malicious intent</li>
+                  </ul>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Risks of Phishing</h3>
+                  <ul>
+                    <li>Using login credentials on fake website</li>
+                    <li>Exposing sensitive information</li>
+                  </ul>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Best Practices Against Phishing</h3>
+                  <ul>
+                    <li>Don't click links!</li>
+                    <li>Verify everything</li>
+                    <li>Something just isn't right</li>
+                  </ul>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Business Email Compromise</h3>
+                  <ol>
+                    <li><strong>Email Spoofing:</strong> Attackers take advantage of trust given to emails
+                      <ul>
+                        <li>Verify emails for spoofing, similar at first glance</li>
+                      </ul>
+                    </li>
+                    <li><strong>Financial Fraud:</strong>
+                      <ul>
+                        <li>Send emails with updated bank information</li>
+                        <li>Modify wire transfer details</li>
+                      </ul>
+                    </li>
+                    <li><strong>Malware Delivery:</strong> Clicking on link with malware</li>
+                  </ol>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Tricks and Misdirection</h3>
+                  <ul>
+                    <li><strong>Digital Sleight of Hand:</strong> How they're so successful</li>
+                    <li><strong>Typosquatting:</strong> Destination URL is not legitimate domain name (misdirection)</li>
+                    <li><strong>Pretexting:</strong> Just lying to get information
+                      <ul>
+                        <li>Attacker is character in situation they created</li>
+                        <li>Gaslighting techniques</li>
+                      </ul>
+                    </li>
+                  </ul>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Various Bait</h3>
+                  <ul>
+                    <li><strong>Voice Phishing:</strong>
+                      <ul>
+                        <li>Caller ID spoofing</li>
+                        <li>Fake security automation</li>
+                      </ul>
+                    </li>
+                    <li><strong>Smishing (SMS Phishing):</strong>
+                      <ul>
+                        <li>Done by text</li>
+                        <li>Spoofing techniques</li>
+                      </ul>
+                    </li>
+                  </ul>
                 </div>
               </div>
             </details>
 
             <details>
-              <summary>(2.2) Threat Vectors</summary>
+              <summary>(2.2.2) Impersonation</summary>
               <div class="details-content">
                 <div class="learning-objectives">
                   <h3>Learning Objectives</h3>
                   <ul>
-                    <li>Identify common attack vectors and methods used by threat actors.</li>
-                    <li>Understand various delivery mechanisms for malicious activities.</li>
+                    <li>Understand impersonation attack techniques and prevention.</li>
+                    <li>Identify various forms of identity spoofing.</li>
                   </ul>
                 </div>
                 <div class="notes-section">
                   <h3>Overview</h3>
-                  <p>Attack vectors are methods used by attackers to gain access or infect targets. Understanding these vectors helps in developing appropriate defenses.</p>
+                  <p>Content coming soon.</p>
+                </div>
+              </div>
+            </details>
+
+            <details>
+              <summary>(2.2.3) Watering Hole Attacks</summary>
+              <div class="details-content">
+                <div class="learning-objectives">
+                  <h3>Learning Objectives</h3>
+                  <ul>
+                    <li>Understand watering hole attack methodologies.</li>
+                    <li>Identify prevention strategies for watering hole attacks.</li>
+                  </ul>
+                </div>
+                <div class="notes-section">
+                  <h3>Overview</h3>
+                  <p>Content coming soon.</p>
+                </div>
+              </div>
+            </details>
+
+            <details>
+              <summary>(2.2.4) Social Engineering Attacks</summary>
+              <div class="details-content">
+                <div class="learning-objectives">
+                  <h3>Learning Objectives</h3>
+                  <ul>
+                    <li>Identify various social engineering techniques.</li>
+                    <li>Understand psychological manipulation tactics.</li>
+                  </ul>
+                </div>
+                <div class="notes-section">
+                  <h3>Overview</h3>
+                  <p>Content coming soon.</p>
                 </div>
               </div>
             </details>
@@ -1620,20 +1979,268 @@
 
         <details>
           <summary>(2.3) Explain Vulnerability Types</summary>
+      <div class="details-content">
+        <div class="learning-objectives">
+          <h3>Learning Objectives</h3>
+          <ul>
+            <li>Classify different types of system vulnerabilities.</li>
+            <li>Understand vulnerability assessment methodologies.</li>
+          </ul>
+        </div>
+        <div class="notes-section">
+          <h3>Overview</h3>
+          <p>Vulnerabilities are weaknesses in systems that can be exploited by threat actors to gain unauthorized access or cause damage.</p>
+        </div>
+
+        <details>
+          <summary>Part 1</summary>
           <div class="details-content">
-            <div class="learning-objectives">
-              <h3>Learning Objectives</h3>
-              <ul>
-                <li>Classify different types of system vulnerabilities.</li>
-                <li>Understand vulnerability assessment methodologies.</li>
-              </ul>
-            </div>
-            <div class="notes-section">
-              <h3>Overview</h3>
-              <p>Vulnerabilities are weaknesses in systems that can be exploited by threat actors to gain unauthorized access or cause damage.</p>
-            </div>
+            <details>
+              <summary>(2.3.1) Memory Injection</summary>
+              <div class="details-content">
+                <div class="learning-objectives">
+                  <h3>Learning Objectives</h3>
+                  <ul>
+                    <li>Understand memory injection attack techniques.</li>
+                    <li>Identify prevention methods for memory-based vulnerabilities.</li>
+                  </ul>
+                </div>
+                <div class="notes-section">
+                  <h3>Overview</h3>
+                  <p>Content coming soon.</p>
+                </div>
+              </div>
+            </details>
+
+            <details>
+              <summary>(2.3.2) Buffer Overflow</summary>
+              <div class="details-content">
+                <div class="learning-objectives">
+                  <h3>Learning Objectives</h3>
+                  <ul>
+                    <li>Understand buffer overflow vulnerabilities and exploitation.</li>
+                    <li>Identify mitigation strategies for buffer overflow attacks.</li>
+                  </ul>
+                </div>
+                <div class="notes-section">
+                  <h3>Overview</h3>
+                  <p>Content coming soon.</p>
+                </div>
+              </div>
+            </details>
+
+            <details>
+              <summary>(2.3.3) Race Conditions</summary>
+              <div class="details-content">
+                <div class="learning-objectives">
+                  <h3>Learning Objectives</h3>
+                  <ul>
+                    <li>Understand race condition vulnerabilities.</li>
+                    <li>Identify timing-based attack vectors.</li>
+                  </ul>
+                </div>
+                <div class="notes-section">
+                  <h3>Overview</h3>
+                  <p>Content coming soon.</p>
+                </div>
+              </div>
+            </details>
+
+            <details>
+              <summary>(2.3.4) Malicious Updates</summary>
+              <div class="details-content">
+                <div class="learning-objectives">
+                  <h3>Learning Objectives</h3>
+                  <ul>
+                    <li>Identify malicious update attack vectors.</li>
+                    <li>Understand supply chain security implications.</li>
+                  </ul>
+                </div>
+                <div class="notes-section">
+                  <h3>Overview</h3>
+                  <p>Content coming soon.</p>
+                </div>
+              </div>
+            </details>
+
+            <details>
+              <summary>(2.3.5) Operating System Vulnerabilities</summary>
+              <div class="details-content">
+                <div class="learning-objectives">
+                  <h3>Learning Objectives</h3>
+                  <ul>
+                    <li>Understand OS-level security weaknesses.</li>
+                    <li>Identify kernel and system-level vulnerabilities.</li>
+                  </ul>
+                </div>
+                <div class="notes-section">
+                  <h3>Overview</h3>
+                  <p>Content coming soon.</p>
+                </div>
+              </div>
+            </details>
+
+            <details>
+              <summary>(2.3.6) SQL Injection</summary>
+              <div class="details-content">
+                <div class="learning-objectives">
+                  <h3>Learning Objectives</h3>
+                  <ul>
+                    <li>Understand SQL injection attack techniques.</li>
+                    <li>Identify prevention methods for database vulnerabilities.</li>
+                  </ul>
+                </div>
+                <div class="notes-section">
+                  <h3>Overview</h3>
+                  <p>Content coming soon.</p>
+                </div>
+              </div>
+            </details>
+
+            <details>
+              <summary>(2.3.7) Cross-Site Scripting</summary>
+              <div class="details-content">
+                <div class="learning-objectives">
+                  <h3>Learning Objectives</h3>
+                  <ul>
+                    <li>Understand XSS attack vectors and types.</li>
+                    <li>Identify web application security controls.</li>
+                  </ul>
+                </div>
+                <div class="notes-section">
+                  <h3>Overview</h3>
+                  <p>Content coming soon.</p>
+                </div>
+              </div>
+            </details>
           </div>
         </details>
+
+        <details>
+          <summary>Part 2</summary>
+          <div class="details-content">
+            <details>
+              <summary>(2.3.8) Hardware Vulnerabilities</summary>
+              <div class="details-content">
+                <div class="learning-objectives">
+                  <h3>Learning Objectives</h3>
+                  <ul>
+                    <li>Understand hardware-level security weaknesses.</li>
+                    <li>Identify physical and firmware vulnerabilities.</li>
+                  </ul>
+                </div>
+                <div class="notes-section">
+                  <h3>Overview</h3>
+                  <p>Content coming soon.</p>
+                </div>
+              </div>
+            </details>
+
+            <details>
+              <summary>(2.3.9) Virtualization Vulnerabilities</summary>
+              <div class="details-content">
+                <div class="learning-objectives">
+                  <h3>Learning Objectives</h3>
+                  <ul>
+                    <li>Understand virtualization security challenges.</li>
+                    <li>Identify hypervisor and VM escape vulnerabilities.</li>
+                  </ul>
+                </div>
+                <div class="notes-section">
+                  <h3>Overview</h3>
+                  <p>Content coming soon.</p>
+                </div>
+              </div>
+            </details>
+
+            <details>
+              <summary>(2.3.91) Cloud-Specific Vulnerabilities</summary>
+              <div class="details-content">
+                <div class="learning-objectives">
+                  <h3>Learning Objectives</h3>
+                  <ul>
+                    <li>Understand cloud computing security risks.</li>
+                    <li>Identify misconfiguration and shared responsibility vulnerabilities.</li>
+                  </ul>
+                </div>
+                <div class="notes-section">
+                  <h3>Overview</h3>
+                  <p>Content coming soon.</p>
+                </div>
+              </div>
+            </details>
+
+            <details>
+              <summary>(2.3.92) Supply Chain Vulnerabilities</summary>
+              <div class="details-content">
+                <div class="learning-objectives">
+                  <h3>Learning Objectives</h3>
+                  <ul>
+                    <li>Understand supply chain attack vectors.</li>
+                    <li>Identify third-party and vendor security risks.</li>
+                  </ul>
+                </div>
+                <div class="notes-section">
+                  <h3>Overview</h3>
+                  <p>Content coming soon.</p>
+                </div>
+              </div>
+            </details>
+
+            <details>
+              <summary>(2.3.93) Misconfiguration Vulnerabilities</summary>
+              <div class="details-content">
+                <div class="learning-objectives">
+                  <h3>Learning Objectives</h3>
+                  <ul>
+                    <li>Identify common configuration security weaknesses.</li>
+                    <li>Understand default settings and hardening requirements.</li>
+                  </ul>
+                </div>
+                <div class="notes-section">
+                  <h3>Overview</h3>
+                  <p>Content coming soon.</p>
+                </div>
+              </div>
+            </details>
+
+            <details>
+              <summary>(2.3.94) Mobile Device Vulnerabilities</summary>
+              <div class="details-content">
+                <div class="learning-objectives">
+                  <h3>Learning Objectives</h3>
+                  <ul>
+                    <li>Understand mobile platform security challenges.</li>
+                    <li>Identify app-based and device-level vulnerabilities.</li>
+                  </ul>
+                </div>
+                <div class="notes-section">
+                  <h3>Overview</h3>
+                  <p>Content coming soon.</p>
+                </div>
+              </div>
+            </details>
+
+            <details>
+              <summary>(2.3.95) Zero Day Vulnerabilities</summary>
+              <div class="details-content">
+                <div class="learning-objectives">
+                  <h3>Learning Objectives</h3>
+                  <ul>
+                    <li>Understand zero-day attack characteristics.</li>
+                    <li>Identify detection and mitigation strategies.</li>
+                  </ul>
+                </div>
+                <div class="notes-section">
+                  <h3>Overview</h3>
+                  <p>Content coming soon.</p>
+                </div>
+              </div>
+            </details>
+          </div>
+        </details>
+      </div>
+    </details>
 
         <details>
           <summary>2.4 Analyze Indicators of Malicious Activity</summary>
@@ -1724,11 +2331,6 @@
   </div>
 </body>
 </html>
-              <summary>(2.1) Threat Actors</summary>
-          <div class="details-content">
-            <div class="learning-objectives">
-              <h3>Learning Objectives</h3>
-              <ul>
                 <li>Identify different types of threat actors and their characteristics.</li>
                 <li>Understand threat actor motivations and capabilities.</li>
               </ul>
