@@ -1363,12 +1363,70 @@
                 <div class="learning-objectives">
                   <h3>Learning Objectives</h3>
                   <ul>
-                    <li>Understand blockchain cryptographic foundations.</li>
+                    <li>Understand blockchain technology and distributed ledgers.</li>
+                    <li>Explain blockchain process and tamper-resistance mechanisms.</li>
                   </ul>
                 </div>
                 <div class="notes-section">
                   <h3>Overview</h3>
-                  <p>Content coming soon.</p>
+                  <p>Blockchain is a tamper-resistant digital notebook shared across every computer in a network, used to track transactions without central authority.</p>
+                </div>
+
+                <div class="notes-section">
+                  <h3>What is Blockchain?</h3>
+                  <ul>
+                    <li>A <strong>distributed ledger</strong> - shared and copied to every computer in network</li>
+                    <li>Keeps track of transactions like money transfers, votes, ownership records</li>
+                    <li>No central authority needed</li>
+                    <li>Everyone on the network maintains the ledger</li>
+                    <li>Records and replicates to anyone and everyone</li>
+                  </ul>
+                  <div class="example">
+                    <strong>Memory Hook:</strong> Imagine a classroom where every student keeps a copy of the gradebook. If someone tries to sneak in a higher grade, they'd be caught because their gradebook wouldn't match everyone else's. That's blockchain — everyone has a copy of the truth.
+                  </div>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Blockchain Applications</h3>
+                  <ul>
+                    <li>Payment processing</li>
+                    <li>Digital identification</li>
+                    <li>Digital voting</li>
+                    <li>Transferring cryptocurrency (BTC)</li>
+                    <li>Transferring house titles</li>
+                  </ul>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Blockchain Process</h3>
+                  <ol>
+                    <li>Transaction sent to every computer/node in decentralized network for verification</li>
+                    <li>Verified transaction added to new block of data with other recent transactions</li>
+                    <li>Secure code (hash) calculated from previous transaction data blocks added to new block</li>
+                    <li>Block added to end of blockchain, added to everyone's ledger</li>
+                  </ol>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Why the Hash Matters</h3>
+                  <ul>
+                    <li>If even 1 character in a block changes, the hash changes completely</li>
+                    <li>This breaks the chain, making tampering immediately obvious</li>
+                    <li>Network rejects altered chains</li>
+                    <li>All following hashes are automatically recalculated</li>
+                  </ul>
+                  <div class="example">
+                    <strong>Memory Hook:</strong> Think of the hash like a tamper-evident seal. If the seal's broken, everyone knows it's been messed with.
+                  </div>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Why Is Blockchain Powerful?</h3>
+                  <ul>
+                    <li><strong>Tamper-resistant:</strong> Can't change past transactions without changing every copy (practically impossible)</li>
+                    <li><strong>Decentralized:</strong> No single person or company owns the data</li>
+                    <li><strong>Trustless:</strong> Don't need to trust middlemen like banks or notaries</li>
+                  </ul>
                 </div>
               </div>
             </details>
@@ -1379,12 +1437,137 @@
                 <div class="learning-objectives">
                   <h3>Learning Objectives</h3>
                   <ul>
-                    <li>Manage digital certificates and certificate authorities.</li>
+                    <li>Understand digital certificates and certificate authorities.</li>
+                    <li>Compare public vs private certificate authorities and revocation methods.</li>
                   </ul>
                 </div>
                 <div class="notes-section">
                   <h3>Overview</h3>
-                  <p>Content coming soon.</p>
+                  <p>Digital certificates bind public keys with digital signatures to establish trust in digital communications through Certificate Authorities.</p>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Digital Certificates</h3>
+                  <ul>
+                    <li><strong>Public Key Certificates:</strong> Bind a public key with a digital signature</li>
+                    <li>Include other details about key holder</li>
+                    <li>Digital signatures add trust through Certificate Authorities</li>
+                    <li><strong>Web of Trust:</strong> Additional users for additional trust ("A friend of a friend we can trust")</li>
+                    <li>Certificates within organizations may not need 3rd party CA</li>
+                    <li>Certificate creation can be built into the OS</li>
+                  </ul>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Standard Format: X.509</h3>
+                  <ul>
+                    <li><strong>Certificate Details:</strong> Serial Number, Version, Signature Algorithm</li>
+                    <li>Issuer, Name of Certificate Holder, Public Key</li>
+                    <li>Standardized format for digital certificates</li>
+                  </ul>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Root of Trust</h3>
+                  <ul>
+                    <li>Everything in IT security requires trust (fundamental characteristic)</li>
+                    <li>How can we build trust from something unknown?</li>
+                    <li>Have a 3rd party vouch for this connection</li>
+                    <li><strong>Root of Trust:</strong> Inherently and implicitly trusted component</li>
+                    <li>Can be hardware, software, or other component (HSM, Secure Enclave, etc.)</li>
+                  </ul>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Certificate Authorities (CA)</h3>
+                  <ul>
+                    <li>When connecting to random websites, how can you trust them?</li>
+                    <li>CA has digitally signed the website certificate</li>
+                    <li>Browser trusts the CA, you trust the CA</li>
+                    <li>Real-time verification process</li>
+                  </ul>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Third-Party CAs</h3>
+                  <ul>
+                    <li>Built into your browser</li>
+                    <li>Hundreds of certificate authorities that are trusted</li>
+                    <li>Companies pay the CA and become trusted by your browser</li>
+                    <li>Charge comes from authority signing the certification and providing validation</li>
+                  </ul>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Certificate Signing Requests (CSR)</h3>
+                  <ul>
+                    <li>Create a key pair, then send the public key to the CA to be signed</li>
+                    <li>CA validates the request (confirms DNS emails and website ownership)</li>
+                    <li>Once approved, signed with CA's private key and sent back</li>
+                  </ul>
+                  <div style="text-align:center">
+                    <img src="Photos/certificate-signing-request.png" alt="Certificate Signing Request Process" style="max-width: 720px; width: 100%; height: auto; border: 2px solid #333; border-radius: 8px;">
+                  </div>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Private Certificate Authorities</h3>
+                  <ul>
+                    <li>You are your own CA - build it in-house</li>
+                    <li>Your devices must trust the internal CA</li>
+                    <li>Take public certificate → Install on everyone's computer in organization</li>
+                    <li>Everyone's machine trusts the internal CA same as external CA</li>
+                    <li><strong>Software Packages:</strong> Windows Certificate Services, Open CA</li>
+                  </ul>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Self-Signed Certificates</h3>
+                  <ul>
+                    <li>Internal certificates don't need to be signed by Public CA</li>
+                    <li>Company is the only one going to use it</li>
+                    <li>No need to purchase trust for devices that trust you</li>
+                    <li>Build your own CA and issue your own certificates</li>
+                    <li>Install the CA certificate/trusted chain on all devices</li>
+                    <li>All devices know and inherently trust because of the internal CA</li>
+                  </ul>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Wildcard Certificates</h3>
+                  <ul>
+                    <li><strong>Subject Alternative Name (SAN):</strong> Extension to X.509 Certificate</li>
+                    <li>Allows certificate to support various domains</li>
+                    <li><strong>Wildcard Domain:</strong> Certificates based on server name</li>
+                    <li>Wildcard domain applies to all server names with associated domain name</li>
+                  </ul>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Key Revocation</h3>
+                  <ul>
+                    <li><strong>Certificate Revocation List (CRL):</strong> Maintained by CA</li>
+                    <li>Contains many revocations in a large file</li>
+                    <li>Many different ways to revoke a certificate</li>
+                    <li><strong>Example - Heartbleed:</strong> Vulnerability in OpenSSL that put private keys at risk</li>
+                    <li>OpenSSL patched, web server certificates were replaced</li>
+                  </ul>
+                </div>
+
+                <div class="notes-section">
+                  <h3>OCSP Stapling</h3>
+                  <div class="example">
+                    <strong>Problem:</strong> Using CRL is slow and bulky. If 1000 people visit a website, they all have to download the CRL, search for the certificate, and confirm it's valid. That doesn't scale well.
+                  </div>
+                  <ul>
+                    <li><strong>Online Certificate Status Protocol (OCSP):</strong> Provides scalability for OCSP checks</li>
+                    <li>CA responsible for responding to all client OCSP requests (inefficient)</li>
+                    <li>Instead, have certificate holder verify their own status</li>
+                    <li>Status information stored on certificate holder's server</li>
+                    <li>OCSP status "stapled" into SSL/TLS handshake, digitally signed by CA</li>
+                    <li>Browser can handle all checks for revocation</li>
+                    <li><strong>Alternative:</strong> 3rd party server to provide OCSP responder via HTTP</li>
+                  </ul>
                 </div>
               </div>
             </details>
