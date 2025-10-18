@@ -134,17 +134,38 @@
             border-radius: 8px;
         }
 
-        .note-selector {
+        .table-of-contents {
+            margin: 2rem 0;
+        }
+
+        .table-of-contents h2 {
+            color: #4a9eff;
             margin-bottom: 1rem;
         }
 
-        .note-selector select {
+        .table-of-contents details {
+            margin: 0.5rem 0;
+        }
+
+        .table-of-contents summary {
+            padding: 0.75rem;
+            font-weight: bold;
             background: #333;
-            color: #fff;
-            border: 1px solid #555;
-            padding: 0.5rem;
-            border-radius: 4px;
-            width: 100%;
+            border-radius: 6px;
+        }
+
+        .table-of-contents .details-content {
+            padding: 0.5rem 0 0.5rem 1rem;
+        }
+
+        .table-of-contents a {
+            color: #4a9eff;
+            text-decoration: none;
+            font-weight: bold;
+        }
+
+        .table-of-contents a:hover {
+            text-decoration: underline;
         }
 
         @media (max-width: 768px) {
@@ -172,17 +193,6 @@
         <div class="profile-info">
             <h1>CompTIA Security+ Notes</h1>
             <a href="index.html">← Back to Portfolio</a>
-            <div class="note-selector">
-                <select id="noteSelector" onchange="loadNote()">
-                    <option value="">Select a Note...</option>
-                    <option value="security-controls">1.1 Security Controls</option>
-                    <option value="threat-actors">2.1 Threat Actors</option>
-                    <option value="threat-vectors">2.2 Threat Vectors</option>
-                    <option value="vulnerability-types">2.3 Vulnerability Types</option>
-                    <option value="malicious-indicators">2.4 Malicious Indicators</option>
-                    <option value="mitigation-techniques">2.5 Mitigation Techniques</option>
-                </select>
-            </div>
         </div>
         <div class="footer">
             <p>© 2025 Christian Garces | Hosted on GitHub Pages</p>
@@ -192,20 +202,93 @@
     <div class="main-content">
         <div id="content">
             <h1>CompTIA Security+ Notes</h1>
-            <p>Select a note from the dropdown to view its content.</p>
+            
+            <div class="table-of-contents">
+                <h2>Table of Contents</h2>
+                
+                <details>
+                    <summary>1.0 General Security Concepts</summary>
+                    <div class="details-content">
+                        <details>
+                            <summary>1.1 Security Controls</summary>
+                            <div class="details-content">
+                                <p><a href="#" onclick="loadNote('security-controls')">View 1.1 Security Controls</a></p>
+                            </div>
+                        </details>
+                        
+                        <details>
+                            <summary>1.2 Fundamental Security Concepts</summary>
+                            <div class="details-content">
+                                <p><em>Coming soon...</em></p>
+                            </div>
+                        </details>
+                        
+                        <details>
+                            <summary>1.3 Change Management Process</summary>
+                            <div class="details-content">
+                                <p><em>Coming soon...</em></p>
+                            </div>
+                        </details>
+                        
+                        <details>
+                            <summary>1.4 Appropriate uses of Cryptography</summary>
+                            <div class="details-content">
+                                <p><em>Coming soon...</em></p>
+                            </div>
+                        </details>
+                    </div>
+                </details>
+                
+                <details>
+                    <summary>2.0 Threats, Vulnerabilities, and Mitigations</summary>
+                    <div class="details-content">
+                        <details>
+                            <summary>2.1 Threat Actors</summary>
+                            <div class="details-content">
+                                <p><a href="#" onclick="loadNote('threat-actors')">View 2.1 Threat Actors</a></p>
+                            </div>
+                        </details>
+                        
+                        <details>
+                            <summary>2.2 Threat Vectors</summary>
+                            <div class="details-content">
+                                <p><em>Coming soon...</em></p>
+                            </div>
+                        </details>
+                        
+                        <details>
+                            <summary>2.3 Vulnerability Types</summary>
+                            <div class="details-content">
+                                <p><em>Coming soon...</em></p>
+                            </div>
+                        </details>
+                        
+                        <details>
+                            <summary>2.4 Malicious Indicators</summary>
+                            <div class="details-content">
+                                <p><em>Coming soon...</em></p>
+                            </div>
+                        </details>
+                        
+                        <details>
+                            <summary>2.5 Mitigation Techniques</summary>
+                            <div class="details-content">
+                                <p><em>Coming soon...</em></p>
+                            </div>
+                        </details>
+                    </div>
+                </details>
+            </div>
+            
+            <div id="note-content" style="display: none;">
+                <h2 id="note-title"></h2>
+                <div id="note-body"></div>
+            </div>
         </div>
     </div>
 
     <script>
-        async function loadNote() {
-            const selector = document.getElementById('noteSelector');
-            const noteFile = selector.value;
-            
-            if (!noteFile) {
-                document.getElementById('content').innerHTML = '<h1>CompTIA Security+ Notes</h1><p>Select a note from the dropdown to view its content.</p>';
-                return;
-            }
-            
+        async function loadNote(noteFile) {
             try {
                 const response = await fetch(`notes/${noteFile}.md`);
                 if (!response.ok) {
@@ -214,9 +297,27 @@
                 
                 const markdown = await response.text();
                 const html = marked.parse(markdown);
-                document.getElementById('content').innerHTML = html;
+                
+                // Hide table of contents and show note content
+                document.querySelector('.table-of-contents').style.display = 'none';
+                document.getElementById('note-content').style.display = 'block';
+                
+                // Set the title and content
+                document.getElementById('note-title').textContent = html.match(/<h1[^>]*>(.*?)<\/h1>/)?.[1] || 'Note';
+                document.getElementById('note-body').innerHTML = html;
+                
+                // Add back button
+                const backButton = document.createElement('button');
+                backButton.textContent = '← Back to Table of Contents';
+                backButton.onclick = () => {
+                    document.querySelector('.table-of-contents').style.display = 'block';
+                    document.getElementById('note-content').style.display = 'none';
+                };
+                backButton.style.cssText = 'background: #4a9eff; color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; margin-bottom: 1rem;';
+                document.getElementById('note-content').insertBefore(backButton, document.getElementById('note-content').firstChild);
+                
             } catch (error) {
-                document.getElementById('content').innerHTML = '<h1>Error</h1><p>Could not load the selected note. Make sure the markdown file exists.</p>';
+                document.getElementById('note-body').innerHTML = '<h1>Error</h1><p>Could not load the selected note. Make sure the markdown file exists.</p>';
             }
         }
     </script>
