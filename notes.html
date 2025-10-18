@@ -951,11 +951,58 @@
                   <h3>Learning Objectives</h3>
                   <ul>
                     <li>Understand PKI components and certificate lifecycle.</li>
+                    <li>Compare symmetric and asymmetric encryption methods.</li>
                   </ul>
                 </div>
                 <div class="notes-section">
                   <h3>Overview</h3>
-                  <p>Content coming soon.</p>
+                  <p>PKI encompasses policies, procedures, hardware, software, and people to create, distribute, manage, store, and revoke digital certificates. It binds public keys to people or devices through trusted Certificate Authorities.</p>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Symmetric Encryption</h3>
+                  <ul>
+                    <li>Uses a single, shared key for both encryption and decryption</li>
+                    <li>If compromised, requires a new key</li>
+                    <li>Not scalable beyond ~10 people</li>
+                  </ul>
+                  <div class="example">
+                    <strong>Benefits:</strong> Very fast, less overhead than asymmetric, often combined with asymmetric encryption
+                  </div>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Asymmetric Encryption</h3>
+                  <ul>
+                    <li>Uses two mathematically related keys created simultaneously</li>
+                    <li><strong>Private Key:</strong> Keep secret, only owner has access</li>
+                    <li><strong>Public Key:</strong> Can be shared with anyone</li>
+                    <li>Private key is the only key that can decrypt data encrypted with the public key</li>
+                    <li>Cannot derive private key from public key</li>
+                  </ul>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Key Pair Generation</h3>
+                  <ul>
+                    <li>Build both public and private keys simultaneously</li>
+                    <li>Uses randomization and large prime numbers</li>
+                    <li>Everyone can have the public key, only owner has private key</li>
+                  </ul>
+                  <div style="text-align:center">
+                    <img src="Photos/ASYMMETRIC Encryption.png" alt="Asymmetric Encryption Example" style="max-width: 720px; width: 100%; height: auto; border: 2px solid #333; border-radius: 8px;">
+                  </div>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Key Escrow</h3>
+                  <ul>
+                    <li>Third party holds decryption keys</li>
+                    <li>May be within your organization or external</li>
+                    <li>Legitimate business arrangement for data recovery</li>
+                    <li>Government agencies may require access to partner data</li>
+                    <li>Controversial but sometimes required</li>
+                  </ul>
                 </div>
               </div>
             </details>
@@ -967,11 +1014,70 @@
                   <h3>Learning Objectives</h3>
                   <ul>
                     <li>Identify appropriate encryption methods for different data types.</li>
+                    <li>Understand data-at-rest and data-in-transit encryption.</li>
                   </ul>
                 </div>
                 <div class="notes-section">
                   <h3>Overview</h3>
-                  <p>Content coming soon.</p>
+                  <p>Encryption protects data on storage devices (data-at-rest) and during transmission (data-in-transit) using various algorithms and key management techniques.</p>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Data-at-Rest Encryption</h3>
+                  <ul>
+                    <li>Protect data on SSD, hard drives, USB drives, cloud storage</li>
+                    <li><strong>Full-disk encryption:</strong> BitLocker, FileVault</li>
+                    <li><strong>Single file encryption:</strong> EFS (Encrypting File System), third-party utilities</li>
+                    <li>Built into NTFS - Properties → Encrypt Contents</li>
+                  </ul>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Database Encryption</h3>
+                  <ul>
+                    <li><strong>Transparent Encryption:</strong> Encrypt entire database with symmetric key</li>
+                    <li><strong>Record Level Encryption:</strong> Encrypt individual columns with separate keys</li>
+                    <li>Non-sensitive data can remain in plaintext</li>
+                  </ul>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Transport Encryption</h3>
+                  <ul>
+                    <li>Protect data traversing the network</li>
+                    <li><strong>Application-level:</strong> HTTPS in browsers</li>
+                    <li><strong>VPN:</strong> Client-based (SSL/TLS) or Site-to-Site (IPsec)</li>
+                    <li>Encrypts all data regardless of application</li>
+                  </ul>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Encryption Algorithms</h3>
+                  <ul>
+                    <li>Many ways to encrypt data - proper formula must be used</li>
+                    <li>Both sides decide on algorithm before encryption</li>
+                    <li>Consider security level, speed, implementation complexity</li>
+                  </ul>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Cryptographic Keys</h3>
+                  <ul>
+                    <li>Algorithm is known - only the key is secret</li>
+                    <li>Key determines encrypted data, hash value, digital signature</li>
+                    <li><strong>Key Lengths:</strong> Larger keys = more secure</li>
+                    <li><strong>Symmetric:</strong> 128-bit or larger</li>
+                    <li><strong>Asymmetric:</strong> 3,072-bit or larger</li>
+                  </ul>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Key Stretching</h3>
+                  <ul>
+                    <li>Make weak keys stronger through multiple processes</li>
+                    <li>Hash password → Hash the hash → Hash the hash of the hash</li>
+                    <li>Makes brute force attacks require multiple decryption attempts</li>
+                  </ul>
                 </div>
               </div>
             </details>
@@ -983,11 +1089,44 @@
                   <h3>Learning Objectives</h3>
                   <ul>
                     <li>Understand secure key exchange mechanisms.</li>
+                    <li>Compare out-of-band vs in-band key exchange methods.</li>
                   </ul>
                 </div>
                 <div class="notes-section">
                   <h3>Overview</h3>
-                  <p>Content coming soon.</p>
+                  <p>Key exchange solves the logistical challenge of sharing encryption keys across insecure mediums without physical transfer.</p>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Key Exchange Methods</h3>
+                  <ul>
+                    <li><strong>Out-of-Band:</strong> Not sent over network (telephone, courier, in-person)</li>
+                    <li><strong>In-Band:</strong> Sent over network, protected with additional encryption</li>
+                    <li>Use asymmetric encryption to deliver symmetric keys</li>
+                  </ul>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Real-time Encryption/Decryption</h3>
+                  <ul>
+                    <li>Share symmetric session key using asymmetric encryption</li>
+                    <li>Client encrypts random symmetric key with server's public key</li>
+                    <li>Server decrypts shared key and uses it for data encryption</li>
+                    <li>Session keys must be changed often (ephemeral keys)</li>
+                    <li>Must be unpredictable</li>
+                  </ul>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Symmetric Key from Asymmetric Keys</h3>
+                  <ul>
+                    <li>Use public/private key cryptography to create symmetric key</li>
+                    <li>Build same symmetric key on both sides without sending it</li>
+                    <li>Key never transmitted across network</li>
+                  </ul>
+                  <div style="text-align:center">
+                    <img src="Photos/Private Key + Public Key.png" alt="Key Exchange Process" style="max-width: 720px; width: 100%; height: auto; border: 2px solid #333; border-radius: 8px;">
+                  </div>
                 </div>
               </div>
             </details>
@@ -998,12 +1137,64 @@
                 <div class="learning-objectives">
                   <h3>Learning Objectives</h3>
                   <ul>
-                    <li>Compare symmetric and asymmetric encryption technologies.</li>
+                    <li>Identify hardware and software encryption technologies.</li>
+                    <li>Understand TPM, HSM, and key management systems.</li>
                   </ul>
                 </div>
                 <div class="notes-section">
                   <h3>Overview</h3>
-                  <p>Content coming soon.</p>
+                  <p>Various hardware and software technologies provide cryptographic functions for single devices and large-scale environments.</p>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Trusted Platform Module (TPM)</h3>
+                  <ul>
+                    <li>Provides encryption functions for a single device</li>
+                    <li>Exists on motherboard, designed for cryptographic functions</li>
+                    <li><strong>Persistent Memory:</strong> Unique keys burned during manufacturing</li>
+                    <li><strong>Versatile Memory:</strong> Storage keys, BitLocker keys</li>
+                    <li>Password protected - no dictionary attacks</li>
+                  </ul>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Hardware Security Module (HSM)</h3>
+                  <ul>
+                    <li>Used in large environments with clusters and redundant power</li>
+                    <li>Securely store thousands of cryptographic keys</li>
+                    <li>High-end cryptographic hardware (plug-in card/separate device)</li>
+                    <li>Key backup and secure storage</li>
+                    <li>Cryptographic accelerators - offload CPU overhead</li>
+                  </ul>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Key Management System</h3>
+                  <ul>
+                    <li>Centralized manager for all keys across services</li>
+                    <li>Third-party software solution</li>
+                    <li>Separate encryption keys from data</li>
+                    <li>Create keys for specific services or cloud providers</li>
+                    <li>Associate keys with end-users</li>
+                    <li>Rotate keys on regular intervals</li>
+                    <li>Log key use and events</li>
+                  </ul>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Secure Enclave</h3>
+                  <ul>
+                    <li>Protected area for secrets - hardware processor</li>
+                    <li>Isolated from main CPU</li>
+                    <li>Used for fingerprints, FaceID, Apple Pay transactions</li>
+                    <li>Secure boot verification, private keys & secrets</li>
+                    <li>Own BOOT ROM, monitors system boot process</li>
+                    <li>True random number generator, real-time memory encryption</li>
+                    <li>Performs AES encryption in hardware</li>
+                  </ul>
+                  <div class="example">
+                    <strong>Memory Hook:</strong> A safe within your CPU
+                  </div>
                 </div>
               </div>
             </details>
@@ -1014,12 +1205,59 @@
                 <div class="learning-objectives">
                   <h3>Learning Objectives</h3>
                   <ul>
-                    <li>Understand data obfuscation techniques and use cases.</li>
+                    <li>Understand data obfuscation techniques.</li>
+                    <li>Compare steganography, tokenization, and data masking.</li>
                   </ul>
                 </div>
                 <div class="notes-section">
                   <h3>Overview</h3>
-                  <p>Content coming soon.</p>
+                  <p>Obfuscation makes information unclear or difficult to understand while hiding it in plain sight.</p>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Steganography</h3>
+                  <ul>
+                    <li>Greek for "concealed writing"</li>
+                    <li>Security through obscurity - "Hide the Key not the Lock"</li>
+                    <li>If method is discovered, information can be recovered</li>
+                    <li><strong>Covertext:</strong> Container document or file</li>
+                  </ul>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Common Steganography Techniques</h3>
+                  <ul>
+                    <li><strong>Network-based:</strong> Embed messages in TCP packets</li>
+                    <li><strong>Image steganography:</strong> Embed message in image</li>
+                    <li><strong>Invisible watermarks:</strong> Yellow dots on printers</li>
+                    <li><strong>Audio steganography:</strong> Modify digital audio files</li>
+                    <li><strong>Video steganography:</strong> Sequence of images with secret information</li>
+                  </ul>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Tokenization</h3>
+                  <ul>
+                    <li>Replace sensitive data with non-sensitive placeholder</li>
+                    <li>Example: SSN → random number</li>
+                    <li>Common in credit card processing (Apple Pay)</li>
+                    <li>One-time use tokens</li>
+                    <li>Original data and token aren't mathematically related</li>
+                  </ul>
+                  <div style="text-align:center">
+                    <img src="Photos/Tokenization.png" alt="Tokenization Process" style="max-width: 720px; width: 100%; height: auto; border: 2px solid #333; border-radius: 8px;">
+                  </div>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Data Masking</h3>
+                  <ul>
+                    <li>Hide some original data: **** **** **** 9989</li>
+                    <li>Protects PII and sensitive data</li>
+                    <li>May only hide from view - data intact in storage</li>
+                    <li>Control view based on permissions</li>
+                    <li><strong>Techniques:</strong> Substituting, shuffling, encrypting, masking out</li>
+                  </ul>
                 </div>
               </div>
             </details>
@@ -1030,12 +1268,91 @@
                 <div class="learning-objectives">
                   <h3>Learning Objectives</h3>
                   <ul>
-                    <li>Apply hashing and digital signature technologies appropriately.</li>
+                    <li>Understand hashing algorithms and digital signatures.</li>
+                    <li>Compare integrity verification methods and authentication.</li>
                   </ul>
                 </div>
                 <div class="notes-section">
                   <h3>Overview</h3>
-                  <p>Content coming soon.</p>
+                  <p>Hashing provides integrity verification while digital signatures provide authentication, non-repudiation, and integrity.</p>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Hashes</h3>
+                  <ul>
+                    <li>Represent data as short string of text (message digest/fingerprint)</li>
+                    <li><strong>One-way trip:</strong> NOT encryption, cannot recreate data</li>
+                    <li>Used for password storage (confidentiality)</li>
+                    <li>Verify downloaded documents match original (integrity)</li>
+                    <li>Can create digital signatures (authentication, non-repudiation)</li>
+                  </ul>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Practical Hashing</h3>
+                  <ul>
+                    <li><strong>File verification:</strong> Compare downloaded hash with posted hash</li>
+                    <li><strong>Password storage:</strong> Store salted hash instead of password</li>
+                    <li>Compare hashes during authentication</li>
+                  </ul>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Salt</h3>
+                  <ul>
+                    <li>Random data added to password when hashing</li>
+                    <li>Makes brute force more difficult</li>
+                    <li>Every user gets different random salt</li>
+                    <li>Same passwords → Different hashes</li>
+                    <li>Prevents rainbow table attacks</li>
+                  </ul>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Hash Collisions</h3>
+                  <ul>
+                    <li>Different inputs creating same hash (extremely rare)</li>
+                    <li>Don't use MD5 - collisions are possible</li>
+                    <li>Use SHA256 (256 bits/64 hexadecimal characters)</li>
+                    <li>One minor change causes completely different output</li>
+                  </ul>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Digital Signatures</h3>
+                  <ul>
+                    <li>Prove message wasn't changed (integrity)</li>
+                    <li>Prove source of message (authentication)</li>
+                    <li>Ensure signature isn't fake (non-repudiation)</li>
+                    <li>Sign with private key, verify with public key</li>
+                    <li>Any message change invalidates signature</li>
+                  </ul>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Creating a Digital Signature</h3>
+                  <ul>
+                    <li>Email client hashes plaintext</li>
+                    <li>Encrypts hash with private key</li>
+                    <li>Adds digital signature to plaintext (no encryption)</li>
+                    <li>Only sender has private key</li>
+                  </ul>
+                  <div style="text-align:center">
+                    <img src="Photos/Creating-Digital-Signature.png" alt="Creating Digital Signature" style="max-width: 720px; width: 100%; height: auto; border: 2px solid #333; border-radius: 8px;">
+                  </div>
+                </div>
+
+                <div class="notes-section">
+                  <h3>Verifying a Digital Signature</h3>
+                  <ul>
+                    <li>Decrypt digital signature using sender's public key</li>
+                    <li>Perform hashing algorithm on received plaintext</li>
+                    <li>Compare hashes</li>
+                    <li>If match: Document is same as sent, confirmed from sender</li>
+                  </ul>
+                  <div style="text-align:center">
+                    <img src="Photos/Verifying-Digital-Signature.png" alt="Verifying Digital Signature" style="max-width: 720px; width: 100%; height: auto; border: 2px solid #333; border-radius: 8px;">
+                  </div>
                 </div>
               </div>
             </details>
