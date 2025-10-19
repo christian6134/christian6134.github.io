@@ -1,45 +1,107 @@
+# Task 3 - URL (Uniform Resource Locator)
 
-![[Pasted image 20250710120355.png]]
+## Learning Objectives
+- Understand the components and structure of URLs
+- Learn about different URL schemes and their security implications
+- Master URL parsing and analysis techniques
+- Identify security risks associated with URL components
+- Understand how URLs are used in web attacks
+
+## Overview
+A Uniform Resource Locator (URL) is the address used to access resources on the web. Understanding URL structure and components is essential for web development, security analysis, and penetration testing. URLs contain multiple components that can be exploited by attackers if not properly secured.
+
+### URL Components
 
 **Scheme**
-
-The **scheme** is the protocol used to access the website. The most common are **HTTP** (Hypertext Transfer Protocol) and **HTTPS** (Hypertext Transfer Protocol Secure). HTTPS is more secure because it encrypts the connection, which is why browsers and cyber security experts recommend it. Websites often enforce HTTPS for added protection.
+- **Protocol used to access the website**
+- Most common: **HTTP** (Hypertext Transfer Protocol) and **HTTPS** (Hypertext Transfer Protocol Secure)
+- **HTTPS is more secure** because it encrypts the connection
+- Browsers and cybersecurity experts recommend HTTPS
+- Websites often enforce HTTPS for added protection
 
 **User**
-
-Some URLs can include a user’s login details (usually a username) for sites that require authentication. This happens mostly in URLs that need credentials to access certain resources. However, it’s rare nowadays because putting login details in the URL isn’t very safe—it can expose sensitive information, which is a security risk.
+- Some URLs can include **user's login details** (usually username) for authentication
+- Mostly used in URLs requiring credentials for resource access
+- **Rare nowadays** because putting login details in URL isn't safe
+- Can expose sensitive information, creating security risks
+- Should be avoided in favor of secure authentication methods
 
 **Host/Domain**
-
-The **host** or **domain** is the most important part of the URL because it tells you which website you’re accessing. Every domain name has to be unique and is registered through domain registrars. From a security standpoint, look for domain names that appear almost like real ones but have small differences (this is called **typo squatting**). These fake domains are often used in phishing attacks to trick people into giving up sensitive info.
+- **Most important part of the URL** - tells you which website you're accessing
+- Every domain name must be unique and registered through domain registrars
+- **Security concern**: Look for domain names that appear almost like real ones but have small differences
+- **Typo squatting**: Practice of registering misspelled variations of popular websites
+- Fake domains often used in **phishing attacks** to trick users
 
 **Port**
-
-The **port number** helps direct your browser to the right service on the web server. It’s like telling the server which doorway to use for communication. Port numbers range from 1 to 65,535, but the most common are **80** for HTTP and **443** for HTTPS.
+- **Port number** helps direct browser to the right service on web server
+- Like telling the server which doorway to use for communication
+- Port numbers range from 1 to 65,535
+- Most common: **80 for HTTP** and **443 for HTTPS**
+- Custom ports may indicate non-standard services
 
 **Path**
-
-The **path** points to the specific file or page on the server that you’re trying to access. It’s like a roadmap that shows the browser where to go. Websites need to secure these paths to make sure only authorized users can access sensitive resources.
+- **Points to specific file or page** on server you're trying to access
+- Like a roadmap showing browser where to go
+- Websites need to secure these paths
+- Ensure only authorized users can access sensitive resources
+- Path traversal attacks exploit insecure path handling
 
 **Query String**
-
-The **query string** is the part of the URL that starts with a question mark (?). It’s often used for things like search terms or form inputs. Since users can modify these query strings, it’s important to handle them securely to prevent attacks like **injections**, where malicious code could be added.
+- **Part of URL starting with question mark (?)** 
+- Often used for search terms or form inputs
+- **Security risk**: Users can modify query strings
+- Important to handle securely to prevent **injection attacks**
+- Malicious code could be added through query parameters
 
 **Fragment**
+- **Starts with hash symbol (#)** and points to specific section of webpage
+- Like jumping directly to particular heading or table
+- **Security risk**: Users can modify fragments
+- Like query strings, important to check and clean data
+- Can be used in injection attacks if not properly handled
 
-The **fragment** starts with a hash symbol (#) and helps point to a specific section of a webpage—like jumping directly to a particular heading or table. Users can modify this too, so like with query strings, it’s important to check and clean up any data here to avoid issues like injection attacks.
+### Security Implications
 
-### Exercises
--------------
-**Which protocol provides encrypted communication to ensure secure data transmission between a web browser and a web server?**
-- HTTP(S)
+**Protocol Security**
+- Always prefer HTTPS over HTTP
+- Implement HTTP Strict Transport Security (HSTS)
+- Monitor for protocol downgrade attacks
+- Use secure protocols for sensitive communications
 
+**Domain Security**
+- Implement Domain Name System Security Extensions (DNSSEC)
+- Monitor for typosquatting and domain spoofing
+- Use certificate pinning for critical applications
+- Implement proper certificate validation
 
+**Path Security**
+- Implement proper access controls
+- Validate and sanitize path components
+- Prevent directory traversal attacks
+- Use secure file serving mechanisms
 
-**What term describes the practice of registering domain names that are misspelt variations of popular websites to exploit user errors and potentially engage in fraudulent activities?**
-- typo squatting
+**Parameter Security**
+- Validate and sanitize all query parameters
+- Implement proper input validation
+- Use parameterized queries for database operations
+- Monitor for injection attack patterns
 
+### Exercise Answers
 
+**Question 1**: Which protocol provides encrypted communication to ensure secure data transmission between a web browser and a web server?
+- **Answer**: HTTPS
 
-**What part of a URL is used to pass additional information, such as search terms or form inputs, to the web server?**
-- query string
+**Question 2**: What term describes the practice of registering domain names that are misspelt variations of popular websites to exploit user errors and potentially engage in fraudulent activities?
+- **Answer**: typo squatting
+
+**Question 3**: What part of a URL is used to pass additional information, such as search terms or form inputs, to the web server?
+- **Answer**: query string
+
+## Best Practices
+- Always use HTTPS for sensitive communications
+- Implement proper input validation for all URL components
+- Monitor for suspicious domain names and typosquatting
+- Use secure coding practices for URL handling
+- Implement proper access controls for sensitive paths
+- Regular security testing of URL-based functionality

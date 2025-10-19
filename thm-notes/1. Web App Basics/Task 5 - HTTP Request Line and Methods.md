@@ -1,75 +1,130 @@
+# Task 5 - HTTP Request Line and Methods
 
-An **HTTP request** is what a user sends to a web server to interact with a web application and make something happen. Since these requests are often the first point of contact between the user and the web server, knowing how they work is super important—especially if you’re into cyber security.
+## Learning Objectives
+- Understand the structure and components of HTTP request lines
+- Learn about different HTTP methods and their purposes
+- Master security implications of each HTTP method
+- Understand URL path security considerations
+- Learn about HTTP version differences and security implications
 
-![Illustration showing a GET request and all of the different headers that are used.](https://tryhackme-images.s3.amazonaws.com/user-uploads/5f04259cf9bf5b57aed2c476/room-content/5f04259cf9bf5b57aed2c476-1730445201524.png)
+## Overview
+HTTP requests are the primary means of communication between clients and web servers. Understanding request structure, methods, and security implications is crucial for both web development and cybersecurity professionals who need to analyze, secure, and test web applications.
 
-Imagine an HTTP request showing the key parts like the method (e.g., GET or POST), path (e.g., /login), and version (e.g., HTTP/1.1). These elements make up the basics of how a client (user) communicates with a server.
+### HTTP Request Structure
 
-### Request Line
+**Request Line Components**
+- **HTTP Method**: Tells server what action user wants to perform
+- **URL Path**: Identifies the resource being requested
+- **HTTP Version**: Specifies protocol version for communication
+- **Format**: `METHOD /path HTTP/version`
 
-The **request line** (or start line) is the first part of an HTTP request and tells the server what kind of request it’s dealing with. It has three main parts: the **HTTP method**, the **URL path**, and the **HTTP version**.
+### HTTP Methods and Security
 
-**Example:** `METHOD /path HTTP/version`
+**GET**
+- **Purpose**: Used to **fetch** data from server without making changes
+- **Security Reminder**: Only expose data user is allowed to see
+- **Risk**: Avoid putting sensitive info like tokens or passwords in GET requests
+- **Issue**: Can show up as plaintext in logs and browser history
 
-### HTTP Methods
+**POST**
+- **Purpose**: **Sends** data to server, usually to create or update something
+- **Security Reminder**: Always validate and clean input to avoid attacks
+- **Risks**: SQL injection, XSS, and other injection attacks
+- **Best Practice**: Implement proper input validation and sanitization
 
-The **HTTP method** tells the server what action the user wants to perform on the resource identified by the URL path. Here are some of the most common methods and their possible security issue:
+**PUT**
+- **Purpose**: Replaces or **updates** something on the server
+- **Security Reminder**: Ensure user is authorized to make changes
+- **Risk**: Unauthorized modification of resources
+- **Best Practice**: Implement proper authorization checks
 
-**GET  
-**Used to **fetch** data from the server without making any changes. Reminder! Make sure you’re only exposing data the user is allowed to see. Avoid putting sensitive info like tokens or passwords in GET requests since they can show up as plaintext.
+**DELETE**
+- **Purpose**: **Removes** something from the server
+- **Security Reminder**: Ensure only authorized users can delete resources
+- **Risk**: Unauthorized deletion of critical data
+- **Best Practice**: Implement strong authorization and confirmation mechanisms
 
-**POST  
-****Sends** data to the server, usually to create or update something. Reminder! Always validate and clean the input to avoid attacks like SQL injection or XSS.
+### Additional HTTP Methods
 
-**PUT  
-**Replaces or **updates** something on the server. Reminder! Make sure the user is authorised to make changes before accepting the request.
+**PATCH**
+- **Purpose**: Updates part of a resource without replacing the whole thing
+- **Security Consideration**: Always validate data to avoid inconsistencies
+- **Use Case**: Making small changes efficiently
 
-**DELETE  
-****Removes** something from the server. Reminder! Just like with PUT, make sure only authorised users can delete resources.
+**HEAD**
+- **Purpose**: Works like GET but only retrieves headers, not full content
+- **Use Case**: Checking metadata without downloading full response
+- **Security**: Can be used for reconnaissance by attackers
 
-Besides these common methods, there are a few others used in specific cases:
+**OPTIONS**
+- **Purpose**: Tells you what methods are available for specific resource
+- **Security Risk**: Can reveal server capabilities to attackers
+- **Best Practice**: Disable if not needed to avoid security risks
 
-**PATCH  
-**Updates part of a resource. It’s useful for making small changes without replacing the whole thing, but always validate the data to avoid inconsistencies.
+**TRACE**
+- **Purpose**: Shows which methods are allowed, often for debugging
+- **Security Risk**: Can be used for cross-site tracing attacks
+- **Best Practice**: Many servers disable it for security reasons
 
-**HEAD  
-**Works like GET but only retrieves headers, not the full content. It’s handy for checking metadata without downloading the full response.
+**CONNECT**
+- **Purpose**: Used to create secure connection, like for HTTPS
+- **Use Case**: Critical for encrypted communication
+- **Security**: Essential for secure tunneling
 
-**OPTIONS  
-**Tells you what methods are available for a specific resource, helping clients understand what they can do with the server.
+### URL Path Security
 
-**TRACE  
-**Similar to OPTIONS, it shows which methods are allowed, often for debugging. Many servers disable it for security reasons.
+**Path Manipulation**
+- **Attack Vector**: Attackers often try to manipulate URL path to exploit vulnerabilities
+- **Examples**: Directory traversal, path injection, unauthorized access
 
-**CONNECT  
-**Used to create a secure connection, like for HTTPS. It’s not as common but is critical for encrypted communication.
+**Security Measures**
+- **Validate URL path** to prevent unauthorized access
+- **Sanitize path** to avoid injection attacks
+- **Protect sensitive data** by conducting privacy and risk assessments
+- **Implement proper access controls** for sensitive resources
 
-Each of these methods has its own set of security rules. For example, PATCH requests should be validated to avoid inconsistencies, and OPTIONS and TRACE should be turned off if not needed to avoid possible security risks.
+### HTTP Versions
 
-### URL Path
+**HTTP/0.9 (1991)**
+- First version, only supported GET requests
+- Limited functionality and security features
 
-The **URL path** tells the server where to find the resource the user is asking for. For instance, in the URL `https://tryhackme.com/api/users/123`, the path `/api/users/123` identifies a specific user.
+**HTTP/1.0 (1996)**
+- Added headers and better support for different content types
+- Improved caching capabilities
 
-Attackers often try to manipulate the URL path to exploit vulnerabilities, so it’s crucial to:
+**HTTP/1.1 (1997)**
+- Brought persistent connections and chunked transfer encoding
+- Better caching mechanisms
+- **Still widely used today** due to broad support
 
-- Validate the URL path to prevent unauthorised access
-- Sanitise the path to avoid injection attacks
-- Protect sensitive data by conducting privacy and risk assessments
+**HTTP/2 (2015)**
+- Introduced multiplexing, header compression, and prioritization
+- Faster performance and better efficiency
+- Enhanced security features
 
-Following these practices helps protect your web application from common attacks.
+**HTTP/3 (2022)**
+- Built on HTTP/2 but uses QUIC protocol
+- Quicker and more secure connections
+- Latest standard with improved performance
 
-### HTTP Version
+### Security Considerations
 
-The **HTTP version** shows the protocol version used to communicate between the client and server. Here’s a quick rundown of the most common ones:
+**Method Security**
+- Each HTTP method has specific security rules
+- PATCH requests should be validated to avoid inconsistencies
+- OPTIONS and TRACE should be disabled if not needed
+- Implement proper authorization for state-changing methods
 
-**HTTP/0.9** (1991)The first version, only supported GET requests.
+**Version Security**
+- HTTP/2 and HTTP/3 offer better speed and security
+- Many systems still use HTTP/1.1 for compatibility
+- Upgrading can provide significant performance and security improvements
 
-**HTTP/1.0** (1996)Added headers and better support for different types of content, improving caching.
-
-**HTTP/1.1** (1997)Brought persistent connections, chunked transfer encoding, and better caching. It’s still widely used today.
-
-**HTTP/2** (2015)Introduced features like multiplexing, header compression, and prioritisation for faster performance.
-
-**HTTP/3** (2022)Built on HTTP/2, but uses a new protocol (QUIC) for quicker and more secure connections.
-
-Although HTTP/2 and HTTP/3 offer better speed and security, many systems still use **HTTP/1.1** because it’s well-supported and works with most existing setups. However, upgrading to HTTP/2 or HTTP/3 can provide significant performance and security improvements as more systems adopt them.
+## Best Practices
+- Use appropriate HTTP methods for intended actions
+- Implement proper input validation for all methods
+- Disable unnecessary HTTP methods (OPTIONS, TRACE)
+- Use HTTPS for all sensitive communications
+- Implement proper authorization checks for state-changing methods
+- Monitor and log HTTP requests for security analysis

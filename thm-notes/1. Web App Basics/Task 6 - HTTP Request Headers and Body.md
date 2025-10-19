@@ -1,112 +1,126 @@
-## Request Headers
+# Task 6 - HTTP Request Headers and Body
 
-Request Headers allow extra information to be conveyed to the web server about the request. Some common headers are as follows:  
+## Learning Objectives
+- Understand common HTTP request headers and their purposes
+- Learn about different request body formats and their use cases
+- Master security implications of various header and body types
+- Understand how headers guide web server request processing
+- Learn to identify and analyze different content types
 
-**Common Request Headers**
+## Overview
+HTTP request headers and body provide essential information that guides how web servers process requests. Understanding these components is crucial for web development, security analysis, and penetration testing, as they can contain sensitive information and be vectors for various attacks.
 
-|                    |                                                                                  |                                                                                          |
-| ------------------ | -------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| **Request Header** | **Example**                                                                      | **Description**                                                                          |
-| Host               | `Host: tryhackme.com`                                                            | Specifies the name of the web server the request is for.                                 |
-| User-Agent         | `User-Agent: Mozilla/5.0`                                                        | Shares information about the web browser the request is coming from.                     |
-| Referer            | `Referer: https://www.google.com/`                                               | Indicates the URL from which the request came from.                                      |
-| Cookie             | `Cookie: user_type=student; room=introtowebapplication; room_status=in_progress` | Information the web server previously asked the web browser to store is held in cookies. |
-| Content-Type       | `Content-Type: application/json`                                                 | Describes what type or format of data is in the request.                                 |
+### Common Request Headers
 
-  
+**Host Header**
+- **Example**: `Host: tryhackme.com`
+- **Purpose**: Specifies the name of the web server the request is for
+- **Security**: Essential for virtual hosting and can be manipulated for attacks
+- **Use Case**: Required in HTTP/1.1 requests
 
-## Request Body
+**User-Agent Header**
+- **Example**: `User-Agent: Mozilla/5.0`
+- **Purpose**: Shares information about the web browser making the request
+- **Security**: Can be spoofed for evasion or fingerprinting
+- **Use Case**: Server-side browser detection and analytics
 
-In HTTP requests such as POST and PUT, where data is sent to the web server as opposed to requested from the web server, the data is located inside the HTTP Request Body. The formatting of the data can take many forms, but some common ones are `URL Encoded`, `Form Data`, `JSON`, or `XML`.
+**Referer Header**
+- **Example**: `Referer: https://www.google.com/`
+- **Purpose**: Indicates the URL from which the request came from
+- **Security**: Can be manipulated for CSRF attacks or privacy violations
+- **Use Case**: Analytics, CSRF protection, and navigation tracking
 
-- **URL Encoded (application/x-www-form-urlencoded)**  
-    A format where data is structured in pairs of key and value where (`key=value`). Multiple pairs are separated by an (`&`) symbol, such as `key1=value1&key2=value2`. Special characters are percent-encoded.  
-      
-    **_Example_**  
-    
-    ```http
-    POST /profile HTTP/1.1
-    Host: tryhackme.com
-    User-Agent: Mozilla/5.0
-    Content-Type: application/x-www-form-urlencoded
-    Content-Length: 33
-    
-    name=Aleksandra&age=27&country=US
-    ```
-    
-- **Form Data (multipart/form-data)**  
-    Allows multiple data blocks to be sent where each block is separated by a boundary string. The boundary string is the defined header of the request itself. This type of formatting can be used to send binary data, such as when uploading files or images to a web server.  
-      
-    **_Example_**  
-    
-    ```http
-    POST /upload HTTP/1.1
-    Host: tryhackme.com
-    User-Agent: Mozilla/5.0
-    Content-Type: multipart/form-data; boundary=----WebKitFormBoundary7MA4YWxkTrZu0gW
-    
-    ----WebKitFormBoundary7MA4YWxkTrZu0gW
-    Content-Disposition: form-data; name="username"
-    
-    aleksandra
-    ----WebKitFormBoundary7MA4YWxkTrZu0gW
-    Content-Disposition: form-data; name="profile_pic"; filename="aleksandra.jpg"
-    Content-Type: image/jpeg
-    
-    [Binary Data Here representing the image]
-    ----WebKitFormBoundary7MA4YWxkTrZu0gW--
-    ```
-    
-- **JSON (application/json)**  
-    In this format, the data can be sent using the JSON (JavaScript Object Notation) structure. Data is formatted in pairs of name : value. Multiple pairs are separated by commas, all contained within curly braces { }.  
-      
-    **_Example_**  
-    
-    ```http
-    POST /api/user HTTP/1.1
-    Host: tryhackme.com
-    User-Agent: Mozilla/5.0
-    Content-Type: application/json
-    Content-Length: 62
-    
-    {
-        "name": "Aleksandra",
-        "age": 27,
-        "country": "US"
-    }
-    ```
-    
-- **XML (application/xml)**  
-    In XML formatting, data is structured inside labels called tags, which have an opening and closing. These labels can be nested within each other. You can see in the example below the opening and closing of the tags to send details about a user called Aleksandra.  
-      
-    **_Example_**  
-    
-    ```http
-    POST /api/user HTTP/1.1
-    Host: tryhackme.com
-    User-Agent: Mozilla/5.0
-    Content-Type: application/xml
-    Content-Length: 124
-    
-    <user>
-        <name>Aleksandra</name>
-        <age>27</age>
-        <country>US</country>
-    </user>
-    ```
-```
-``
-**Answer the questions below**
+**Cookie Header**
+- **Example**: `Cookie: user_type=student; room=introtowebapplication; room_status=in_progress`
+- **Purpose**: Contains information web server previously asked browser to store
+- **Security**: Critical for session management and authentication
+- **Risk**: Can be stolen or manipulated for session hijacking
 
-**Which HTTP request header specifies the domain name of the web server to which the request is being sent?**
-- HOST
+**Content-Type Header**
+- **Example**: `Content-Type: application/json`
+- **Purpose**: Describes what type or format of data is in the request
+- **Security**: Important for preventing MIME-type confusion attacks
+- **Use Case**: Server-side content processing and validation
 
+### Request Body Formats
 
-**What is the default content type for form submissions in an HTTP request where the data is encoded as key=value pairs in a query string format?**
-- URL Encoded (application/x-www-form-urlencoded)
+**URL Encoded (application/x-www-form-urlencoded)**
+- **Format**: Data structured in key=value pairs
+- **Separator**: Multiple pairs separated by (&) symbol
+- **Encoding**: Special characters are percent-encoded
+- **Use Case**: Standard form submissions
+- **Example**: `name=Aleksandra&age=27&country=US`
 
+**Form Data (multipart/form-data)**
+- **Format**: Multiple data blocks separated by boundary string
+- **Boundary**: Defined in request header
+- **Use Case**: File uploads and binary data transmission
+- **Security**: Can be used for file upload attacks
+- **Example**: File uploads with images and documents
 
+**JSON (application/json)**
+- **Format**: JavaScript Object Notation structure
+- **Structure**: name: value pairs separated by commas in curly braces
+- **Use Case**: Modern web APIs and AJAX requests
+- **Security**: Vulnerable to JSON injection attacks
+- **Example**: `{"name": "Aleksandra", "age": 27, "country": "US"}`
 
-**Which part of an HTTP request contains additional information like host, user agent, and content type, guiding how the web server should process the request?**
-- Request Headers
+**XML (application/xml)**
+- **Format**: Data structured in tags with opening and closing elements
+- **Structure**: Nested tags for hierarchical data
+- **Use Case**: Legacy systems and enterprise applications
+- **Security**: Vulnerable to XML injection and XXE attacks
+- **Example**: `<user><name>Aleksandra</name><age>27</age></user>`
 
+### Security Implications
+
+**Header Security**
+- **Host Header Attacks**: Manipulation for cache poisoning and password reset attacks
+- **User-Agent Spoofing**: Used for evasion and fingerprinting
+- **Referer Manipulation**: CSRF attacks and privacy violations
+- **Cookie Theft**: Session hijacking and unauthorized access
+
+**Body Security**
+- **Injection Attacks**: SQL injection, XSS, command injection through body content
+- **File Upload Attacks**: Malicious file uploads through multipart/form-data
+- **JSON Injection**: Manipulation of JSON data for attacks
+- **XML Attacks**: XXE (XML External Entity) and XML injection
+
+### Exercise Answers
+
+**Question 1**: Which HTTP request header specifies the domain name of the web server to which the request is being sent?
+- **Answer**: HOST
+
+**Question 2**: What is the default content type for form submissions in an HTTP request where the data is encoded as key=value pairs in a query string format?
+- **Answer**: URL Encoded (application/x-www-form-urlencoded)
+
+**Question 3**: Which part of an HTTP request contains additional information like host, user agent, and content type, guiding how the web server should process the request?
+- **Answer**: Request Headers
+
+### Practical Applications
+
+**Web Development**
+- Implementing proper content type handling
+- Building secure form processing
+- Managing file uploads safely
+- Implementing proper header validation
+
+**Security Analysis**
+- Analyzing HTTP requests for attack patterns
+- Identifying malicious headers and body content
+- Implementing security controls for different content types
+- Monitoring for injection attacks
+
+**Penetration Testing**
+- Testing for header manipulation vulnerabilities
+- Analyzing request body for injection points
+- Testing file upload functionality
+- Identifying information disclosure through headers
+
+## Best Practices
+- Validate and sanitize all request headers
+- Implement proper content type validation
+- Use secure file upload mechanisms
+- Implement proper input validation for all body formats
+- Monitor for suspicious header patterns
+- Use HTTPS to protect sensitive header and body data
