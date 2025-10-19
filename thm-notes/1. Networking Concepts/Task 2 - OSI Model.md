@@ -1,97 +1,145 @@
-**Open Systems Interconnection Model**
------
+# Task 2 - OSI Model
 
-- Developed by International Organization for Standardization (OSI)
-- Describes how communications should occur in a **network**
+## Learning Objectives
+- Understand the seven-layer OSI model structure and purpose
+- Learn the functions of each OSI layer
+- Master the OSI layer mnemonic and layer numbering
+- Identify protocols and technologies associated with each layer
+
+## Overview
+The Open Systems Interconnection (OSI) model is a conceptual framework developed by the International Organization for Standardization (ISO) that describes how communications should occur in a network. This seven-layer model provides a standardized approach to understanding network communications and serves as a foundation for network protocol design and troubleshooting.
+
+### OSI Model Fundamentals
+
+**Model Purpose**
+- Describes how communications should occur in a network
 - Defines a framework for computer network communications
+- Provides standardized approach to protocol design
+- Enables interoperability between different systems
 
-**Remember:**
-`Please Do Not Throw Spinach Pizza Away`
-	1     2   3        4        5           6        7
+**Layer Mnemonic**
+Remember: **"Please Do Not Throw Spinach Pizza Away"**
+1. Physical Layer
+2. Data Link Layer  
+3. Network Layer
+4. Transport Layer
+5. Session Layer
+6. Presentation Layer
+7. Application Layer
 
-![[Pasted image 20250624171636.png]]
+### Layer 1: Physical Layer
 
+**Physical Layer Functions**
+- Deals with physical connections between devices
+- Manages transmission mediums (wires, cables, wireless)
+- Handles binary digits (0s and 1s)
+- Controls electrical, optical, or wireless data transmission
 
-**Physical Layer (L1)**
---
-- Deals with Physical connections between devices
-- Mediums, wires, binary digits 0 and 1
-- Data transmission can be electrical, optical or wireless
+**Physical Layer Examples**
+- Ethernet cables
+- Fiber optic cables
+- Wireless transmission
+- Network interface cards (NICs)
 
-**Examples**
-- Ethernet Cables!
+### Layer 2: Data Link Layer
 
+**Data Link Layer Functions**
+- Enables data transfer between nodes within the same network
+- Describes agreement between different systems on same network
+- Manages group of networked devices using shared medium
+- Handles error detection and correction
 
+**Data Link Layer Examples**
+- Ethernet protocols
+- WiFi (802.11)
+- Point-to-Point Protocol (PPP)
 
-**Data Link Layer (L2)**
---
-**Represents the protocol that enables data transfer between nodes within the same network**
-- Describes an **agreement** between different systems on the same network
-- Group of networked devices using a shared medium
-**Examples**
-- Ethernet 
-- WiFi
+**MAC Addresses**
+- **Media Access Control** addresses
+- 3 leftmost bytes identify vendor/manufacturer
+- Physical address for network interface
+- Destination and source data link addresses
 
-**MAC ADDRESSES (Media Access Control)**
-- 3 left most bytes identify the vendor
-- Physical Address
-- Destination data link address
-- Source data link address
+### Layer 3: Network Layer
 
+**Network Layer Functions**
+- Concerns sending data across different networks
+- Provides logical addressing (IP addresses)
+- Handles routing between networks
+- Finds path to transfer packets between various networks
 
-**Network Layer (L3)**
---
-**Concerns sending data across different networks**
-- Logical addressing
-- Routing
-- Finding a path to transfer the network packets between various networks
-
-**Examples**
+**Network Layer Examples**
 - Internet Protocol (IP)
 - Internet Control Message Protocol (ICMP)
-- Virtual Private Network (VPN)
+- Virtual Private Network (VPN) protocols
+- Routing protocols (OSPF, BGP)
 
+### Layer 4: Transport Layer
 
+**Transport Layer Functions**
+- Enables end-to-end communication between applications
+- Runs on different hosts across network
+- Provides reliable or unreliable data delivery
+- Manages flow control and error recovery
 
-**Transport Layer (L4)**
---
-**Enables end-end communication b/w running applications on different hosts**
-- Examples
-- TCP
-- UDP
+**Transport Layer Examples**
+- Transmission Control Protocol (TCP)
+- User Datagram Protocol (UDP)
+- Stream Control Transmission Protocol (SCTP)
 
+### Layer 5: Session Layer
 
+**Session Layer Functions**
+- Establishes, maintains, and synchronizes communication
+- Between applications running on different hosts
+- Manages session establishment and termination
+- Handles session recovery and checkpointing
 
-**! SESSION LAYER (L5)**
---
-**Responsible for establishing, maintaining and synchronizing communication between applications running on different hosts**
-
-Examples
-- Remote Procedure Call
+**Session Layer Examples**
+- Remote Procedure Call (RPC)
 - Network File System (NFS)
+- SQL sessions
+- NetBIOS sessions
 
+### Layer 6: Presentation Layer
 
-**! PRESENTATION LAYER (L6)**
--- 
-**Ensures data is delivered in a form the application layer (l7) can understand**
-- Handles data encoding
-- Compression
-- Encryption
+**Presentation Layer Functions**
+- Ensures data is delivered in form application layer can understand
+- Handles data encoding and decoding
+- Manages data compression and decompression
+- Provides encryption and decryption services
 
-**Example:**
-Consider sending an image via email
-- JPEG, GIF and PNG to save our images
-- MIME ---> Attach file to email
+**Presentation Layer Examples**
+- Image formats (JPEG, GIF, PNG)
+- Multipurpose Internet Mail Extensions (MIME)
+- Data encryption standards
+- Character encoding (ASCII, Unicode)
 
+### Layer 7: Application Layer
 
-**Application Layer (L7)**
---
-**Provides network services directly to end-user applications**
-- HTTP Protocol to request a file
-- Top layer
-- DNS, HTTP, SMTP, IMAP
+**Application Layer Functions**
+- Provides network services directly to end-user applications
+- Top layer of OSI model
+- Interfaces with user applications
+- Implements specific network services
 
-![[Pasted image 20250624173100.png]]
+**Application Layer Examples**
+- Hypertext Transfer Protocol (HTTP)
+- Domain Name System (DNS)
+- Simple Mail Transfer Protocol (SMTP)
+- Internet Message Access Protocol (IMAP)
+- File Transfer Protocol (FTP)
 
+## Practical Applications
+- Network troubleshooting and analysis
+- Protocol design and implementation
+- Security assessment and monitoring
+- Network architecture planning
+- Interoperability testing
 
-
+## Best Practices
+- Use the mnemonic to remember layer order
+- Understand data flow through layers
+- Practice identifying protocols by layer
+- Apply OSI model to troubleshooting scenarios
+- Document network issues using layer terminology
