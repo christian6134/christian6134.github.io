@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TryHackMe Cyber Security 101 Notes</title>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #1e1e1e;
+            color: #e0e0e0;
+            line-height: 1.6;
+            display: flex;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .sidebar {
+            width: 200px;
+            background: #121212;
+            color: #ffffff;
+            padding: 1rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            position: fixed;
+            height: 100vh;
+            overflow-y: auto;
+            border-right: 1px solid #2a2a2a;
+            box-shadow: 2px 0 8px rgba(0,0,0,0.25);
+            font-size: 0.95rem;
+        }
+
+        .sidebar h1 {
+            font-size: 1.6rem;
+            margin: 0 0 1rem 0;
+            color: #007bff;
+        }
+
+        .sidebar .profile-info {
+            flex-grow: 1;
+        }
+
+        .sidebar a {
+            display: inline-block;
+            margin-top: 1rem;
+            padding: 10px 20px;
+            background: #333;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 6px;
+            text-align: center;
+        }
+
+        .sidebar a:hover {
+            background: #555;
+        }
+
+        .sidebar .footer {
+            font-size: 0.8rem;
+            color: #aaa;
+            margin-top: 2rem;
+        }
+
+        .main-content {
+            flex: 1;
+            margin-left: 224px;
+            padding: 2rem 2.5rem;
+            overflow-y: auto;
+            height: 100vh;
+        }
+
+        h1 {
+            color: #ffffff;
+            border-bottom: 2px solid #333;
+            padding-bottom: 0.3rem;
+            margin-top: 0;
+        }
+
+        .table-of-contents {
+            background: #2a2a2a;
+            padding: 1.5rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+        }
+
+        .table-of-contents h2 {
+            color: #ffffff;
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+
+        details {
+            margin: 0.5rem 0;
+            background: #333;
+            border-radius: 6px;
+            overflow: hidden;
+        }
+
+        summary {
+            padding: 1rem;
+            background: #444;
+            color: #ffffff;
+            cursor: pointer;
+            font-weight: bold;
+            border: none;
+            outline: none;
+            transition: background-color 0.2s;
+        }
+
+        summary:hover {
+            background: #555;
+        }
+
+        summary::-webkit-details-marker {
+            color: #007bff;
+        }
+
+        .details-content {
+            padding: 1rem;
+            background: #2a2a2a;
+            border-top: 1px solid #444;
+        }
+
+        .details-content p {
+            margin: 0.5rem 0;
+        }
+
+        .details-content a {
+            color: #4a9eff;
+            text-decoration: none;
+            padding: 0.5rem;
+            display: block;
+            border-radius: 4px;
+            transition: background-color 0.2s;
+        }
+
+        .details-content a:hover {
+            background: #333;
+            color: #ffffff;
+        }
+
+        /* Nested details styling */
+        details details {
+            margin: 0.5rem 0;
+            background: #2a2a2a;
+        }
+
+        details details summary {
+            background: #3a3a3a;
+            padding: 0.75rem;
+            font-size: 0.9rem;
+        }
+
+        details details .details-content {
+            background: #1a1a1a;
+            padding: 0.75rem;
+        }
+
+        #note-content {
+            display: none;
+            background: #2a2a2a;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+        }
+
+        #note-title {
+            color: #ffffff;
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            border-bottom: 2px solid #333;
+            padding-bottom: 0.5rem;
+        }
+
+        #note-body {
+            color: #e0e0e0;
+        }
+
+        #note-body h1, #note-body h2, #note-body h3 {
+            color: #ffffff;
+        }
+
+        #note-body h2 {
+            border-bottom: 1px solid #444;
+            padding-bottom: 0.3rem;
+            margin-top: 2rem;
+        }
+
+        #note-body h3 {
+            margin-top: 1.5rem;
+        }
+
+        #note-body ul, #note-body ol {
+            margin: 1rem 0;
+            padding-left: 2rem;
+        }
+
+        #note-body li {
+            margin: 0.5rem 0;
+        }
+
+        #note-body code {
+            background: #1a1a1a;
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-family: 'Courier New', monospace;
+        }
+
+        #note-body pre {
+            background: #1a1a1a;
+            padding: 1rem;
+            border-radius: 6px;
+            overflow-x: auto;
+        }
+
+        #note-body blockquote {
+            border-left: 4px solid #007bff;
+            margin: 1rem 0;
+            padding-left: 1rem;
+            color: #ccc;
+        }
+
+        @media (max-width: 768px) {
+            body {
+                flex-direction: column;
+            }
+            
+            .sidebar {
+                width: 100%;
+                height: auto;
+                position: relative;
+            }
+            
+            .main-content {
+                margin-left: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="sidebar">
+        <div class="profile-info">
+            <h1>THM Notes</h1>
+            <p>Cyber Security 101</p>
+            <a href="index.html">← Back to Portfolio</a>
+        </div>
+        <div class="footer">
+            <p>© 2025 Christian Garces | Hosted on GitHub Pages</p>
+        </div>
+    </div>
+
+    <div class="main-content">
+        <h1>TryHackMe Cyber Security 101 Notes & Labs</h1>
+        
+        <div class="table-of-contents">
+            <h2>Table of Contents</h2>
+            
+            <details>
+                <summary>1. Pilot</summary>
+                <div class="details-content">
+                    <p><a href="#" onclick="loadNote('(1.1) Introduction')">View 1.1 Introduction</a></p>
+                    <p><a href="#" onclick="loadNote('(1.2) Getting Started')">View 1.2 Getting Started</a></p>
+                </div>
+            </details>
+
+            <details>
+                <summary>2. Linux Fundamentals</summary>
+                <div class="details-content">
+                    <p><a href="#" onclick="loadNote('(2.1) Linux Basics')">View 2.1 Linux Basics</a></p>
+                    <p><a href="#" onclick="loadNote('(2.2) File System')">View 2.2 File System</a></p>
+                    <p><a href="#" onclick="loadNote('(2.3) Permissions')">View 2.3 Permissions</a></p>
+                    <p><a href="#" onclick="loadNote('(2.4) Processes')">View 2.4 Processes</a></p>
+                </div>
+            </details>
+
+            <details>
+                <summary>3. Windows and AD Fundamentals</summary>
+                <div class="details-content">
+                    <p><a href="#" onclick="loadNote('(3.1) Windows Basics')">View 3.1 Windows Basics</a></p>
+                    <p><a href="#" onclick="loadNote('(3.2) Active Directory')">View 3.2 Active Directory</a></p>
+                    <p><a href="#" onclick="loadNote('(3.3) PowerShell')">View 3.3 PowerShell</a></p>
+                </div>
+            </details>
+
+            <details>
+                <summary>4. Command Line</summary>
+                <div class="details-content">
+                    <p><a href="#" onclick="loadNote('(4.1) Linux Commands')">View 4.1 Linux Commands</a></p>
+                    <p><a href="#" onclick="loadNote('(4.2) Windows Commands')">View 4.2 Windows Commands</a></p>
+                    <p><a href="#" onclick="loadNote('(4.3) Scripting')">View 4.3 Scripting</a></p>
+                </div>
+            </details>
+
+            <details>
+                <summary>5. Networking</summary>
+                <div class="details-content">
+                    <p><a href="#" onclick="loadNote('(5.1) Network Fundamentals')">View 5.1 Network Fundamentals</a></p>
+                    <p><a href="#" onclick="loadNote('(5.2) Protocols')">View 5.2 Protocols</a></p>
+                    <p><a href="#" onclick="loadNote('(5.3) Network Security')">View 5.3 Network Security</a></p>
+                </div>
+            </details>
+
+            <details>
+                <summary>6. Cryptography</summary>
+                <div class="details-content">
+                    <p><a href="#" onclick="loadNote('(6.1) Encryption Basics')">View 6.1 Encryption Basics</a></p>
+                    <p><a href="#" onclick="loadNote('(6.2) Hashing')">View 6.2 Hashing</a></p>
+                    <p><a href="#" onclick="loadNote('(6.3) Digital Signatures')">View 6.3 Digital Signatures</a></p>
+                </div>
+            </details>
+
+            <details>
+                <summary>7. Exploitation Basics</summary>
+                <div class="details-content">
+                    <p><a href="#" onclick="loadNote('(7.1) Vulnerability Assessment')">View 7.1 Vulnerability Assessment</a></p>
+                    <p><a href="#" onclick="loadNote('(7.2) Exploitation Techniques')">View 7.2 Exploitation Techniques</a></p>
+                    <p><a href="#" onclick="loadNote('(7.3) Post-Exploitation')">View 7.3 Post-Exploitation</a></p>
+                </div>
+            </details>
+
+            <details>
+                <summary>8. Web Hacking</summary>
+                <div class="details-content">
+                    <p><a href="#" onclick="loadNote('(8.1) Web Application Security')">View 8.1 Web Application Security</a></p>
+                    <p><a href="#" onclick="loadNote('(8.2) OWASP Top 10')">View 8.2 OWASP Top 10</a></p>
+                    <p><a href="#" onclick="loadNote('(8.3) Web Testing Tools')">View 8.3 Web Testing Tools</a></p>
+                </div>
+            </details>
+
+            <details>
+                <summary>9. Offensive Security Tooling</summary>
+                <div class="details-content">
+                    <p><a href="#" onclick="loadNote('(9.1) Reconnaissance Tools')">View 9.1 Reconnaissance Tools</a></p>
+                    <p><a href="#" onclick="loadNote('(9.2) Exploitation Frameworks')">View 9.2 Exploitation Frameworks</a></p>
+                    <p><a href="#" onclick="loadNote('(9.3) Post-Exploitation Tools')">View 9.3 Post-Exploitation Tools</a></p>
+                </div>
+            </details>
+
+            <details>
+                <summary>10. Defensive Security</summary>
+                <div class="details-content">
+                    <p><a href="#" onclick="loadNote('(10.1) Security Monitoring')">View 10.1 Security Monitoring</a></p>
+                    <p><a href="#" onclick="loadNote('(10.2) Incident Response')">View 10.2 Incident Response</a></p>
+                    <p><a href="#" onclick="loadNote('(10.3) Threat Hunting')">View 10.3 Threat Hunting</a></p>
+                </div>
+            </details>
+
+            <details>
+                <summary>11. Security Solutions</summary>
+                <div class="details-content">
+                    <p><a href="#" onclick="loadNote('(11.1) Firewalls')">View 11.1 Firewalls</a></p>
+                    <p><a href="#" onclick="loadNote('(11.2) IDS/IPS')">View 11.2 IDS/IPS</a></p>
+                    <p><a href="#" onclick="loadNote('(11.3) SIEM')">View 11.3 SIEM</a></p>
+                </div>
+            </details>
+
+            <details>
+                <summary>12. Defensive Security Tooling</summary>
+                <div class="details-content">
+                    <p><a href="#" onclick="loadNote('(12.1) Monitoring Tools')">View 12.1 Monitoring Tools</a></p>
+                    <p><a href="#" onclick="loadNote('(12.2) Analysis Tools')">View 12.2 Analysis Tools</a></p>
+                    <p><a href="#" onclick="loadNote('(12.3) Response Tools')">View 12.3 Response Tools</a></p>
+                </div>
+            </details>
+
+            <details>
+                <summary>13. Final</summary>
+                <div class="details-content">
+                    <p><a href="#" onclick="loadNote('(13.1) Capstone Project')">View 13.1 Capstone Project</a></p>
+                    <p><a href="#" onclick="loadNote('(13.2) Final Assessment')">View 13.2 Final Assessment</a></p>
+                </div>
+            </details>
+        </div>
+
+        <div id="note-content">
+            <div id="note-title"></div>
+            <div id="note-body"></div>
+        </div>
+    </div>
+
+    <script>
+        async function loadNote(noteFile) {
+            try {
+                const response = await fetch(`thm-notes/${noteFile}.md`);
+                if (!response.ok) {
+                    throw new Error('Note not found');
+                }
+                
+                const markdown = await response.text();
+                const html = marked.parse(markdown);
+                
+                // Hide table of contents and show note content
+                document.querySelector('.table-of-contents').style.display = 'none';
+                document.getElementById('note-content').style.display = 'block';
+                
+                // Set the title and content
+                const titleMatch = html.match(/<h1[^>]*>(.*?)<\/h1>/i);
+                if (titleMatch) {
+                    document.getElementById('note-title').textContent = titleMatch[1].trim();
+                    // Remove the h1 from the content to avoid duplication
+                    document.getElementById('note-body').innerHTML = html.replace(/<h1[^>]*>.*?<\/h1>\s*/i, '');
+                } else {
+                    document.getElementById('note-title').textContent = 'Note';
+                    document.getElementById('note-body').innerHTML = html;
+                }
+                
+                // Add back button (only if it doesn't exist)
+                if (!document.getElementById('back-button')) {
+                    const backButton = document.createElement('button');
+                    backButton.id = 'back-button';
+                    backButton.textContent = '← Back to Table of Contents';
+                    backButton.onclick = () => {
+                        document.querySelector('.table-of-contents').style.display = 'block';
+                        document.getElementById('note-content').style.display = 'none';
+                    };
+                    backButton.style.cssText = 'background: #4a9eff; color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; margin-bottom: 1rem;';
+                    document.getElementById('note-content').insertBefore(backButton, document.getElementById('note-content').firstChild);
+                }
+                
+            } catch (error) {
+                document.getElementById('note-body').innerHTML = '<h1>Error</h1><p>Could not load the selected note. Make sure the markdown file exists.</p>';
+            }
+        }
+    </script>
+</body>
+</html>
