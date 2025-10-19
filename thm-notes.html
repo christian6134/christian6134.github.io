@@ -276,26 +276,9 @@
             <details>
                 <summary>3. Command Line</summary>
                 <div class="details-content">
-                    <details>
-                        <summary>1. Windows Command Line</summary>
-                        <div class="details-content">
-                            <!-- Level 3 notes will be added here -->
-                        </div>
-                    </details>
-                    
-                    <details>
-                        <summary>2. Windows PowerShell</summary>
-                        <div class="details-content">
-                            <!-- Level 3 notes will be added here -->
-                        </div>
-                    </details>
-                    
-                    <details>
-                        <summary>3. Linux Shells</summary>
-                        <div class="details-content">
-                            <!-- Level 3 notes will be added here -->
-                        </div>
-                    </details>
+                    <p><a href="#" onclick="loadFolder('1-Windows-Command-Line')">1. Windows Command Line</a></p>
+                    <p><a href="#" onclick="loadFolder('2-Windows-PowerShell')">2. Windows PowerShell</a></p>
+                    <p><a href="#" onclick="loadFolder('3-Linux-Shells')">3. Linux Shells</a></p>
                 </div>
             </details>
 
@@ -410,6 +393,48 @@
                 
             } catch (error) {
                 document.getElementById('note-body').innerHTML = '<h1>Error</h1><p>Could not load the selected note. Make sure the markdown file exists.</p>';
+            }
+        }
+
+        async function loadFolder(folderName) {
+            try {
+                // Hide table of contents and show note content
+                document.querySelector('.table-of-contents').style.display = 'none';
+                document.getElementById('note-content').style.display = 'block';
+                
+                // Set the title
+                document.getElementById('note-title').textContent = folderName.replace(/-/g, ' ');
+                
+                // Create folder content with links to individual notes
+                const folderContent = `
+                    <div style="background: #2a2a2a; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+                        <h3>Notes in this folder:</h3>
+                        <p><a href="#" onclick="loadNote('${folderName}/Task-1-Introduction')">Task 1 - Introduction</a></p>
+                        <p><a href="#" onclick="loadNote('${folderName}/Task-2-Basic-System-Information')">Task 2 - Basic System Information</a></p>
+                        <p><a href="#" onclick="loadNote('${folderName}/Task-3-Network-Trouble-Shooting')">Task 3 - Network Trouble Shooting</a></p>
+                        <p><a href="#" onclick="loadNote('${folderName}/Task-4-File-and-Disk-Management')">Task 4 - File and Disk Management</a></p>
+                        <p><a href="#" onclick="loadNote('${folderName}/Task-5-Task-and-Process-Management')">Task 5 - Task and Process Management</a></p>
+                        <p><a href="#" onclick="loadNote('${folderName}/Task-6-Conclusion')">Task 6 - Conclusion</a></p>
+                    </div>
+                `;
+                
+                document.getElementById('note-body').innerHTML = folderContent;
+                
+                // Add back button (only if it doesn't exist)
+                if (!document.getElementById('back-button')) {
+                    const backButton = document.createElement('button');
+                    backButton.id = 'back-button';
+                    backButton.textContent = '← Back to Table of Contents';
+                    backButton.onclick = () => {
+                        document.querySelector('.table-of-contents').style.display = 'block';
+                        document.getElementById('note-content').style.display = 'none';
+                    };
+                    backButton.style.cssText = 'background: #4a9eff; color: white; border: none; padding: 0.5rem 1rem; border-radius: 4px; cursor: pointer; margin-bottom: 1rem;';
+                    document.getElementById('note-content').insertBefore(backButton, document.getElementById('note-content').firstChild);
+                }
+                
+            } catch (error) {
+                document.getElementById('note-body').innerHTML = '<h1>Error</h1><p>Could not load the folder contents.</p>';
             }
         }
     </script>
