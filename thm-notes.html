@@ -405,18 +405,47 @@
                 // Set the title
                 document.getElementById('note-title').textContent = folderName.replace(/-/g, ' ');
                 
-                // Create folder content with links to individual notes
-                const folderContent = `
-                    <div style="background: #2a2a2a; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
-                        <h3>Notes in this folder:</h3>
-                        <p><a href="#" onclick="loadNote('${folderName}/Task-1-Introduction')">Task 1 - Introduction</a></p>
-                        <p><a href="#" onclick="loadNote('${folderName}/Task-2-Basic-System-Information')">Task 2 - Basic System Information</a></p>
-                        <p><a href="#" onclick="loadNote('${folderName}/Task-3-Network-Trouble-Shooting')">Task 3 - Network Trouble Shooting</a></p>
-                        <p><a href="#" onclick="loadNote('${folderName}/Task-4-File-and-Disk-Management')">Task 4 - File and Disk Management</a></p>
-                        <p><a href="#" onclick="loadNote('${folderName}/Task-5-Task-and-Process-Management')">Task 5 - Task and Process Management</a></p>
-                        <p><a href="#" onclick="loadNote('${folderName}/Task-6-Conclusion')">Task 6 - Conclusion</a></p>
-                    </div>
-                `;
+                let folderContent = '';
+                
+                // Handle different folders with their specific tasks
+                if (folderName === '1-Windows-Command-Line') {
+                    folderContent = `
+                        <div style="background: #2a2a2a; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+                            <h3>Notes in this folder:</h3>
+                            <p><a href="#" onclick="loadNote('1. Windows Command Line/Task 1 - Introduction')">Task 1 - Introduction</a></p>
+                            <p><a href="#" onclick="loadNote('1. Windows Command Line/Task 2 - Basic System Information')">Task 2 - Basic System Information</a></p>
+                            <p><a href="#" onclick="loadNote('1. Windows Command Line/Task 3 - Network Trouble Shooting')">Task 3 - Network Trouble Shooting</a></p>
+                            <p><a href="#" onclick="loadNote('1. Windows Command Line/Task 4 - File and Disk Management')">Task 4 - File and Disk Management</a></p>
+                            <p><a href="#" onclick="loadNote('1. Windows Command Line/Task 5 - Task and Process Management')">Task 5 - Task and Process Management</a></p>
+                            <p><a href="#" onclick="loadNote('1. Windows Command Line/Task 6 - Conclusion')">Task 6 - Conclusion</a></p>
+                        </div>
+                    `;
+                } else if (folderName === '2-Windows-PowerShell') {
+                    folderContent = `
+                        <div style="background: #2a2a2a; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+                            <h3>Notes in this folder:</h3>
+                            <p><a href="#" onclick="loadNote('2. Windows PowerShell/Task 1 and 2  - Introduction and What is PowerShell?')">Task 1 and 2 - Introduction and What is PowerShell?</a></p>
+                            <p><a href="#" onclick="loadNote('2. Windows PowerShell/Task 3 - PowerShell Basics')">Task 3 - PowerShell Basics</a></p>
+                            <p><a href="#" onclick="loadNote('2. Windows PowerShell/Task 4 - Navigating the File System and Working With Files')">Task 4 - Navigating the File System and Working With Files</a></p>
+                            <p><a href="#" onclick="loadNote('2. Windows PowerShell/Task 5 - Piping, Filtering, And Sorting Data')">Task 5 - Piping, Filtering, And Sorting Data</a></p>
+                            <p><a href="#" onclick="loadNote('2. Windows PowerShell/Task 6 - System and Network Information')">Task 6 - System and Network Information</a></p>
+                            <p><a href="#" onclick="loadNote('2. Windows PowerShell/Task 7 - Real Time System Analysis')">Task 7 - Real Time System Analysis</a></p>
+                            <p><a href="#" onclick="loadNote('2. Windows PowerShell/Task 8 - Scripting')">Task 8 - Scripting</a></p>
+                        </div>
+                    `;
+                } else if (folderName === '3-Linux-Shells') {
+                    folderContent = `
+                        <div style="background: #2a2a2a; padding: 1rem; border-radius: 8px; margin-bottom: 1rem;">
+                            <h3>Notes in this folder:</h3>
+                            <p><a href="#" onclick="loadNote('3. Linux Shells/Task 1 - Introduction to Linux Shells')">Task 1 - Introduction to Linux Shells</a></p>
+                            <p><a href="#" onclick="loadNote('3. Linux Shells/Task 2 - Interacting with a Shell')">Task 2 - Interacting with a Shell</a></p>
+                            <p><a href="#" onclick="loadNote('3. Linux Shells/Task 3 - Types of Linux Shells')">Task 3 - Types of Linux Shells</a></p>
+                            <p><a href="#" onclick="loadNote('3. Linux Shells/Task 4 - Shell Scripting and Components')">Task 4 - Shell Scripting and Components</a></p>
+                            <p><a href="#" onclick="loadNote('3. Linux Shells/Task 5 - The Locker Script')">Task 5 - The Locker Script</a></p>
+                            <p><a href="#" onclick="loadNote('3. Linux Shells/Task 6 - Practical Exercise')">Task 6 - Practical Exercise</a></p>
+                        </div>
+                    `;
+                }
                 
                 document.getElementById('note-body').innerHTML = folderContent;
                 
