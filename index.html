@@ -195,6 +195,60 @@
     color: #ffffff;
   }
 
+  .info-box {
+    background: #2a2a2a;
+    padding: 1rem 1.25rem;
+    margin: 1rem 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+  }
+
+  .info-box p:first-child {
+    margin-top: 0;
+  }
+
+  .info-box ul:last-child,
+  .info-box p:last-child {
+    margin-bottom: 0;
+  }
+
+  .skills-dropdown {
+    background: #2a2a2a;
+    padding: 1rem 1.25rem;
+    margin: 1rem 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+  }
+
+  .skills-dropdown summary {
+    cursor: pointer;
+    list-style: none;
+    outline: none;
+    font-size: 1.05rem;
+    font-weight: bold;
+    color: #ffffff;
+  }
+
+  .skills-dropdown summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .skills-dropdown summary::before {
+    content: "▸";
+    display: inline-block;
+    margin-right: 0.5rem;
+    color: #007bff;
+    transition: transform 0.15s ease;
+  }
+
+  .skills-dropdown[open] summary::before {
+    transform: rotate(90deg);
+  }
+
+  .skills-dropdown ul {
+    margin: 1rem 0 0.25rem 0;
+  }
+
   @media (max-width: 768px) {
     body {
       flex-direction: column;
@@ -232,22 +286,26 @@
 
   <div class="main-content">
     <h2>About Me</h2>
-    <p>Hi, I'm Christian! I'm a Computer Engineering graduate focused on Security Operations and Detection Engineering.
-      I have real-world experience with incident response, SIEM/EDR alert monitoring, vulnerability management, and
-      security automation within PCI DSS, HITRUST, and SOC 1/SOC 2-compliant environments. Security+ certified and
-      seeking entry-level Cybersecurity Engineer, SOC, or Security Operations roles where I can apply and further
-      develop hands-on security expertise.
-    </p>
+    <div class="info-box">
+      <p>Hi, I'm Christian! I'm a Computer Engineering graduate focused on Security Operations and Detection Engineering.
+        I have real-world experience with incident response, SIEM/EDR alert monitoring, vulnerability management, and
+        security automation within PCI DSS, HITRUST, and SOC 1/SOC 2-compliant environments. Security+ certified and
+        seeking entry-level Cybersecurity Engineer, SOC, or Security Operations roles where I can apply and further
+        develop hands-on security expertise.
+      </p>
+    </div>
 
     <h2>Education</h2>
-    <p><strong>University of California Santa Cruz</strong> — Santa Cruz, CA</p>
-    <p>Bachelor of Science in <strong>Computer Engineering</strong>, Concentration in Networks &nbsp;|&nbsp; 2022 – 2026</p>
-    <ul>
-      <li><strong>Relevant Coursework:</strong> Data Structures & Algorithms, Computer Networking, Computer Security,
-      Computer Systems & Design, Cryptography, Software Engineering, Network Programming</li>
-      <li><strong>Research Focus:</strong> Network Security, Wireless Networks, Applied Machine Learning, Device
-      Authentication, Device Identification and Device Impersonation</li>
-    </ul>
+    <div class="info-box">
+      <p><strong>University of California Santa Cruz</strong> — Santa Cruz, CA</p>
+      <p>Bachelor of Science in <strong>Computer Engineering</strong>, Concentration in Networks &nbsp;|&nbsp; 2022 – 2026</p>
+      <ul>
+        <li><strong>Relevant Coursework:</strong> Data Structures & Algorithms, Computer Networking, Computer Security,
+        Computer Systems & Design, Cryptography, Software Engineering, Network Programming</li>
+        <li><strong>Research Focus:</strong> Network Security, Wireless Networks, Applied Machine Learning, Device
+        Authentication, Device Identification and Device Impersonation</li>
+      </ul>
+    </div>
 
     <h2>Experience</h2>
 
@@ -278,11 +336,15 @@
         <span class="role-meta">January 2026 – June 2026 &nbsp;|&nbsp; Santa Cruz, CA</span>
       </summary>
       <ul>
-        <li>Researched radio frequency fingerprinting for physical-layer device authentication, focusing on IEEE 802.11 device identification, MAC spoofing risks, and adversarial wireless signal analysis.</li>
-        <li>Built and configured SDR-based 802.11 capture pipelines (HackRF One, USRP N200, GNU Radio, Python) and GAN-based signal generation models to decode MAC addresses and organize Wi-Fi frames into device-specific datasets.</li>
-        <li>Processed 8.5K+ Wi-Fi frames across 300+ MAC addresses, filtering 25+ devices for CNN classification and synthetic attack evaluation.</li>
+        <li>Conducted undergraduate research in network security focused on radio frequency fingerprinting (RFF), physical-layer device authentication, and adversarial wireless signal analysis.</li>
+        <li>Contributed to early survey research on whether RF fingerprints are truly unique but unclonable, reviewing work on transmitter hardware impairments, fingerprint feature types, channel effects, CNN-based classification, and GAN-based adversarial signal generation.</li>
+        <li>Gained hands-on experience with HackRF One, USRP N200, GNU Radio Companion, and 802.11 Wi-Fi signal processing by building and modifying flowgraphs for wireless reception, transmission, frame decoding, and MAC address extraction.</li>
+        <li>Configured and debugged SDR capture pipelines, including GNU Radio flowgraphs, UHD/USRP networking, Wi-Fi decoding blocks, file sinks, and scripts for organizing captured frames by MAC address.</li>
+        <li>Captured over-the-air 802.11 Wi-Fi data across multiple campus locations, including 8.5K+ decoded frames, 300+ unique MAC addresses, and device-specific datasets filtered for downstream RF fingerprinting experiments.</li>
+        <li>Ran captured RF data through a CNN classifier and GAN-based signal generation pipeline to evaluate closed-set model performance against unknown real devices and synthetic attacker-like signals.</li>
+        <li>Prepared known, unknown, and attack-device data splits to support open-set recognition experiments and evaluate classifier behavior across real and synthetic RF samples.</li>
       </ul>
-      <p class="skills-applied"><strong>Skills Applied:</strong> RF Fingerprinting & Device Authentication, IEEE 802.11 Wireless Security, Software-Defined Radio (HackRF One, USRP N200, GNU Radio), Python, Adversarial Machine Learning (GANs), CNN Classification, MAC Spoofing Analysis, Signal Processing</p>
+      <p class="skills-applied"><strong>Skills Applied:</strong> RF Fingerprinting & Device Authentication, IEEE 802.11 Wireless Security, Software-Defined Radio (HackRF One, USRP N200, GNU Radio Companion), Python, Adversarial Machine Learning (GANs), CNN Classification, Open-Set Recognition, Signal Processing</p>
     </details>
 
     <details class="experience-entry">
@@ -290,11 +352,16 @@
         <span class="role-title">Software Engineer — UCSC Financial Department</span>
         <span class="role-meta">September 2025 – June 2026 &nbsp;|&nbsp; Santa Cruz, CA</span>
       </summary>
+      <p><em>Senior Capstone | UCSC Procurement and Supply Chain Services Department</em></p>
       <ul>
-        <li>Built a full-stack dashboard with a RAG-based evaluation pipeline combining rule-based logic and AI analysis to upload, parse, and flag high-risk UCSC OneCard transactions for Financial Affairs auditors.</li>
-        <li>Refined compliance rules and AI prompts with UCSC procurement stakeholders, achieving 72.5% accuracy on auditor-validated test batches across 50,000+ annual transactions.</li>
+        <li>Developed a full-stack compliance automation platform for UCSC Financial Affairs to help auditors review OneCard transaction data more efficiently.</li>
+        <li>Built application workflows for uploading Excel transaction files, parsing and normalizing records, running rule-based and AI-assisted compliance checks, reviewing flagged purchases, saving auditor notes, managing uploaded batches, and exporting reviewed results.</li>
+        <li>Combined JSONLogic-based compliance rules with Vertex AI/Gemini evaluation to flag high-risk and ambiguous transactions and provide reviewer-facing explanations.</li>
+        <li>Contributed to core platform features including transaction review, batch management, role-based access behavior, export functionality, auditor feedback handling, and AI prompt iteration.</li>
+        <li>Collaborated directly with UCSC procurement and financial stakeholders to refine compliance logic, improve exception handling, and align the platform with real audit workflows.</li>
+        <li>Supported a project targeting 50,000+ annual OneCard transactions, reaching 72.5% accuracy on auditor-validated complex test batches.</li>
       </ul>
-      <p class="skills-applied"><strong>Skills Applied:</strong> React, TypeScript, Firebase, Vertex AI, RAG (Retrieval-Augmented Generation), Full-Stack Development, Compliance & Audit Support, Stakeholder Collaboration</p>
+      <p class="skills-applied"><strong>Skills Applied:</strong> React, TypeScript, Firebase, Vertex AI / Gemini, JSONLogic, Full-Stack Development, Compliance & Audit Support, Stakeholder Collaboration</p>
     </details>
 
     <h2>Projects</h2>
@@ -354,52 +421,65 @@
     </div>
 
     <h2>Skills</h2>
-    <h3>Security Tools & Platforms</h3>
-    <ul>
-      <li>Splunk</li>
-      <li>CrowdStrike Falcon</li>
-      <li>Microsoft Defender</li>
-      <li>Microsoft Entra ID</li>
-      <li>Azure</li>
-      <li>Nucleus</li>
-      <li>Panorama</li>
-    </ul>
 
-    <h3>Core Competencies</h3>
-    <ul>
-      <li>Incident Response</li>
-      <li>Vulnerability Management</li>
-      <li>Alert Triage</li>
-      <li>Log Analysis</li>
-      <li>Detection Engineering</li>
-      <li>Security Automation</li>
-      <li>Identity & Access Management</li>
-    </ul>
+    <details class="skills-dropdown">
+      <summary>Security Tools & Platforms</summary>
+      <ul>
+        <li>Splunk</li>
+        <li>Splunk Enterprise Security</li>
+        <li>CrowdStrike Falcon</li>
+        <li>Next-Gen SIEM</li>
+        <li>Microsoft Defender</li>
+        <li>Microsoft Entra ID</li>
+        <li>Azure</li>
+        <li>Nucleus</li>
+        <li>Panorama</li>
+      </ul>
+    </details>
 
-    <h3>Languages & Scripting</h3>
-    <ul>
-      <li>Python</li>
-      <li>C</li>
-      <li>PowerShell</li>
-      <li>SPL</li>
-      <li>KQL</li>
-    </ul>
+    <details class="skills-dropdown">
+      <summary>Core Competencies</summary>
+      <ul>
+        <li>Incident Response</li>
+        <li>Vulnerability Management</li>
+        <li>Alert Triage</li>
+        <li>Log Analysis</li>
+        <li>Detection Engineering</li>
+        <li>Security Automation</li>
+        <li>Identity & Access Management</li>
+      </ul>
+    </details>
 
-    <h3>Frameworks & Compliance Knowledge</h3>
-    <ul>
-      <li>MITRE ATT&CK</li>
-      <li>NIST SP 800-61</li>
-      <li>PCI DSS</li>
-      <li>HITRUST</li>
-    </ul>
+    <details class="skills-dropdown">
+      <summary>Languages & Scripting</summary>
+      <ul>
+        <li>Python</li>
+        <li>C</li>
+        <li>PowerShell</li>
+        <li>SPL</li>
+        <li>KQL</li>
+      </ul>
+    </details>
 
-    <h3>SOC Workflow & Documentation</h3>
-    <ul>
-      <li>Jira</li>
-      <li>Confluence</li>
-      <li>FieldGuide</li>
-      <li>Microsoft Purview</li>
-    </ul>
+    <details class="skills-dropdown">
+      <summary>Frameworks & Compliance Knowledge</summary>
+      <ul>
+        <li>MITRE ATT&CK</li>
+        <li>NIST SP 800-61</li>
+        <li>PCI DSS</li>
+        <li>HITRUST</li>
+      </ul>
+    </details>
+
+    <details class="skills-dropdown">
+      <summary>SOC Workflow & Documentation</summary>
+      <ul>
+        <li>Jira</li>
+        <li>Confluence</li>
+        <li>FieldGuide</li>
+        <li>Microsoft Purview</li>
+      </ul>
+    </details>
 
     <h2>Certifications</h2>
 
