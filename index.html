@@ -97,7 +97,92 @@
   .project a:hover {
     text-decoration: underline;
   }
-  
+
+  .experience-entry {
+    background: #2a2a2a;
+    padding: 1rem 1.25rem;
+    margin: 1rem 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+  }
+
+  .experience-entry summary {
+    cursor: pointer;
+    list-style: none;
+    outline: none;
+  }
+
+  .experience-entry summary::-webkit-details-marker {
+    display: none;
+  }
+
+  .experience-entry summary::before {
+    content: "▸";
+    display: inline-block;
+    margin-right: 0.5rem;
+    color: #007bff;
+    transition: transform 0.15s ease;
+  }
+
+  .experience-entry[open] summary::before {
+    transform: rotate(90deg);
+  }
+
+  .experience-entry summary .role-title {
+    font-size: 1.05rem;
+    font-weight: bold;
+    color: #ffffff;
+  }
+
+  .experience-entry summary .role-meta {
+    display: block;
+    margin: 0.15rem 0 0 1.35rem;
+    font-size: 0.85rem;
+    color: #aaa;
+  }
+
+  .experience-entry ul {
+    margin: 1rem 0 0.25rem 0;
+  }
+
+  .experience-entry li {
+    margin-bottom: 0.6rem;
+  }
+
+  .cert-panel {
+    background: #2a2a2a;
+    padding: 1rem 1.25rem;
+    margin: 1rem 0;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.4);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .cert-panel .cert-name {
+    font-weight: bold;
+    color: #ffffff;
+    font-size: 1rem;
+  }
+
+  .cert-panel .cert-date {
+    color: #aaa;
+    font-size: 0.85rem;
+    margin-left: 0.75rem;
+  }
+
+  .cert-panel a {
+    color: #007bff;
+    text-decoration: none;
+  }
+
+  .cert-panel a:hover {
+    text-decoration: underline;
+  }
+
   @media (max-width: 768px) {
     body {
       flex-direction: column;
@@ -152,6 +237,51 @@
       Authentication, Device Identification and Device Impersonation</li>
     </ul>
 
+    <h2>Experience</h2>
+
+    <details class="experience-entry">
+      <summary>
+        <span class="role-title">Cybersecurity Analyst Intern — XiFin</span>
+        <span class="role-meta">June 2026 – Present &nbsp;|&nbsp; Del Mar, CA</span>
+      </summary>
+      <ul>
+        <li>Monitored, triaged, and investigated security alerts using enterprise SIEM and EDR platforms (Splunk, CrowdStrike), performing log analysis to identify true positives, prioritize severity, and escalate high-severity notables per established procedures to support day-to-day Security Operations Center (SOC) functions.</li>
+        <li>Participated in incident response investigations spanning phishing, malware, business email compromise, and account compromise scenarios, using Microsoft Defender, Microsoft Entra ID, and Microsoft Purview to analyze indicators of compromise and support containment, remediation, and incident timeline documentation.</li>
+        <li>Contributed to identity and access management reviews in Microsoft Entra ID, including Conditional Access policy validation and sign-in log analysis.</li>
+        <li>Conducted vulnerability assessments and supported vulnerability management using Nucleus, incorporating threat intelligence to prioritize findings, validating and verifying results, coordinating remediation and mitigation efforts with IT teams, and tracking remediation status in Jira.</li>
+        <li>Supported endpoint security operations through CrowdStrike, including host containment and remote remediation via PowerShell scripting, while automating incident response tasks through Fusion SOAR workflow development.</li>
+        <li>Performed detection engineering in Splunk, creating, tuning, and modifying correlation searches and detection logic mapped to the MITRE ATT&CK framework to reduce false positives and improve alert accuracy.</li>
+        <li>Configured and maintained security tools to established baselines, including Microsoft Entra Conditional Access policies, Palo Alto firewall rules, and CrowdStrike detection exclusions.</li>
+        <li>Participated in firewall and network log architecture reviews using Palo Alto and Panorama, analyzing rule usage and traffic patterns to improve log filtering, ingest efficiency, and network visibility.</li>
+        <li>Contributed to the development of a Shadow AI usage monitoring dashboard in Splunk, tracking AI application adoption, unique users, and usage trends to improve enterprise visibility into unsanctioned AI tool usage.</li>
+        <li>Supported PCI DSS and HITRUST compliance audits by collecting and validating evidence for external auditors, and conducted risk assessments for new software prior to enterprise deployment.</li>
+        <li>Helped maintain and improve internal security documentation, playbooks, and runbooks in Confluence, and supported the onboarding of a Managed Detection and Response (MDR) solution, collaborating with IT, security, and the vendor's team to strengthen enterprise security processes.</li>
+      </ul>
+    </details>
+
+    <details class="experience-entry">
+      <summary>
+        <span class="role-title">Network Security Undergraduate Researcher — Baskin School of Engineering | Inter-Networking Research Group</span>
+        <span class="role-meta">January 2026 – Present &nbsp;|&nbsp; Santa Cruz, CA</span>
+      </summary>
+      <ul>
+        <li>Researched radio frequency fingerprinting for physical-layer device authentication, focusing on IEEE 802.11 device identification, MAC spoofing risks, and adversarial wireless signal analysis.</li>
+        <li>Built and configured SDR-based 802.11 capture pipelines (HackRF One, USRP N200, GNU Radio, Python) and GAN-based signal generation models to decode MAC addresses and organize Wi-Fi frames into device-specific datasets.</li>
+        <li>Processed 8.5K+ Wi-Fi frames across 300+ MAC addresses, filtering 25+ devices for CNN classification and synthetic attack evaluation.</li>
+      </ul>
+    </details>
+
+    <details class="experience-entry">
+      <summary>
+        <span class="role-title">Software Engineer — UCSC Financial Department</span>
+        <span class="role-meta">September 2025 – June 2026 &nbsp;|&nbsp; Santa Cruz, CA</span>
+      </summary>
+      <ul>
+        <li>Built a full-stack dashboard with a RAG-based evaluation pipeline combining rule-based logic and AI analysis to upload, parse, and flag high-risk UCSC OneCard transactions for Financial Affairs auditors.</li>
+        <li>Refined compliance rules and AI prompts with UCSC procurement stakeholders, achieving 72.5% accuracy on auditor-validated test batches across 50,000+ annual transactions.</li>
+      </ul>
+    </details>
+
     <h2>Skills</h2>
     <h3>Security Tools & Platforms</h3>
     <ul>
@@ -200,11 +330,19 @@
       <li>Microsoft Purview</li>
     </ul>
 
-    <h3>Certifications</h3>
-    <ul>
-      <li>[CompTIA Security+] <em>Completed: January 2026</em> • <a href="comptia-security-plus.html">See More</a></li>
-      <li>[TryHackMe CyberSecurity 101] <em>Completed: August 2025</em> • <a href="tryhackme.html">See More</a></li>
-    </ul>
+    <h2>Certifications</h2>
+
+    <div class="cert-panel">
+      <span class="cert-name">CompTIA Security+</span>
+      <span class="cert-date">Completed: January 2026</span>
+      <a href="comptia-security-plus.html">See More</a>
+    </div>
+
+    <div class="cert-panel">
+      <span class="cert-name">TryHackMe CyberSecurity 101</span>
+      <span class="cert-date">Completed: August 2025</span>
+      <a href="tryhackme.html">See More</a>
+    </div>
 
     <h2>Projects</h2>
 
