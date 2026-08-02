@@ -183,6 +183,18 @@
     text-decoration: underline;
   }
 
+  .skills-applied {
+    margin-top: 1rem;
+    padding-top: 0.75rem;
+    border-top: 1px solid #3a3a3a;
+    font-size: 0.9rem;
+    color: #cfcfcf;
+  }
+
+  .skills-applied strong {
+    color: #ffffff;
+  }
+
   @media (max-width: 768px) {
     body {
       flex-direction: column;
@@ -257,18 +269,20 @@
         <li>Supported PCI DSS and HITRUST compliance audits by collecting and validating evidence for external auditors, and conducted risk assessments for new software prior to enterprise deployment.</li>
         <li>Helped maintain and improve internal security documentation, playbooks, and runbooks in Confluence, and supported the onboarding of a Managed Detection and Response (MDR) solution, collaborating with IT, security, and the vendor's team to strengthen enterprise security processes.</li>
       </ul>
+      <p class="skills-applied"><strong>Skills Applied:</strong> Incident Response, SIEM/EDR Monitoring (Splunk, CrowdStrike), Vulnerability Management, Detection Engineering, Identity & Access Management, Security Automation (SOAR), Firewall & Network Security, PCI DSS / HITRUST Compliance</p>
     </details>
 
     <details class="experience-entry">
       <summary>
         <span class="role-title">Network Security Undergraduate Researcher — Baskin School of Engineering | Inter-Networking Research Group</span>
-        <span class="role-meta">January 2026 – Present &nbsp;|&nbsp; Santa Cruz, CA</span>
+        <span class="role-meta">January 2026 – June 2026 &nbsp;|&nbsp; Santa Cruz, CA</span>
       </summary>
       <ul>
         <li>Researched radio frequency fingerprinting for physical-layer device authentication, focusing on IEEE 802.11 device identification, MAC spoofing risks, and adversarial wireless signal analysis.</li>
         <li>Built and configured SDR-based 802.11 capture pipelines (HackRF One, USRP N200, GNU Radio, Python) and GAN-based signal generation models to decode MAC addresses and organize Wi-Fi frames into device-specific datasets.</li>
         <li>Processed 8.5K+ Wi-Fi frames across 300+ MAC addresses, filtering 25+ devices for CNN classification and synthetic attack evaluation.</li>
       </ul>
+      <p class="skills-applied"><strong>Skills Applied:</strong> RF Fingerprinting & Device Authentication, IEEE 802.11 Wireless Security, Software-Defined Radio (HackRF One, USRP N200, GNU Radio), Python, Adversarial Machine Learning (GANs), CNN Classification, MAC Spoofing Analysis, Signal Processing</p>
     </details>
 
     <details class="experience-entry">
@@ -280,7 +294,64 @@
         <li>Built a full-stack dashboard with a RAG-based evaluation pipeline combining rule-based logic and AI analysis to upload, parse, and flag high-risk UCSC OneCard transactions for Financial Affairs auditors.</li>
         <li>Refined compliance rules and AI prompts with UCSC procurement stakeholders, achieving 72.5% accuracy on auditor-validated test batches across 50,000+ annual transactions.</li>
       </ul>
+      <p class="skills-applied"><strong>Skills Applied:</strong> React, TypeScript, Firebase, Vertex AI, RAG (Retrieval-Augmented Generation), Full-Stack Development, Compliance & Audit Support, Stakeholder Collaboration</p>
     </details>
+
+    <h2>Projects</h2>
+
+    <div class="project">
+      <h3>Shadow AI Usage Monitoring Dashboard – Splunk Dashboard Studio</h3>
+      <p>
+        Built a Splunk Dashboard Studio report to track unsanctioned "Shadow AI" tool usage across the organization,
+        covering 67 known AI applications. Designed KPIs for unique AI applications used, distinct AI domains accessed
+        (rolled up by root domain), and unique application users, each with drill-down panels, and visualized usage
+        trends via a distinct-users table, application-distribution pie chart, and adoption-trend area chart to surface
+        unmonitored AI tool usage for the security team.
+      </p>
+    </div>
+
+    <div class="project">
+      <h3>Vulnerability Management Lab – Tenable Nessus on KVM</h3>
+      <p>
+        Built a vulnerability management lab using Tenable Nessus Essentials to scan an intentionally misconfigured
+        Windows 10 virtual machine running on a KVM/QEMU environment. The project walks through the full vulnerability
+        management lifecycle—from discovery and credentialed scanning through prioritization, remediation, and
+        validation—highlighting real CVEs, patching decisions, and measurable risk reduction.
+      </p>
+      <p>
+        <a href="https://github.com/christian6134/Tenable-Nessus-Vulnerability-Managment-Lab" target="_blank">
+          View Vulnerability Management Lab on GitHub
+        </a>
+      </p>
+    </div>
+
+    <div class="project">
+      <h3>Security Monitoring Homelab – Wazuh SIEM & Suricata IDS</h3>
+      <p>
+        Built an end-to-end security monitoring lab using Wazuh SIEM on Ubuntu Server and Suricata IDS on a Raspberry Pi.
+        The lab collects host telemetry and network intrusion alerts, forwards structured JSON events into Wazuh, and
+        visualizes detections in a centralized dashboard—demonstrating practical experience with log collection, IDS rule
+        tuning, SIEM integration, and alert triage workflows.
+      </p>
+      <p>
+        <a href="https://github.com/christian6134/Security-Monitoring-Wazuh-Suricata" target="_blank">
+          View Security Monitoring Homelab on GitHub
+        </a>
+      </p>
+    </div>
+
+    <div class="project">
+      <h3>Active Directory Homelab</h3>
+      <p>
+        Active Directory homelab demonstrating IAM fundamentals: OU structure, RBAC with security groups, PowerShell user
+        provisioning, GPO password policies, and shared resource access control.
+      </p>
+      <p>
+        <a href="https://github.com/christian6134/Active-Directory-Homelab-Part-1" target="_blank">
+          View Active Directory Homelab on GitHub
+        </a>
+      </p>
+    </div>
 
     <h2>Skills</h2>
     <h3>Security Tools & Platforms</h3>
@@ -342,51 +413,6 @@
       <span class="cert-name">TryHackMe CyberSecurity 101</span>
       <span class="cert-date">Completed: August 2025</span>
       <a href="tryhackme.html">See More</a>
-    </div>
-
-    <h2>Projects</h2>
-
-    <div class="project">
-      <h3>Vulnerability Management Lab – Tenable Nessus on KVM</h3>
-      <p>
-        Built a vulnerability management lab using Tenable Nessus Essentials to scan an intentionally misconfigured
-        Windows 10 virtual machine running on a KVM/QEMU environment. The project walks through the full vulnerability
-        management lifecycle—from discovery and credentialed scanning through prioritization, remediation, and
-        validation—highlighting real CVEs, patching decisions, and measurable risk reduction.
-      </p>
-      <p>
-        <a href="https://github.com/christian6134/Tenable-Nessus-Vulnerability-Managment-Lab" target="_blank">
-          View Vulnerability Management Lab on GitHub
-        </a>
-      </p>
-    </div>
-
-    <div class="project">
-      <h3>Security Monitoring Homelab – Wazuh SIEM & Suricata IDS</h3>
-      <p>
-        Built an end-to-end security monitoring lab using Wazuh SIEM on Ubuntu Server and Suricata IDS on a Raspberry Pi.
-        The lab collects host telemetry and network intrusion alerts, forwards structured JSON events into Wazuh, and
-        visualizes detections in a centralized dashboard—demonstrating practical experience with log collection, IDS rule
-        tuning, SIEM integration, and alert triage workflows.
-      </p>
-      <p>
-        <a href="https://github.com/christian6134/Security-Monitoring-Wazuh-Suricata" target="_blank">
-          View Security Monitoring Homelab on GitHub
-        </a>
-      </p>
-    </div>
-
-    <div class="project">
-      <h3>Active Directory Homelab</h3>
-      <p>
-        Active Directory homelab demonstrating IAM fundamentals: OU structure, RBAC with security groups, PowerShell user
-        provisioning, GPO password policies, and shared resource access control.
-      </p>
-      <p>
-        <a href="https://github.com/christian6134/Active-Directory-Homelab-Part-1" target="_blank">
-          View Active Directory Homelab on GitHub
-        </a>
-      </p>
     </div>
 
     <h2>Contact Information</h2>
